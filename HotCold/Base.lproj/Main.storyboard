@@ -18,23 +18,34 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjK-QW-JUS">
-                                <rect key="frame" x="276" y="323" width="48" height="20"/>
+                                <rect key="frame" x="16" y="323" width="568" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="XEb-s7-pbs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XEb-s7-pbs"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39G-nM-ma4">
-                                <rect key="frame" x="276" y="351" width="48" height="30"/>
+                                <rect key="frame" x="16" y="351" width="568" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Begin">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButton" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DQ9-0b-Mfx"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bYp-XZ-0qw">
                                 <rect key="frame" x="14" y="285" width="572" height="31"/>
+                                <connections>
+                                    <action selector="sliderUpdated" destination="vXZ-lx-hvc" eventType="valueChanged" id="CzI-Hk-T1Y"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -46,9 +57,15 @@
                             <constraint firstItem="39G-nM-ma4" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Krm-Oo-cnn"/>
                             <constraint firstItem="39G-nM-ma4" firstAttribute="top" secondItem="kjK-QW-JUS" secondAttribute="bottom" constant="8" symbolic="YES" id="Mlg-Bg-BNq"/>
                             <constraint firstItem="kjK-QW-JUS" firstAttribute="centerX" secondItem="bYp-XZ-0qw" secondAttribute="centerX" id="Otu-7E-o0Y"/>
+                            <constraint firstItem="kjK-QW-JUS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="e5p-L8-cqv"/>
                             <constraint firstItem="kjK-QW-JUS" firstAttribute="leading" secondItem="39G-nM-ma4" secondAttribute="leading" id="nqt-I7-Cjx"/>
+                            <constraint firstItem="kjK-QW-JUS" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="tIc-3d-ZOT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationRadiusDisplay" destination="kjK-QW-JUS" id="7Wn-nG-IEe"/>
+                        <outlet property="locationRadiusSlider" destination="bYp-XZ-0qw" id="frv-fu-4cc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
