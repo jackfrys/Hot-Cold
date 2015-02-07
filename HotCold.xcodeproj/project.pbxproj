@@ -86,6 +86,7 @@
 				7002A61A1A85C5EA00CD29BE /* Images.xcassets */,
 				7002A61C1A85C5EA00CD29BE /* LaunchScreen.xib */,
 				7002A6111A85C5EA00CD29BE /* Supporting Files */,
+				5627AFD11A85D129003C4C5B /* SharedLocation.swift */,
 			);
 			path = HotCold;
 			sourceTree = "<group>";
