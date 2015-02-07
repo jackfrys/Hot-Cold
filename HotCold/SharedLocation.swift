@@ -32,7 +32,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     var currentLocation2d: CLLocationCoordinate2D?
     
     // You can access the absolute distance to the goal
-    var distance: CLLocationDistance
+    dynamic var distance: CLLocationDistance
     
     // NOTE TO MILO, Change this if you are testing dummy locations
     // Closest Chipotle: lat 42.362428, long -71.085611
@@ -43,7 +43,9 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.locationManager.distanceFilter  = 50
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.startUpdatingLocation()
+        println("before")
         self.locationManager.requestAlwaysAuthorization()
+        println("after")
         self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
         self.distance = 0.0
         super.init()
