@@ -47,6 +47,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         self.radiusLabel.text = "Location within: \(self.radiusOptions[self.radiusIndex]) miles"
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //let rec =
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
