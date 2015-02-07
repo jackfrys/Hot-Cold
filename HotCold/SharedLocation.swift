@@ -5,7 +5,7 @@
 //  Created by Charlie Peters on 1/25/15.
 //  Copyright (c) 2015 Jack Frysinger. All rights reserved.
 //
-// http://104.131.185.54
+// http://hc.milodavis.com/getLocation.php
 
 import Foundation
 import CoreLocation
