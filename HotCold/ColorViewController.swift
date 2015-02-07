@@ -46,6 +46,7 @@ class ColorViewController: UIViewController {
             colorView.backgroundColor = progressColor(CGFloat(sharedInstance.distance / startDistance))
         }
     }
+    //
     func progressColor(ratio: CGFloat) -> UIColor {
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
