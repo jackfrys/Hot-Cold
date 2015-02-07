@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ColorViewController.swift
 //  HotCold
 //
 //  Created by David Alelyunas on 2/6/15.
@@ -46,6 +46,7 @@ class ColorViewController: UIViewController {
             colorView.backgroundColor = progressColor(CGFloat(sharedInstance.distance / startDistance))
         }
     }
+    //
     func progressColor(ratio: CGFloat) -> UIColor {
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
