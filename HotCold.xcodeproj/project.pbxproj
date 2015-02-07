@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5635D1D01A866ECB00EC1871 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5635D1CF1A866ECB00EC1871 /* .gitignore */; };
 		631AAB321A85CE81007EEA09 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631AAB311A85CE81007EEA09 /* ColorViewController.swift */; };
 		631AAB341A85FF1C007EEA09 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631AAB331A85FF1C007EEA09 /* SharedLocation.swift */; };
 		63673C861A862ADF0011D0A3 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63673C851A862ADF0011D0A3 /* GetRequest.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5635D1CF1A866ECB00EC1871 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		631AAB311A85CE81007EEA09 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		631AAB331A85FF1C007EEA09 /* SharedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedLocation.swift; sourceTree = "<group>"; };
 		63673C851A862ADF0011D0A3 /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetRequest.swift; path = ../GetRequest.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				7002A6101A85C5EA00CD29BE /* HotCold */,
 				7002A6261A85C5EA00CD29BE /* HotColdTests */,
 				7002A60F1A85C5EA00CD29BE /* Products */,
+				5635D1CF1A866ECB00EC1871 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5635D1D01A866ECB00EC1871 /* .gitignore in Resources */,
 				7002A6191A85C5EA00CD29BE /* Main.storyboard in Resources */,
 				7002A61E1A85C5EA00CD29BE /* LaunchScreen.xib in Resources */,
 				7002A61B1A85C5EA00CD29BE /* Images.xcassets in Resources */,
@@ -355,6 +359,7 @@
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -365,6 +370,7 @@
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
