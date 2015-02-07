@@ -18,4 +18,8 @@ class MainViewController: UIViewController {
     @IBAction func openPickerView(sender: UIButton) {
         
     }
+    
+    @IBAction func goButton() {
+        
+    }
 }
