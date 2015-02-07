@@ -20,40 +20,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-Tt-whh">
-                                <rect key="frame" x="277" y="304" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="STh-O3-eQp"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Mm7-gg-IoB"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neutral" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-mu-0Rx">
                                 <rect key="frame" x="247" y="219" width="106" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="5Kk-sO-fYb"/>
+                                    <constraint firstAttribute="height" constant="43" id="Tfc-fx-Gjo"/>
+                                    <constraint firstAttribute="width" constant="106" id="fnD-NI-RRC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="xG8-cf-HnK">
+                                <rect key="frame" x="159" y="453" width="283" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="svm-pb-mo7"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="changeColor:" destination="vXZ-lx-hvc" eventType="valueChanged" id="K9c-BF-jtJ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="5oN-h6-Jdk"/>
-                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="CHh-sQ-QlU"/>
-                            <constraint firstAttribute="trailing" secondItem="0qn-gi-1Ii" secondAttribute="trailing" id="PmA-r9-MVI"/>
-                            <constraint firstItem="B9B-Tt-whh" firstAttribute="top" secondItem="eDj-mu-0Rx" secondAttribute="bottom" constant="42" id="QNA-fr-xS1"/>
-                            <constraint firstItem="eDj-mu-0Rx" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="199" id="Qf1-RH-OoG"/>
-                            <constraint firstItem="B9B-Tt-whh" firstAttribute="centerX" secondItem="eDj-mu-0Rx" secondAttribute="centerX" id="fDS-5t-YIP"/>
-                            <constraint firstItem="eDj-mu-0Rx" firstAttribute="centerX" secondItem="0qn-gi-1Ii" secondAttribute="centerX" id="iFY-O2-jdK"/>
-                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="iq7-M7-uYl"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="B9B-Tt-whh" secondAttribute="bottom" constant="266" id="rms-E7-88G"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="18D-eD-ihu"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="5c7-pT-EBC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xG8-cf-HnK" secondAttribute="bottom" constant="117" id="AI8-iP-ied"/>
+                            <constraint firstItem="eDj-mu-0Rx" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="199" id="adU-4z-V5U"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="centerX" secondItem="eDj-mu-0Rx" secondAttribute="centerX" id="lOO-0G-XYl"/>
+                            <constraint firstItem="eDj-mu-0Rx" firstAttribute="centerX" secondItem="xG8-cf-HnK" secondAttribute="centerX" id="qHW-A1-xrt"/>
+                            <constraint firstAttribute="trailing" secondItem="0qn-gi-1Ii" secondAttribute="trailing" id="qgm-yx-Jzb"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="z9B-9S-x91"/>
                         </constraints>
                     </view>
                     <connections>
