@@ -26,7 +26,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var placeTypeIndex = 0
     var radiusIndex = 0
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.updateUI()
+    }
     
     @IBAction func openPickerView(sender: UIButton) {
         if (sender.currentTitle == "Finding:") {
