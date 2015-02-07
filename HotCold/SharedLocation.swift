@@ -36,8 +36,13 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     
     // NOTE TO MILO, Change this if you are testing dummy locations
     // Closest Chipotle: lat 42.362428, long -71.085611
-    let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
-    let dummyLocation: CLLocation
+//    let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
+//    let dummyLocation: CLLocation
+    
+    // change this for a new location to try and find
+    var goalLocation: CLLocation?
+    var locationName = ""
+    var locationLink = ""
     
     override init() {
         // Update every 5 meters
@@ -48,8 +53,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
         // If you don't have permission, ask nicely (message in plist)!
         self.locationManager.requestAlwaysAuthorization()
-        // Test Location
-        self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
+        // default distance away (before location updates)
         self.distance = 100.0
         super.init()
         self.locationManager.delegate = self
@@ -81,11 +85,11 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     // If updating locations
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentLocation2d = manager.location.coordinate
-        distance = manager.location.distanceFromLocation(dummyLocation)
+        distance = manager.location.distanceFromLocation(goalLocation!)
         if(distance < 10.0) {
             var alert = UIAlertView()
-            alert.title = "Congratulations:"
-            alert.message = "You have arrived"
+            alert.title = "You Have Arrived!"
+            alert.message = "This is " + locationName + ".\nWebsite: " + locationLink
             alert.addButtonWithTitle("Later")
             alert.addButtonWithTitle("View")
             alert.show()
