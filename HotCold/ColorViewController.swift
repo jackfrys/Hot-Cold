@@ -11,12 +11,14 @@ import Foundation
 
 class ColorViewController: UIViewController {
     @IBOutlet weak var colorView: UIView!
-    @IBOutlet weak var colorSlider: UISlider!
+    
+    @IBOutlet weak var warmerOrColder: UILabel!
     
     private var myContext = 0
     
     var startDistance: Double = 0
     var isFirstDistance: Bool = true
+    var prevProgress:CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,8 @@ class ColorViewController: UIViewController {
         
         // Add observer to distance value of sharedInstance
         sharedInstance.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
+        
+        warmerOrColder.hidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,8 +54,7 @@ class ColorViewController: UIViewController {
             colorView.backgroundColor = progressColor(CGFloat(sharedInstance.distance / startDistance))
         }
     }
-    
-    func progressColor(progress: CGFloat) -> UIColor {
+    func progressColor(ratio: CGFloat) -> UIColor {
         /* HSB COLOR INTERPOLATION
         var startHue:CGFloat = 0.7
         var startSat:CGFloat = 0.9
@@ -66,7 +69,7 @@ class ColorViewController: UIViewController {
         var curBright:CGFloat = startBright + (endBright - startBright) * progress
 
         return UIColor(hue: curHue, saturation: curSat, brightness: curBright, alpha: 1.0) */
-
+        
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
         var green:CGFloat = 0
@@ -76,8 +79,21 @@ class ColorViewController: UIViewController {
         var finalGreen:CGFloat = 0
         var finalBlue:CGFloat = 0
         
-        var myProgress:CGFloat = (1.0 - progress)
+        var myProgress:CGFloat = (1.0 - ratio)
         println("progress \(myProgress)")
+        
+        if(prevProgress < myProgress) {
+            warmerOrColder.text = "Warmer"
+            warmerOrColder.hidden = false
+        }
+        else if(prevProgress > myProgress) {
+            warmerOrColder.text = "Colder"
+            warmerOrColder.hidden = false
+        }
+        else {
+            warmerOrColder.hidden = true
+        }
+        prevProgress = myProgress
         
         var newRed:CGFloat   = (1.0 - myProgress) * red   + myProgress * finalRed
         var newGreen:CGFloat  = (1.0 - myProgress) * green + myProgress * finalGreen

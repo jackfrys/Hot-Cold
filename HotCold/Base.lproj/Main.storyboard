@@ -30,8 +30,11 @@
                                     <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Mm7-gg-IoB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-mu-0Rx">
-                                <rect key="frame" x="262" y="219" width="75" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warmer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-mu-0Rx">
+                                <rect key="frame" x="247" y="219" width="106" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="U9p-me-DpO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,12 +46,15 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="B9B-Tt-whh" secondAttribute="bottom" constant="266" id="2p9-f9-koI"/>
                             <constraint firstItem="0qn-gi-1Ii" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="CZh-do-xSi"/>
                             <constraint firstItem="0qn-gi-1Ii" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Eij-Ib-fD8"/>
+                            <constraint firstItem="B9B-Tt-whh" firstAttribute="top" secondItem="eDj-mu-0Rx" secondAttribute="bottom" constant="42" id="Gpy-2b-xdR"/>
                             <constraint firstItem="0qn-gi-1Ii" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gRP-dy-n2O"/>
                             <constraint firstAttribute="trailing" secondItem="0qn-gi-1Ii" secondAttribute="trailing" id="r8b-hF-yyC"/>
+                            <constraint firstItem="eDj-mu-0Rx" firstAttribute="centerX" secondItem="B9B-Tt-whh" secondAttribute="centerX" id="rIb-Tf-IaS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="0qn-gi-1Ii" id="31p-jY-XgQ"/>
+                        <outlet property="warmerOrColder" destination="eDj-mu-0Rx" id="5NH-zL-3tc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
