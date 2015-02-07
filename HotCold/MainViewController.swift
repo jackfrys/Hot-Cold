@@ -54,8 +54,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let rec = Requests()
-        //rec.makeRequest(self.placeTypeRequest[self.placeTypeIndex], radius: self.radiusOptions[self.radiusIndex])
+        let rec = Requests()
+        rec.makeRequest(self.placeTypeRequest[self.placeTypeIndex], radius: self.radiusOptions[self.radiusIndex])
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

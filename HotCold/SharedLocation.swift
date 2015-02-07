@@ -86,7 +86,10 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentLocation2d = manager.location.coordinate
         if let gl = goalLocation {
+            println("made it into optional")
+            println("name: " + self.locationName)
             distance = manager.location.distanceFromLocation(gl)
+
         }
         if(distance < 10.0) {
             var alert = UIAlertView()
