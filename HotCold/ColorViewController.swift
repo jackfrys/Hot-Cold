@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  HotCold
 //
-//  Created by Jack Frysinger on 2/6/15.
-//  Copyright (c) 2015 Jack Frysinger. All rights reserved.
+//  Created by David Alelyunas on 2/6/15.
+//  Copyright (c) 2015 David Alelyunas. All rights reserved.
 //
 
 import UIKit
@@ -32,14 +32,6 @@ class ColorViewController: UIViewController {
         warmerOrColder.hidden = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func buttonPressed(sender: UIButton) {
-         println("\(sharedInstance.distance)")
-    }
-    
     // Called when the sharedInstance.distance value changes
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
         if context == &myContext {
@@ -55,52 +47,57 @@ class ColorViewController: UIViewController {
         }
     }
     func progressColor(ratio: CGFloat) -> UIColor {
-        /* HSB COLOR INTERPOLATION
-        var startHue:CGFloat = 0.7
-        var startSat:CGFloat = 0.9
-        var startBright:CGFloat = 0.9
-
-        var endHue:CGFloat = 1.0
-        var endSat:CGFloat = 0.9
-        var endBright:CGFloat = 0.9
-
-        var curHue:CGFloat = startHue + (endHue - startHue) * progress
-        var curSat:CGFloat = startSat + (endSat - startSat) * progress
-        var curBright:CGFloat = startBright + (endBright - startBright) * progress
-
-        return UIColor(hue: curHue, saturation: curSat, brightness: curBright, alpha: 1.0) */
-        
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
         var green:CGFloat = 0
         var blue:CGFloat = 1.0
 
+        var middleRed:CGFloat = 1.0
+        var middleGreen:CGFloat = 1.0
+        var middleBlue:CGFloat = 1.0
+        
         var finalRed:CGFloat = 1.0
         var finalGreen:CGFloat = 0
         var finalBlue:CGFloat = 0
         
+        println("previous: \(prevProgress)")
         var myProgress:CGFloat = (1.0 - ratio)
-        println("progress \(myProgress)")
+        println("progress: \(myProgress)")
         
         if(prevProgress < myProgress) {
             warmerOrColder.text = "Warmer"
             warmerOrColder.hidden = false
-        }
+                    }
         else if(prevProgress > myProgress) {
             warmerOrColder.text = "Colder"
-            warmerOrColder.hidden = false
+             warmerOrColder.hidden = false
+            
         }
         else {
             warmerOrColder.hidden = true
         }
+        /*UIView.animateWithDuration(2.0, delay:0, options: .Repeat | .Autoreverse, animations: {
+            
+            self.warmerOrColder.frame = CGRect(x: 120, y: 220, width: 200, height: 200)
+            
+            }, completion: nil)*/
+        
         prevProgress = myProgress
         
-        var newRed:CGFloat   = (1.0 - myProgress) * red   + myProgress * finalRed
-        var newGreen:CGFloat  = (1.0 - myProgress) * green + myProgress * finalGreen
-        var newBlue:CGFloat   = (1.0 - myProgress) * blue  + myProgress * finalBlue
-        var color = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
-        
-        return color
+        if(myProgress <= 0.5) {
+            var newRed:CGFloat   = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
+            var newGreen:CGFloat  = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
+            var newBlue:CGFloat   = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
+            
+            return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+        }
+        else {
+            var newRed:CGFloat = finalRed * (myProgress - 0.5) * 2.0 + middleRed * (1.0 - myProgress) * 2.0
+            var newGreen:CGFloat = finalGreen * (myProgress - 0.5) * 2.0 + middleGreen * (1.0 - myProgress) * 2.0
+            var newBlue:CGFloat = finalBlue * (myProgress - 0.5) * 2.0 + middleBlue * (1.0 - myProgress) * 2.0
+            
+            return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+        }
     }
 }
 

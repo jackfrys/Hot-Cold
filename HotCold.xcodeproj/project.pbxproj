@@ -12,8 +12,8 @@
 		631AAB341A85FF1C007EEA09 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631AAB331A85FF1C007EEA09 /* SharedLocation.swift */; };
 		63673C861A862ADF0011D0A3 /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63673C851A862ADF0011D0A3 /* GetRequest.swift */; };
 		63673C881A862DD70011D0A3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63673C871A862DD70011D0A3 /* SwiftyJSON.swift */; };
+		63673C8A1A86632D0011D0A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63673C891A86632D0011D0A3 /* ViewController.swift */; };
 		7002A6141A85C5EA00CD29BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002A6131A85C5EA00CD29BE /* AppDelegate.swift */; };
-		7002A6161A85C5EA00CD29BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002A6151A85C5EA00CD29BE /* ViewController.swift */; };
 		7002A6191A85C5EA00CD29BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7002A6171A85C5EA00CD29BE /* Main.storyboard */; };
 		7002A61B1A85C5EA00CD29BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7002A61A1A85C5EA00CD29BE /* Images.xcassets */; };
 		7002A61E1A85C5EA00CD29BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7002A61C1A85C5EA00CD29BE /* LaunchScreen.xib */; };
@@ -36,10 +36,10 @@
 		631AAB331A85FF1C007EEA09 /* SharedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedLocation.swift; sourceTree = "<group>"; };
 		63673C851A862ADF0011D0A3 /* GetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetRequest.swift; path = ../GetRequest.swift; sourceTree = "<group>"; };
 		63673C871A862DD70011D0A3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		63673C891A86632D0011D0A3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7002A60E1A85C5EA00CD29BE /* HotCold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotCold.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7002A6121A85C5EA00CD29BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7002A6131A85C5EA00CD29BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7002A6151A85C5EA00CD29BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7002A6181A85C5EA00CD29BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7002A61A1A85C5EA00CD29BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7002A61D1A85C5EA00CD29BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -89,11 +89,11 @@
 			isa = PBXGroup;
 			children = (
 				7002A6131A85C5EA00CD29BE /* AppDelegate.swift */,
-				7002A6151A85C5EA00CD29BE /* ViewController.swift */,
 				63673C851A862ADF0011D0A3 /* GetRequest.swift */,
 				63673C871A862DD70011D0A3 /* SwiftyJSON.swift */,
 				631AAB331A85FF1C007EEA09 /* SharedLocation.swift */,
 				631AAB311A85CE81007EEA09 /* ColorViewController.swift */,
+				63673C891A86632D0011D0A3 /* ViewController.swift */,
 				7002A6171A85C5EA00CD29BE /* Main.storyboard */,
 				7002A61A1A85C5EA00CD29BE /* Images.xcassets */,
 				7002A61C1A85C5EA00CD29BE /* LaunchScreen.xib */,
@@ -228,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7002A6161A85C5EA00CD29BE /* ViewController.swift in Sources */,
+				63673C8A1A86632D0011D0A3 /* ViewController.swift in Sources */,
 				63673C861A862ADF0011D0A3 /* GetRequest.swift in Sources */,
 				631AAB321A85CE81007EEA09 /* ColorViewController.swift in Sources */,
 				63673C881A862DD70011D0A3 /* SwiftyJSON.swift in Sources */,
@@ -359,6 +359,7 @@
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -369,6 +370,7 @@
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
