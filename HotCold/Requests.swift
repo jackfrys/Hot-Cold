@@ -23,7 +23,6 @@ class Requests {
 
     //radius is max radius wants to go
     
-    //
     func makeRequest(type: String, radius: Double  ) {
         let url = NSURL(string: "hc.milodavis.com/getLocation.php?locType=\(type)&userLat=\(sharedInstance.currentLocation2d?.latitude)&userLong=\(sharedInstance.currentLocation2d?.longitude)&radius=\(radius)")
         
@@ -48,8 +47,6 @@ class Requests {
                 self.loc.locationLink = link
             }
         }
-        
-        
         
         task.resume()
     }
