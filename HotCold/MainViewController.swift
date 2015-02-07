@@ -40,7 +40,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
         self.myPickerView.reloadAllComponents()
         self.goButtonOutlet.hidden = !self.myPickerView.hidden
-        print(self.myPickerViewDataSource)
     }
     
     @IBAction func goButton() {
@@ -57,7 +56,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        print(self.myPickerViewDataSource[row])
         return "\(self.myPickerViewDataSource[row])"
     }
     
