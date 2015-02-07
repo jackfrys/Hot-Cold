@@ -16,6 +16,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var goButtonOutlet: UIButton!
     
+    @IBOutlet var pickerSelectorButtons: [UIButton]!
+    
     var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks", "Geocaches"]
     var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     var radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
@@ -28,11 +30,18 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @IBAction func tapGestureRecognizer(sender: UITapGestureRecognizer) {
         self.myPickerView.hidden = true
+        self.lastSelectedPickerViewButton = UIButton()
         self.updateUI()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
+        
+        for button in self.pickerSelectorButtons {
+            button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.blackColor().CGColor
+        }
     }
     
     @IBAction func openPickerView(sender: UIButton) {
