@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func updateUI() {
-        self.selectRadiusButton.setTitle("\(self.selectedRadius)", forState: UIControlState.Normal)
+        self.selectRadiusButton.setTitle("Location radius: \(self.selectedRadius) miles", forState: UIControlState.Normal)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
