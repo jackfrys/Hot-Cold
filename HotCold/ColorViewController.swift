@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  HotCold
 //
-//  Created by Jack Frysinger on 2/6/15.
-//  Copyright (c) 2015 Jack Frysinger. All rights reserved.
+//  Created by David Alelyunas on 2/6/15.
+//  Copyright (c) 2015 David Alelyunas. All rights reserved.
 //
 
 import UIKit
