@@ -79,20 +79,28 @@ class ColorViewController: UIViewController {
         var finalGreen:CGFloat = 0
         var finalBlue:CGFloat = 0
         
+        println("previous: \(prevProgress)")
         var myProgress:CGFloat = (1.0 - ratio)
-        println("progress \(myProgress)")
+        println("progress: \(myProgress)")
         
         if(prevProgress < myProgress) {
             warmerOrColder.text = "Warmer"
-            warmerOrColder.hidden = false
-        }
+                    }
         else if(prevProgress > myProgress) {
             warmerOrColder.text = "Colder"
-            warmerOrColder.hidden = false
+            
         }
         else {
-            warmerOrColder.hidden = true
+            warmerOrColder.text = "Neutral"
         }
+        
+        /*UIView.animateWithDuration(2.0, delay:0, options: .Repeat | .Autoreverse, animations: {
+            
+            self.warmerOrColder.frame = CGRect(x: 120, y: 220, width: 200, height: 200)
+            
+            }, completion: nil)*/
+        
+
         prevProgress = myProgress
         
         var newRed:CGFloat   = (1.0 - myProgress) * red   + myProgress * finalRed
