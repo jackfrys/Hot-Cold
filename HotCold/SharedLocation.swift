@@ -40,7 +40,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     let dummyLocation: CLLocation
     
     override init() {
-        self.locationManager.distanceFilter  = 50
+        self.locationManager.distanceFilter  = 5
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.startUpdatingLocation()
         println("before")

@@ -32,14 +32,6 @@ class ColorViewController: UIViewController {
         warmerOrColder.hidden = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func buttonPressed(sender: UIButton) {
-         println("\(sharedInstance.distance)")
-    }
-    
     // Called when the sharedInstance.distance value changes
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
         if context == &myContext {
@@ -55,21 +47,6 @@ class ColorViewController: UIViewController {
         }
     }
     func progressColor(ratio: CGFloat) -> UIColor {
-        /* HSB COLOR INTERPOLATION
-        var startHue:CGFloat = 0.7
-        var startSat:CGFloat = 0.9
-        var startBright:CGFloat = 0.9
-
-        var endHue:CGFloat = 1.0
-        var endSat:CGFloat = 0.9
-        var endBright:CGFloat = 0.9
-
-        var curHue:CGFloat = startHue + (endHue - startHue) * progress
-        var curSat:CGFloat = startSat + (endSat - startSat) * progress
-        var curBright:CGFloat = startBright + (endBright - startBright) * progress
-
-        return UIColor(hue: curHue, saturation: curSat, brightness: curBright, alpha: 1.0) */
-        
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
         var green:CGFloat = 0
@@ -100,7 +77,6 @@ class ColorViewController: UIViewController {
             
             }, completion: nil)*/
         
-
         prevProgress = myProgress
         
         var newRed:CGFloat   = (1.0 - myProgress) * red   + myProgress * finalRed
