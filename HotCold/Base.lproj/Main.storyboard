@@ -17,54 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjK-QW-JUS">
-                                <rect key="frame" x="16" y="323" width="568" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="XEb-s7-pbs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="XEb-s7-pbs"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39G-nM-ma4">
-                                <rect key="frame" x="16" y="351" width="568" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Begin">
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43A-0s-beM">
+                                <rect key="frame" x="16" y="418" width="568" height="162"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij6-dh-xNn">
+                                <rect key="frame" x="255" y="285" width="90" height="30"/>
+                                <state key="normal" title="Select radius">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startButton" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DQ9-0b-Mfx"/>
+                                    <action selector="selectRadius:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PQJ-zi-AoI"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bYp-XZ-0qw">
-                                <rect key="frame" x="14" y="285" width="572" height="31"/>
-                                <connections>
-                                    <action selector="sliderUpdated" destination="vXZ-lx-hvc" eventType="valueChanged" id="CzI-Hk-T1Y"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kjK-QW-JUS" firstAttribute="top" secondItem="bYp-XZ-0qw" secondAttribute="bottom" constant="8" symbolic="YES" id="2gw-EX-AOy"/>
-                            <constraint firstItem="kjK-QW-JUS" firstAttribute="trailing" secondItem="39G-nM-ma4" secondAttribute="trailing" id="4hf-Ja-4gl"/>
-                            <constraint firstItem="bYp-XZ-0qw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="AAA-MQ-fBU"/>
-                            <constraint firstItem="bYp-XZ-0qw" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Fvd-97-RpS"/>
-                            <constraint firstItem="39G-nM-ma4" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Krm-Oo-cnn"/>
-                            <constraint firstItem="39G-nM-ma4" firstAttribute="top" secondItem="kjK-QW-JUS" secondAttribute="bottom" constant="8" symbolic="YES" id="Mlg-Bg-BNq"/>
-                            <constraint firstItem="kjK-QW-JUS" firstAttribute="centerX" secondItem="bYp-XZ-0qw" secondAttribute="centerX" id="Otu-7E-o0Y"/>
-                            <constraint firstItem="kjK-QW-JUS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="e5p-L8-cqv"/>
-                            <constraint firstItem="kjK-QW-JUS" firstAttribute="leading" secondItem="39G-nM-ma4" secondAttribute="leading" id="nqt-I7-Cjx"/>
-                            <constraint firstItem="kjK-QW-JUS" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="tIc-3d-ZOT"/>
+                            <constraint firstItem="43A-0s-beM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="A2V-VX-auz"/>
+                            <constraint firstItem="ij6-dh-xNn" firstAttribute="centerX" secondItem="43A-0s-beM" secondAttribute="centerX" id="AgQ-5t-tFd"/>
+                            <constraint firstItem="ij6-dh-xNn" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="VaF-En-SnH"/>
+                            <constraint firstItem="43A-0s-beM" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="gXs-cb-qXr"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="43A-0s-beM" secondAttribute="bottom" constant="20" id="u3O-gY-iLt"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="locationRadiusDisplay" destination="kjK-QW-JUS" id="7Wn-nG-IEe"/>
-                        <outlet property="locationRadiusSlider" destination="bYp-XZ-0qw" id="frv-fu-4cc"/>
+                        <outlet property="pickerView" destination="43A-0s-beM" id="SRh-DH-a0S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

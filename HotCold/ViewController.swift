@@ -9,17 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var locationRadiusSlider: UISlider!
-    @IBOutlet weak var locationRadiusDisplay: UILabel!
-
-    @IBAction func sliderUpdated() {
-        self.updateDisplay()
-    }
     
     @IBAction func startButton() {
         
     }
+    @IBAction func selectRadius(sender: UIButton) {
+        self.pickerView.hidden = false
+    }
+    @IBOutlet weak var pickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,10 +26,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func updateDisplay() {
-        self.locationRadiusDisplay.text = "\(self.locationRadiusSlider.value)"
-    }
+    
+    
 
 }
 
