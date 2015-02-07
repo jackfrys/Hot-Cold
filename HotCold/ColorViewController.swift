@@ -15,24 +15,28 @@ class ColorViewController: UIViewController {
     
     private var myContext = 0
     
-    var oldSliderValue: Int = 0
     var startDistance: Double = 0
     var isFirstDistance: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorView.backgroundColor = UIColor.blueColor()
-        sharedInstance.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
         
+        // Set background to blue
+        colorView.backgroundColor = UIColor.blueColor()
+        
+        // Add observer to distance value of sharedInstance
+        sharedInstance.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     @IBAction func buttonPressed(sender: UIButton) {
          println("\(sharedInstance.distance)")
     }
     
+    // Called when the sharedInstance.distance value changes
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
         if context == &myContext {
             if(isFirstDistance) {
@@ -42,12 +46,13 @@ class ColorViewController: UIViewController {
             println("Start: \(startDistance)")
             println("Current: \(sharedInstance.distance)")
             println("Ratio: \(sharedInstance.distance / startDistance)")
+            
             colorView.backgroundColor = progressColor(CGFloat(sharedInstance.distance / startDistance))
-                    }
+        }
     }
+    
     func progressColor(progress: CGFloat) -> UIColor {
-        //HSB COLOR INTERPOLATION
-        /*
+        /* HSB COLOR INTERPOLATION
         var startHue:CGFloat = 0.7
         var startSat:CGFloat = 0.9
         var startBright:CGFloat = 0.9
@@ -60,8 +65,7 @@ class ColorViewController: UIViewController {
         var curSat:CGFloat = startSat + (endSat - startSat) * progress
         var curBright:CGFloat = startBright + (endBright - startBright) * progress
 
-        return UIColor(hue: curHue, saturation: curSat, brightness: curBright, alpha: 1.0)
-        */
+        return UIColor(hue: curHue, saturation: curSat, brightness: curBright, alpha: 1.0) */
 
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
@@ -72,7 +76,7 @@ class ColorViewController: UIViewController {
         var finalGreen:CGFloat = 0
         var finalBlue:CGFloat = 0
         
-        var myProgress:CGFloat = 1.0 - progress
+        var myProgress:CGFloat = (1.0 - progress)
         println("progress \(myProgress)")
         
         var newRed:CGFloat   = (1.0 - myProgress) * red   + myProgress * finalRed
@@ -81,7 +85,6 @@ class ColorViewController: UIViewController {
         var color = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
         
         return color
-        
     }
 }
 
