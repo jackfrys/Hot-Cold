@@ -31,9 +31,6 @@ class ColorViewController: UIViewController {
         
         warmerOrColder.hidden = true
     }
-    @IBAction func changeColor(sender: UISlider) {
-        //colorView.backgroundColor = progressColor(1.0 - CGFloat(sender.value / 100))
-    }
     
     // Called when the sharedInstance.distance value changes
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
