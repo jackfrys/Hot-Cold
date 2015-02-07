@@ -17,6 +17,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var goButtonOutlet: UIButton!
     
     var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks", "Geocaches"]
+    var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     var radiusOptions = [0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
     var myPickerViewDataSource = [AnyObject]()
@@ -48,7 +49,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let rec =
+        let rec = Requests()
+        rec.makeRequest(self.placeTypeRequest[self.placeTypeIndex], radius: self.radiusOptions[self.radiusIndex])
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
