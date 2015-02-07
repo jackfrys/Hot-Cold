@@ -2,7 +2,7 @@
 //  SharedLocation.swift
 //  LocationPuzzleGame
 //
-//  Created by Charlie Peters on 1/25/15.
+//  Created by Charlie Peters on 2/7/15.
 //  Copyright (c) 2015 Jack Frysinger. All rights reserved.
 //
 // http://hc.milodavis.com/getLocation.php
@@ -27,7 +27,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     
-    // You can access the lat and long by calling:
+    // You can access the current lat and long by calling:
     // currentLocation2d.latitude, etc
     var currentLocation2d: CLLocationCoordinate2D?
     
@@ -40,12 +40,17 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     let dummyLocation: CLLocation
     
     override init() {
-        self.locationManager.distanceFilter  = 50
+        // Update every 5 meters
+        self.locationManager.distanceFilter  = 5
+        // Accurate to 10 meters
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        // Start updating location if you already have permission
         self.locationManager.startUpdatingLocation()
+        // If you don't have permission, ask nicely (message in plist)!
         self.locationManager.requestAlwaysAuthorization()
+        // Test Location
         self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
-        self.distance = 0.0
+        self.distance = 100.0
         super.init()
         self.locationManager.delegate = self
     }
@@ -73,23 +78,32 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             
         }
     }
-    
+    // If updating locations
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentLocation2d = manager.location.coordinate
         distance = manager.location.distanceFromLocation(dummyLocation)
+        if(distance < 10) {
+            var alert = UIAlertView()
+            alert.title = "Congratulations:"
+            alert.message = "You have arrived"
+            alert.addButtonWithTitle("Later")
+            alert.addButtonWithTitle("View")
+            alert.show()
+        }
         
     }
     
-    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-        
-        var alert = UIAlertView()
-        alert.title = "New Secure Communication:"
-        alert.message = "You have arrived"
-        alert.addButtonWithTitle("Later")
-        alert.addButtonWithTitle("View")
-        alert.show()
-        
-    }
+    // Uncomment if you want to use geofencing!
+//    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+//        
+//        var alert = UIAlertView()
+//        alert.title = "New Secure Communication:"
+//        alert.message = "You have arrived"
+//        alert.addButtonWithTitle("Later")
+//        alert.addButtonWithTitle("View")
+//        alert.show()
+//        
+//    }
     
 }
 
