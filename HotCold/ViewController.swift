@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let locationOptions = [0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
+    var selectedRadius = 0.0
     
     @IBAction func startButton() {
         
@@ -18,11 +19,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func selectRadius(sender: UIButton) {
         self.pickerView.hidden = !self.pickerView.hidden
+        sender.setTitle("\(self.selectedRadius)", forState: UIControlState.Normal)
     }
     
     @IBOutlet weak var pickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.selectedRadius = self.locationOptions[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +44,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return "\(self.locationOptions[row])"
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedRadius = locationOptions[row]
     }
 }
 
