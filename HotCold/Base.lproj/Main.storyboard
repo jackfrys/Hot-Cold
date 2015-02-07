@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lGJ-rC-qiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="saf-Wg-jfu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -26,7 +26,7 @@
                                     <action selector="selectRadius:" destination="lGJ-rC-qiT" eventType="touchUpInside" id="Lx5-9P-O30"/>
                                 </connections>
                             </button>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-dr-erS">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-dr-erS">
                                 <rect key="frame" x="16" y="418" width="568" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="lGJ-rC-qiT" id="3a1-iQ-OnM"/>
@@ -39,7 +39,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startButton" destination="lGJ-rC-qiT" eventType="touchUpInside" id="YbF-Vg-Ere"/>
+                                    <segue destination="vXZ-lx-hvc" kind="show" id="Sjw-fF-qgf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,6 +54,7 @@
                             <constraint firstItem="q8n-tk-95G" firstAttribute="top" secondItem="Nyh-H0-wfC" secondAttribute="bottom" constant="8" symbolic="YES" id="xXA-J6-c8O"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Axd-OP-FhK"/>
                     <connections>
                         <outlet property="pickerView" destination="llZ-dr-erS" id="7AF-Dy-VOB"/>
                         <outlet property="selectRadiusButton" destination="Nyh-H0-wfC" id="ckN-7g-p1O"/>
@@ -61,12 +62,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO4-t0-erE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-526" y="197"/>
+            <point key="canvasLocation" x="286" y="197"/>
         </scene>
-        <!--Main Menu View Controller-->
+        <!--Color View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" userLabel="Main Menu View Controller" customClass="ColorViewController" customModule="HotCold" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ColorViewController" customModule="HotCold" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -75,39 +76,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43A-0s-beM">
-                                <rect key="frame" x="16" y="418" width="568" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="dOF-aV-h6f"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Rod-Vo-xXf"/>
-                                </connections>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij6-dh-xNn">
-                                <rect key="frame" x="255" y="285" width="90" height="30"/>
-                                <state key="normal" title="Select radius">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectRadius:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PQJ-zi-AoI"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE2-kb-Bz7">
+                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="43A-0s-beM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="A2V-VX-auz"/>
-                            <constraint firstItem="ij6-dh-xNn" firstAttribute="centerX" secondItem="43A-0s-beM" secondAttribute="centerX" id="AgQ-5t-tFd"/>
-                            <constraint firstItem="ij6-dh-xNn" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="VaF-En-SnH"/>
-                            <constraint firstItem="43A-0s-beM" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="gXs-cb-qXr"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="43A-0s-beM" secondAttribute="bottom" constant="20" id="u3O-gY-iLt"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="pickerView" destination="43A-0s-beM" id="SRh-DH-a0S"/>
+                        <outlet property="colorView" destination="kh9-bI-dsS" id="eIV-ze-O53"/>
+                        <outlet property="warmerOrColder" destination="UE2-kb-Bz7" id="JLg-MY-C3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="197"/>
+            <point key="canvasLocation" x="1032" y="197"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2lz-1d-PX3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="saf-Wg-jfu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YQG-Xn-fb9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lGJ-rC-qiT" kind="relationship" relationship="rootViewController" id="lIl-1z-P49"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVQ-KK-zL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-526" y="197"/>
         </scene>
     </scenes>
 </document>
