@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Color View Controller-->
@@ -16,14 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qn-gi-1Ii">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qn-gi-1Ii">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="510" translatesAutoresizingMaskIntoConstraints="NO" id="5cQ-fy-okl">
+                                <rect key="frame" x="84" y="534" width="432" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="56h-8d-h9K"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5cQ-fy-okl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="70" id="Aaf-gL-ptS"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="CZh-do-xSi"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Eij-Ib-fD8"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5cQ-fy-okl" secondAttribute="bottom" constant="36" id="ZQi-Kx-bFw"/>
+                            <constraint firstItem="0qn-gi-1Ii" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gRP-dy-n2O"/>
+                            <constraint firstItem="5cQ-fy-okl" firstAttribute="centerX" secondItem="0qn-gi-1Ii" secondAttribute="centerX" id="hTr-ca-1xa"/>
+                            <constraint firstAttribute="trailing" secondItem="0qn-gi-1Ii" secondAttribute="trailing" id="r8b-hF-yyC"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="colorSlider" destination="5cQ-fy-okl" id="Shc-ku-d7b"/>
                         <outlet property="colorView" destination="0qn-gi-1Ii" id="31p-jY-XgQ"/>
                     </connections>
                 </viewController>

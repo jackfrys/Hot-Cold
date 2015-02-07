@@ -10,63 +10,64 @@ import UIKit
 
 class ColorViewController: UIViewController {
     @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var colorSlider: UISlider!
     
-    var scale: Int = 0
+    var oldSliderValue: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.backgroundColor = UIColor.blueColor()
+        println("\(colorSlider.value)")
+        println("\(colorView.backgroundColor)")
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    @IBAction func sliderValueChanged(sender: UISlider) {
+       
+        colorView.backgroundColor = progressColor(CGFloat(sender.value / 510))
+        
+        println("\(colorSlider.value)")
+        println("\(colorView.backgroundColor)")
     }
     
-    func changeColor(currentColor: UIColor, posDirection:Bool ) -> UIColor {
-        
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        currentColor.getRed(&r, green: &g, blue: &b, alpha: &a)
-        
-        var curRed: CGFloat = r * CGFloat(255.0)
-        var curGreen: CGFloat = g * CGFloat(255.0)
-        var curBlue: CGFloat = b * CGFloat(255.0)
+    func progressColor(progress: CGFloat) -> UIColor {
+        //HSB COLOR INTERPOLATION
+        /*
+        var startHue:CGFloat = 0.7
+        var startSat:CGFloat = 0.9
+        var startBright:CGFloat = 0.9
 
+        var endHue:CGFloat = 1.0
+        var endSat:CGFloat = 0.9
+        var endBright:CGFloat = 0.9
+
+        var curHue:CGFloat = startHue + (endHue - startHue) * progress
+        var curSat:CGFloat = startSat + (endSat - startSat) * progress
+        var curBright:CGFloat = startBright + (endBright - startBright) * progress
+
+        return UIColor(hue: curHue, saturation: curSat, brightness: curBright, alpha: 1.0)
+        */
+
+        // RGB COLOR INTERPOLATION 
+
+        var red:CGFloat = 0
+        var green:CGFloat = 0
+        var blue:CGFloat = 1.0
+
+        var finalRed:CGFloat = 1.0
+        var finalGreen:CGFloat = 0
+        var finalBlue:CGFloat = 0
         
-        if (posDirection) {
-            if (curBlue == 255.0 && curRed < 255.0) {
-                return UIColor(red: (curRed + 1.0) / 255.0, green: curGreen, blue: curBlue, alpha: a)
-            }
-            else if (curBlue > 0) {
-                return UIColor(red: curRed, green: curGreen, blue: (curBlue - 1.0) / 255.0, alpha: a)
-            }
-            else {
-                return currentColor
-            }
-            
-        }
-        else {
-            if(curRed == 255.0 && curBlue < 255.0) {
-                return UIColor(red: curRed, green: curGreen, blue: (curBlue + 1.0) / 255.0, alpha: a)
-            }
-            else if (curRed > 0) {
-                return UIColor(red: (curRed - 1.0) / 255.0, green: curGreen, blue: curBlue, alpha: a)
-            }
-            else {
-                return currentColor
-            }
-            
-        }
-    }
-    
-    func changeBlue(direction: Bool) {
+        var newRed:CGFloat   = (1.0 - progress) * red   + progress * finalRed
+        var newGreen:CGFloat  = (1.0 - progress) * green + progress * finalGreen
+        var newBlue:CGFloat   = (1.0 - progress) * blue  + progress * finalBlue
+        var color = UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+        
+        return color
         
     }
-    
-    func changeRed(direction: Bool) {
-        colorView.backgroundColor = UIColor.redColor()
-    }
-    
-    
 }
 
