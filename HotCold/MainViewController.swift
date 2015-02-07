@@ -42,10 +42,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         self.goButtonOutlet.hidden = !self.myPickerView.hidden
     }
     
-    @IBAction func goButton() {
-        
+    func updateUI() {
+        self.placeTypeLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex])"
+        self.radiusLabel.text = "Location within: \(self.radiusOptions[self.radiusIndex]) miles"
     }
-    
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -69,5 +69,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         } else {
             self.radiusIndex = index
         }
+        self.updateUI()
     }
 }

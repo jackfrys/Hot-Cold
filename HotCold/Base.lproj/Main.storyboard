@@ -53,16 +53,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7W-E8-1nC">
-                                <rect key="frame" x="225" y="288" width="151" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="p5Y-2m-kR3"/>
-                                    <constraint firstAttribute="width" constant="151" id="qSt-hP-emT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vn-E7-XjT">
                                 <rect key="frame" x="274" y="480" width="52" height="38"/>
                                 <constraints>
@@ -74,7 +64,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="goButton" destination="lGJ-rC-qiT" eventType="touchUpInside" id="SEo-K2-9wF"/>
                                     <segue destination="vXZ-lx-hvc" kind="show" id="ncX-IY-2Ni"/>
                                 </connections>
                             </button>
@@ -85,6 +74,16 @@
                                     <outlet property="delegate" destination="lGJ-rC-qiT" id="23L-vo-K2o"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7W-E8-1nC">
+                                <rect key="frame" x="151" y="288" width="299" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="p5Y-2m-kR3"/>
+                                    <constraint firstAttribute="width" constant="299" id="qSt-hP-emT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
