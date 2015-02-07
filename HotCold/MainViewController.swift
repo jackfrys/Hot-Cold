@@ -26,6 +26,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var placeTypeIndex = 0
     var radiusIndex = 0
     
+    @IBAction func tapGestureRecognizer(sender: UITapGestureRecognizer) {
+        self.myPickerView.hidden = true
+        self.updateUI()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
@@ -51,6 +55,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     func updateUI() {
         self.placeTypeLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex])"
         self.radiusLabel.text = "Location within: \(self.radiusOptions[self.radiusIndex]) miles"
+        self.goButtonOutlet.hidden = !self.myPickerView.hidden
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
