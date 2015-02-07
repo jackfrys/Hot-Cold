@@ -24,7 +24,7 @@ class ColorViewController: UIViewController {
     }
     
     func determineColorChange(currentColor: UIColor) {
-        if currentColor.get
+       // if currentColor.get
     }
     
     func colder() {
