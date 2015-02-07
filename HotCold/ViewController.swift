@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func selectRadius(sender: UIButton) {
-        self.pickerView.hidden = false
+        self.pickerView.hidden = !self.pickerView.hidden
     }
     
     @IBOutlet weak var pickerView: UIPickerView!

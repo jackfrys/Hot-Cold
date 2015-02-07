@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lGJ-rC-qiT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="ztl-Ne-N7o">
+            <objects>
+                <viewController id="lGJ-rC-qiT" customClass="ViewController" customModule="HotCold" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZQv-LU-dCa"/>
+                        <viewControllerLayoutGuide type="bottom" id="cFi-hF-jsW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rup-vG-VXq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llZ-dr-erS">
+                                <rect key="frame" x="16" y="418" width="568" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lGJ-rC-qiT" id="3a1-iQ-OnM"/>
+                                    <outlet property="delegate" destination="lGJ-rC-qiT" id="Viq-qv-88r"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyh-H0-wfC">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectRadius:" destination="lGJ-rC-qiT" eventType="touchUpInside" id="Lx5-9P-O30"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nyh-H0-wfC" firstAttribute="centerY" secondItem="rup-vG-VXq" secondAttribute="centerY" id="C3B-a3-KF3"/>
+                            <constraint firstItem="llZ-dr-erS" firstAttribute="trailing" secondItem="rup-vG-VXq" secondAttribute="trailingMargin" id="Cb0-3f-mJZ"/>
+                            <constraint firstItem="Nyh-H0-wfC" firstAttribute="centerX" secondItem="llZ-dr-erS" secondAttribute="centerX" id="dQk-5r-0Xh"/>
+                            <constraint firstItem="llZ-dr-erS" firstAttribute="leading" secondItem="rup-vG-VXq" secondAttribute="leadingMargin" id="l9e-8b-WTE"/>
+                            <constraint firstItem="cFi-hF-jsW" firstAttribute="top" secondItem="llZ-dr-erS" secondAttribute="bottom" constant="20" id="mMS-5k-UsF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="llZ-dr-erS" id="7AF-Dy-VOB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AO4-t0-erE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-526" y="197"/>
+        </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" userLabel="Main Menu View Controller" customClass="ViewController" customModule="HotCold" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" userLabel="Main Menu View Controller" customClass="ColorViewController" customModule="HotCold" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
