@@ -18,7 +18,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks", "Geocaches"]
     var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
-    var radiusOptions = [0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
+    var radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
     var myPickerViewDataSource = [AnyObject]()
     var lastSelectedPickerViewButton = UIButton()
