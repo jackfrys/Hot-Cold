@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5627AFD21A85D129003C4C5B /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627AFD11A85D129003C4C5B /* SharedLocation.swift */; };
 		7002A6141A85C5EA00CD29BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002A6131A85C5EA00CD29BE /* AppDelegate.swift */; };
 		7002A6161A85C5EA00CD29BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002A6151A85C5EA00CD29BE /* ViewController.swift */; };
 		7002A6191A85C5EA00CD29BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7002A6171A85C5EA00CD29BE /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5627AFD11A85D129003C4C5B /* SharedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedLocation.swift; sourceTree = "<group>"; };
 		7002A60E1A85C5EA00CD29BE /* HotCold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotCold.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7002A6121A85C5EA00CD29BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7002A6131A85C5EA00CD29BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				7002A61A1A85C5EA00CD29BE /* Images.xcassets */,
 				7002A61C1A85C5EA00CD29BE /* LaunchScreen.xib */,
 				7002A6111A85C5EA00CD29BE /* Supporting Files */,
+				5627AFD11A85D129003C4C5B /* SharedLocation.swift */,
 			);
 			path = HotCold;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7002A6161A85C5EA00CD29BE /* ViewController.swift in Sources */,
+				5627AFD21A85D129003C4C5B /* SharedLocation.swift in Sources */,
 				7002A6141A85C5EA00CD29BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +409,7 @@
 				7002A62F1A85C5EA00CD29BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7002A6301A85C5EA00CD29BE /* Build configuration list for PBXNativeTarget "HotColdTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				7002A6321A85C5EA00CD29BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
