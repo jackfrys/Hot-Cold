@@ -82,7 +82,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentLocation2d = manager.location.coordinate
         distance = manager.location.distanceFromLocation(dummyLocation)
-        if(distance < 10) {
+        if(distance < 10.0) {
             var alert = UIAlertView()
             alert.title = "Congratulations:"
             alert.message = "You have arrived"
