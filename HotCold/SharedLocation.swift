@@ -5,6 +5,7 @@
 //  Created by Charlie Peters on 1/25/15.
 //  Copyright (c) 2015 Jack Frysinger. All rights reserved.
 //
+// http://104.131.185.54
 
 import Foundation
 import CoreLocation
@@ -28,17 +29,25 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     
     // You can access the lat and long by calling:
     // currentLocation2d.latitude, etc
+    var currentLocation2d: CLLocationCoordinate2D?
     
-    var currentLocation2d:CLLocationCoordinate2D?
+    // You can access the absolute distance to the goal
+    var distance: CLLocationDistance
+    
+    // NOTE TO MILO, Change this if you are testing dummy locations
+    // Closest Chipotle: lat 42.362428, long -71.085611
+    let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
+    let dummyLocation: CLLocation
     
     override init() {
-        super.init()
-        self.locationManager.delegate = self
         self.locationManager.distanceFilter  = 50
         self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.startUpdatingLocation()
         self.locationManager.requestAlwaysAuthorization()
-        
+        self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
+        self.distance = 0.0
+        super.init()
+        self.locationManager.delegate = self
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -67,6 +76,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentLocation2d = manager.location.coordinate
+        distance = manager.location.distanceFromLocation(dummyLocation)
         
     }
     
