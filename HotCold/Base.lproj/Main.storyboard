@@ -45,6 +45,7 @@
                     </view>
                     <connections>
                         <outlet property="pickerView" destination="llZ-dr-erS" id="7AF-Dy-VOB"/>
+                        <outlet property="selectRadiusButton" destination="Nyh-H0-wfC" id="ckN-7g-p1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO4-t0-erE" userLabel="First Responder" sceneMemberID="firstResponder"/>

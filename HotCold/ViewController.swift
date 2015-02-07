@@ -13,13 +13,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let locationOptions = [0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     var selectedRadius = 0.0
     
+    @IBOutlet weak var selectRadiusButton: UIButton!
+    
     @IBAction func startButton() {
         
     }
     
     @IBAction func selectRadius(sender: UIButton) {
         self.pickerView.hidden = !self.pickerView.hidden
-        sender.setTitle("\(self.selectedRadius)", forState: UIControlState.Normal)
     }
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -31,6 +32,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateUI() {
+        self.selectRadiusButton.setTitle("\(self.selectedRadius)", forState: UIControlState.Normal)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -48,6 +53,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedRadius = locationOptions[row]
+        self.updateUI()
     }
 }
 
