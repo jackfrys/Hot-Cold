@@ -1,5 +1,5 @@
 //
-//  ColorViewController.swift
+//  ViewController.swift
 //  HotCold
 //
 //  Created by David Alelyunas on 2/6/15.
@@ -7,20 +7,27 @@
 //
 
 import UIKit
-import Foundation
 
-class ColorViewController: UIViewController {
+import Foundation
+import CoreLocation
+
+class ColorViewController: UIViewController, CLLocationManagerDelegate {
+    
     @IBOutlet weak var colorView: UIView!
     
     @IBOutlet weak var warmerOrColder: UILabel!
     
-    @IBAction func screenEdgeGestureRecognizer(sender: UIScreenEdgePanGestureRecognizer) {
-    }
     private var myContext = 0
     
     var startDistance: Double = 0
-    var isFirstDistance: Bool = true
     var prevProgress:CGFloat = 0
+    
+    dynamic var distance: CLLocationDistance = 0
+    
+    var endLocation: CLLocation = CLLocation(latitude:0, longitude:0)
+    var startLocation: CLLocation = CLLocation(latitude:0, longitude: 0)
+    
+    var locationManager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,25 +35,49 @@ class ColorViewController: UIViewController {
         // Set background to blue
         colorView.backgroundColor = UIColor.blueColor()
         
-        // Add observer to distance value of sharedInstance
-        sharedInstance.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
+        println(startLocation)
+        println(endLocation)
         
         warmerOrColder.hidden = true
         
+        startDistance = endLocation.distanceFromLocation(startLocation)
+        
+        // Add observer to distance value of sharedInstance
+        self.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
+        
+        
+    }
+    
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+        
+        distance = manager.location.distanceFromLocation(endLocation)
+        println("INCREMENTED: \(distance)")
+        if(distance < 10.0) {
+            var alert = UIAlertView()
+            alert.title = "Congratulations:"
+            alert.message = "You have arrived"
+            alert.addButtonWithTitle("Later")
+            alert.addButtonWithTitle("View")
+            alert.show()
+        }
     }
     
     // Called when the sharedInstance.distance value changes
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
         if context == &myContext {
-            if(isFirstDistance) {
-                startDistance = sharedInstance.distance
-                isFirstDistance = false
-            }
-            println("Start: \(startDistance)")
-            println("Current: \(sharedInstance.distance)")
-            println("Ratio: \(sharedInstance.distance / startDistance)")
+            //println("Start: \(startDistance)")
+            //println("Current: \(distance)")
+            //println("Ratio: \(distance / startDistance)")
             
-            colorView.backgroundColor = progressColor(CGFloat(sharedInstance.distance / startDistance))
+            colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
         }
     }
     //
@@ -55,7 +86,7 @@ class ColorViewController: UIViewController {
         var red:CGFloat = 0
         var green:CGFloat = 0
         var blue:CGFloat = 1.0
-
+        
         var middleRed:CGFloat = 1.0
         var middleGreen:CGFloat = 1.0
         var middleBlue:CGFloat = 1.0
@@ -71,20 +102,20 @@ class ColorViewController: UIViewController {
         if(prevProgress < myProgress) {
             warmerOrColder.text = "Warmer"
             warmerOrColder.hidden = false
-                    }
+        }
         else if(prevProgress > myProgress) {
             warmerOrColder.text = "Colder"
-             warmerOrColder.hidden = false
+            warmerOrColder.hidden = false
             
         }
         else {
             warmerOrColder.hidden = true
         }
         /*UIView.animateWithDuration(2.0, delay:0, options: .Repeat | .Autoreverse, animations: {
-            
-            self.warmerOrColder.frame = CGRect(x: 120, y: 220, width: 200, height: 200)
-            
-            }, completion: nil)*/
+        
+        self.warmerOrColder.frame = CGRect(x: 120, y: 220, width: 200, height: 200)
+        
+        }, completion: nil)*/
         
         prevProgress = myProgress
         

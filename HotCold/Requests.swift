@@ -42,9 +42,6 @@ class Requests {
                 let long = json["longitude"].doubleValue
                 let name = json["name"].stringValue
                 let link = json["link"].stringValue
-                self.loc.goalLocation = CLLocation(latitude: lat, longitude: long)
-                self.loc.locationName = name
-                self.loc.locationLink = link
             }
         }
         

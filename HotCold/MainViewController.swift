@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
+    
+    var curLat:Double = 0
+    var curLong:Double = 0
+    var newLong:Double = 0
+    var newLat:Double = 0
 
     @IBOutlet weak var logoImageVIew: UIImageView!
     @IBOutlet weak var placeTypeLabel: UILabel!
@@ -17,6 +23,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var goButtonOutlet: UIButton!
     
     @IBOutlet var pickerSelectorButtons: [UIButton]!
+    
+    var locationManager:CLLocationManager!
     
     var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks", "Geocaches"]
     var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
@@ -42,6 +50,18 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.blackColor().CGColor
         }
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+        //println("locations = \(locations)")
+        curLat = manager.location.coordinate.latitude
+        curLong = manager.location.coordinate.longitude
     }
     
     @IBAction func openPickerView(sender: UIButton) {
@@ -67,9 +87,26 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         self.goButtonOutlet.hidden = !self.myPickerView.hidden
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let rec = Requests()
-        rec.makeRequest(self.placeTypeRequest[self.placeTypeIndex], radius: self.radiusOptions[self.radiusIndex])
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        let url = NSURL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(radiusOptions[radiusIndex])")
+        
+        var request: NSURLRequest = NSURLRequest(URL: url!)
+        var response: NSURLResponse?
+        
+        var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: nil)
+        
+        let json = JSON(data: data!)
+        
+        println(json)
+        let alat = json["latitude"].doubleValue
+        let along = json["longitude"].doubleValue
+        let name = json["name"].stringValue
+        let link = json["link"].stringValue
+        
+        let vc = segue.destinationViewController as ColorViewController
+        vc.endLocation = CLLocation(latitude: alat, longitude: along)
+        vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
