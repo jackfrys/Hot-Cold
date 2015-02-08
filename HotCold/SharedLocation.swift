@@ -94,16 +94,16 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     }
     
     // Uncomment if you want to use geofencing!
-//    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-//        
-//        var alert = UIAlertView()
-//        alert.title = "New Secure Communication:"
-//        alert.message = "You have arrived"
-//        alert.addButtonWithTitle("Later")
-//        alert.addButtonWithTitle("View")
-//        alert.show()
-//        
-//    }
+    //    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+    //
+    //        var alert = UIAlertView()
+    //        alert.title = "New Secure Communication:"
+    //        alert.message = "You have arrived"
+    //        alert.addButtonWithTitle("Later")
+    //        alert.addButtonWithTitle("View")
+    //        alert.show()
+    //
+    //    }
     
 }
 
