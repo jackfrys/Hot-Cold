@@ -1,4 +1,7 @@
 # Hot-Cold
+
+The Android version of this application can be found [here](https://github.com/dan3944/HotColdAndroid).
+
 Project for Hack Beanpot 2015
 
 Hack Beanpot was held February 6-8, 2015 at the Cambridge Innovation Center in Cambridge, Massachusetts. Many Boston-area college students, particularly from Northeastern University and the University of Massachusetts, come together to participate in this event and "make dope stuff."
