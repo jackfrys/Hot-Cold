@@ -60,7 +60,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
         distance = manager.location.distanceFromLocation(endLocation)
         println("INCREMENTED: \(distance)")
-        if(distance < 12.5 && !hasAlerted) {
+        if(distance < 15.0 && !hasAlerted) {
             var alert = UIAlertView()
             alert.title = "You Have Arrived!"
             println("name: \(name)")
