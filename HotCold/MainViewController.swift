@@ -88,7 +88,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
+        println("http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(radiusOptions[radiusIndex])")
         let url = NSURL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(radiusOptions[radiusIndex])")
         
         var request: NSURLRequest = NSURLRequest(URL: url!)
@@ -107,6 +107,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         let vc = segue.destinationViewController as ColorViewController
         vc.endLocation = CLLocation(latitude: alat, longitude: along)
         vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
+        vc.name = name
+        vc.link = link
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

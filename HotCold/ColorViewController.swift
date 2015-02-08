@@ -26,6 +26,9 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     
     var endLocation: CLLocation = CLLocation(latitude:0, longitude:0)
     var startLocation: CLLocation = CLLocation(latitude:0, longitude: 0)
+    var name = ""
+    var link = ""
+    var hasAlerted = false
     
     var locationManager:CLLocationManager!
     
@@ -51,22 +54,22 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
-        
-        
-        
     }
     
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         
         distance = manager.location.distanceFromLocation(endLocation)
         println("INCREMENTED: \(distance)")
-        if(distance < 10.0) {
+        if(distance < 12.5 && !hasAlerted) {
             var alert = UIAlertView()
-            alert.title = "Congratulations:"
-            alert.message = "You have arrived"
+            alert.title = "You Have Arrived!"
+            println("name: \(name)")
+            println("link: \(link)")
+            alert.message = "This is " + name + "\nWebsite: " + link
             alert.addButtonWithTitle("Later")
             alert.addButtonWithTitle("View")
             alert.show()
+            hasAlerted = true
         }
     }
     
