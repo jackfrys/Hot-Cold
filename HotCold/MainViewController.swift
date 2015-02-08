@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var locationManager:CLLocationManager!
     
-    var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks", "Geocaches"]
+    var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks"] //, "Geocaches"]
     var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     var radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
@@ -88,7 +88,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        println("http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(radiusOptions[radiusIndex])")
         let url = NSURL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(radiusOptions[radiusIndex])")
         
         var request: NSURLRequest = NSURLRequest(URL: url!)
@@ -98,7 +97,15 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         let json = JSON(data: data!)
         
-        println(json)
+        /*if (json == nil) {
+            println("JSON was nil")
+            var alert = UIAlertView()
+            alert.title = "There are no locations that match your criteria!"
+            alert.message = "Change your parameters and try again."
+            alert.show()
+            return;
+        }*/
+        
         let alat = json["latitude"].doubleValue
         let along = json["longitude"].doubleValue
         let name = json["name"].stringValue

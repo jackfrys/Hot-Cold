@@ -30,6 +30,8 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     var link = ""
     var hasAlerted = false
     
+    let arrivedDistance = 20.0
+    
     var locationManager:CLLocationManager!
     
     override func viewDidLoad() {
@@ -60,7 +62,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
         distance = manager.location.distanceFromLocation(endLocation)
         println("INCREMENTED: \(distance)")
-        if(distance < 15.0 && !hasAlerted) {
+        if(distance < self.arrivedDistance && !hasAlerted) {
             var alert = UIAlertView()
             alert.title = "You Have Arrived!"
             println("name: \(name)")
