@@ -17,7 +17,7 @@
 		7002A62A1A85C5EA00CD29BE /* HotColdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002A6291A85C5EA00CD29BE /* HotColdTests.swift */; };
 		7014A7E51A869EAB0039A435 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7014A7E41A869EAB0039A435 /* SharedLocation.swift */; };
 		708198A81A86B14900AFDFD3 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708198A71A86B14900AFDFD3 /* Requests.swift */; };
-		708198AA1A86D43D00AFDFD3 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 708198A91A86D43D00AFDFD3 /* bkg.png */; };
+		708198AC1A86E0F100AFDFD3 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 708198AB1A86E0F100AFDFD3 /* bkg.png */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		7002A6291A85C5EA00CD29BE /* HotColdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotColdTests.swift; sourceTree = "<group>"; };
 		7014A7E41A869EAB0039A435 /* SharedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedLocation.swift; sourceTree = "<group>"; };
 		708198A71A86B14900AFDFD3 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
-		708198A91A86D43D00AFDFD3 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bkg.png; path = ../bkg.png; sourceTree = "<group>"; };
+		708198AB1A86E0F100AFDFD3 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
 		70A34A241A86865F00559232 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +71,7 @@
 		7002A6051A85C5EA00CD29BE = {
 			isa = PBXGroup;
 			children = (
+				708198AB1A86E0F100AFDFD3 /* bkg.png */,
 				7002A6101A85C5EA00CD29BE /* HotCold */,
 				7002A6261A85C5EA00CD29BE /* HotColdTests */,
 				7002A60F1A85C5EA00CD29BE /* Products */,
@@ -99,7 +100,6 @@
 				70A34A241A86865F00559232 /* MainViewController.swift */,
 				7002A61A1A85C5EA00CD29BE /* Images.xcassets */,
 				7002A61C1A85C5EA00CD29BE /* LaunchScreen.xib */,
-				708198A91A86D43D00AFDFD3 /* bkg.png */,
 				7002A6111A85C5EA00CD29BE /* Supporting Files */,
 			);
 			path = HotCold;
@@ -212,7 +212,7 @@
 			files = (
 				5635D1D01A866ECB00EC1871 /* .gitignore in Resources */,
 				7002A6191A85C5EA00CD29BE /* Main.storyboard in Resources */,
-				708198AA1A86D43D00AFDFD3 /* bkg.png in Resources */,
+				708198AC1A86E0F100AFDFD3 /* bkg.png in Resources */,
 				7002A61E1A85C5EA00CD29BE /* LaunchScreen.xib in Resources */,
 				7002A61B1A85C5EA00CD29BE /* Images.xcassets in Resources */,
 			);
