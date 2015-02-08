@@ -158,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE2-kb-Bz7">
-                                <rect key="frame" x="93" y="246" width="414" height="108"/>
+                                <rect key="frame" x="16" y="246" width="568" height="108"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Ylt-HX-Awk"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="nbv-H6-2Hv"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="226" id="xnd-0p-b6j"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="77" id="zGd-2g-2Sc"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="zGd-2g-2Sc"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="RSB-D0-Vfo" appends="YES" id="lfF-zq-UMu"/>
