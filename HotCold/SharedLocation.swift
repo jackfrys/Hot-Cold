@@ -36,13 +36,8 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     
     // NOTE TO MILO, Change this if you are testing dummy locations
     // Closest Chipotle: lat 42.362428, long -71.085611
-//    let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
-//    let dummyLocation: CLLocation
-    
-    // change this for a new location to try and find
-    var goalLocation: CLLocation?
-    var locationName = ""
-    var locationLink = ""
+    let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
+    let dummyLocation: CLLocation
     
     override init() {
         // Update every 5 meters
@@ -53,7 +48,8 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
         // If you don't have permission, ask nicely (message in plist)!
         self.locationManager.requestAlwaysAuthorization()
-        // default distance away (before location updates)
+        // Test Location
+        self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
         self.distance = 100.0
         super.init()
         self.locationManager.delegate = self
@@ -85,16 +81,11 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     // If updating locations
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentLocation2d = manager.location.coordinate
-        if let gl = goalLocation {
-            println("made it into optional")
-            println("name: " + self.locationName)
-            distance = manager.location.distanceFromLocation(gl)
-
-        }
+        distance = manager.location.distanceFromLocation(dummyLocation)
         if(distance < 10.0) {
             var alert = UIAlertView()
-            alert.title = "You Have Arrived!"
-            alert.message = "This is " + locationName + ".\nWebsite: " + locationLink
+            alert.title = "Congratulations:"
+            alert.message = "You have arrived"
             alert.addButtonWithTitle("Later")
             alert.addButtonWithTitle("View")
             alert.show()
@@ -103,16 +94,16 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     }
     
     // Uncomment if you want to use geofencing!
-//    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-//        
-//        var alert = UIAlertView()
-//        alert.title = "New Secure Communication:"
-//        alert.message = "You have arrived"
-//        alert.addButtonWithTitle("Later")
-//        alert.addButtonWithTitle("View")
-//        alert.show()
-//        
-//    }
+    //    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+    //
+    //        var alert = UIAlertView()
+    //        alert.title = "New Secure Communication:"
+    //        alert.message = "You have arrived"
+    //        alert.addButtonWithTitle("Later")
+    //        alert.addButtonWithTitle("View")
+    //        alert.show()
+    //
+    //    }
     
 }
 
