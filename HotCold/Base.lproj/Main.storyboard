@@ -165,10 +165,14 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PVX-gs-XpD"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="269" id="n6O-0b-vRW"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RSB-D0-Vfo" appends="YES" id="lfF-zq-UMu"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="kh9-bI-dsS" id="eIV-ze-O53"/>
@@ -176,6 +180,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="RSB-D0-Vfo">
+                    <connections>
+                        <action selector="screenEdgeGestureRecognizer:" destination="vXZ-lx-hvc" id="6iw-hH-frZ"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1032" y="197"/>
         </scene>

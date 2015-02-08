@@ -14,6 +14,8 @@ class ColorViewController: UIViewController {
     
     @IBOutlet weak var warmerOrColder: UILabel!
     
+    @IBAction func screenEdgeGestureRecognizer(sender: UIScreenEdgePanGestureRecognizer) {
+    }
     private var myContext = 0
     
     var startDistance: Double = 0
@@ -30,6 +32,7 @@ class ColorViewController: UIViewController {
         sharedInstance.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
         
         warmerOrColder.hidden = true
+        
     }
     
     // Called when the sharedInstance.distance value changes
