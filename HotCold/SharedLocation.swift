@@ -55,6 +55,14 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.locationManager.delegate = self
     }
     
+    func stopUpdatingLocation() {
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func resumeUpdatingLocation() {
+        self.locationManager.startUpdatingLocation()
+    }
+    
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         println("didChangeAuthorizationStatus")
         
@@ -63,7 +71,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             println(".NotDetermined")
             break
             
-        case .Authorized:
+        case .AuthorizedAlways:
             println(".Authorized")
             self.locationManager.startUpdatingLocation()
             break
