@@ -56,8 +56,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func updateUI() {
-        self.placeTypeLabel.text = "I want a: \(self.placeTypeOptions[self.placeTypeIndex])"
-        self.radiusLabel.text = "Within: \(self.radiusOptions[self.radiusIndex]) miles"
+        self.placeTypeLabel.text = "I want \(self.placeTypeOptions[self.placeTypeIndex].lowercaseString)"
+        self.radiusLabel.text = "within \(self.radiusOptions[self.radiusIndex]) miles"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
@@ -118,6 +118,14 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         default: break
         }
         self.updateUI()
+    }
+    
+    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        switch component {
+        case 0: return pickerView.frame.size.width * 0.8
+        case 1: return pickerView.frame.size.width * 0.2
+        default: return 0
+        }
     }
     
     func setIndex(index: Int) {
