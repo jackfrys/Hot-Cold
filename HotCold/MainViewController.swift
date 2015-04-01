@@ -17,10 +17,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var newLat:Double = 0
 
     @IBOutlet weak var logoImageVIew: UIImageView!
-    @IBOutlet weak var placeTypeLabel: UILabel!
-    @IBOutlet weak var radiusLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var goButtonOutlet: UIButton!
+    @IBOutlet weak var radiusSlider: UISlider!
     
     var locationManager:CLLocationManager!
     
@@ -32,6 +32,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var placeTypeIndex = 0
     var radiusIndex = 0
+    
+    var radius: Double {
+        get {
+            var x = Double(self.radiusSlider.value)
+            return (88.0 * pow(x, 2)) + (-38.0 * x)
+        }
+    }
     
     @IBAction func tapGestureRecognizer(sender: UITapGestureRecognizer) {
         self.lastSelectedPickerViewButton = UIButton()
@@ -56,8 +63,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func updateUI() {
-        self.placeTypeLabel.text = "I want \(self.placeTypeOptions[self.placeTypeIndex].lowercaseString)"
-        self.radiusLabel.text = "within \(self.radiusOptions[self.radiusIndex]) miles"
+        self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex]) within \(self.radius) miles"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
