@@ -36,8 +36,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     var radius: Double {
         get {
             var x = Double(self.radiusSlider.value)
-            return (88.0 * pow(x, 2)) + (-38.0 * x)
+            return (x < 0.5) ? (4.8*x + 2.4*x*x) : (46.5714*x*x + 24.1429*x - 20.7143)
         }
+    }
+    
+    @IBAction func radiusValueChanged(sender: AnyObject) {
+        self.updateUI()
     }
     
     @IBAction func tapGestureRecognizer(sender: UITapGestureRecognizer) {
@@ -63,11 +67,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func updateUI() {
-        self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex]) within \(self.radius) miles"
+        let r = String(format: "%0.1f", self.radius)
+        self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex]) within \(r) miles"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let url = NSURL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(radiusOptions[radiusIndex])")
+        let url = NSURL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
         
         var request: NSURLRequest = NSURLRequest(URL: url!)
         var response: NSURLResponse?

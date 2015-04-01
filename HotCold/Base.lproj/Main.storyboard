@@ -52,6 +52,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MrE-9H-Lsl">
                                 <rect key="frame" x="60" y="548" width="480" height="31"/>
+                                <connections>
+                                    <action selector="radiusValueChanged:" destination="lGJ-rC-qiT" eventType="valueChanged" id="cJt-Qr-ewP"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurants within 50 miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlP-Y3-Qw5">
                                 <rect key="frame" x="16" y="192" width="568" height="51"/>
