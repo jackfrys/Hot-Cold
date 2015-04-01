@@ -103,40 +103,24 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch component {
-        case 0: return self.placeTypeOptions.count
-        case 1: return self.radiusOptions.count
-        default: return 0
-        }
+        return self.placeTypeOptions.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        switch component {
-        case 0: return self.placeTypeOptions[row]
-        case 1: return "\(self.radiusOptions[row])"
-        default: return "0"
-        }
+        return self.placeTypeOptions[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch component {
-        case 0: self.placeTypeIndex = row
-        case 1: self.radiusIndex = row
-        default: break
-        }
+        self.placeTypeIndex = row
         self.updateUI()
     }
     
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        switch component {
-        case 0: return pickerView.frame.size.width * 0.8
-        case 1: return pickerView.frame.size.width * 0.2
-        default: return 0
-        }
+        return pickerView.frame.size.width * 0.8
     }
     
     func setIndex(index: Int) {
