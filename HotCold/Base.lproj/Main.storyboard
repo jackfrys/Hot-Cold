@@ -56,14 +56,14 @@
                                     <action selector="radiusValueChanged:" destination="lGJ-rC-qiT" eventType="valueChanged" id="cJt-Qr-ewP"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurants within 50 miles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlP-Y3-Qw5">
-                                <rect key="frame" x="16" y="192" width="568" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurants within 50 miles" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BlP-Y3-Qw5">
+                                <rect key="frame" x="16" y="192" width="568" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vn-E7-XjT">
-                                <rect key="frame" x="274" y="278" width="52" height="38"/>
+                                <rect key="frame" x="274" y="291" width="52" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="9Gj-xV-JyE"/>
                                     <constraint firstAttribute="height" constant="38" id="eBZ-ak-xuH"/>
@@ -82,7 +82,7 @@
                         <constraints>
                             <constraint firstItem="BlP-Y3-Qw5" firstAttribute="leading" secondItem="llZ-dr-erS" secondAttribute="leading" id="1cS-9H-gKM"/>
                             <constraint firstItem="l0H-hB-jlJ" firstAttribute="top" secondItem="ZQv-LU-dCa" secondAttribute="bottom" constant="8" symbolic="YES" id="4hA-UE-A8V"/>
-                            <constraint firstItem="9vn-E7-XjT" firstAttribute="top" secondItem="BlP-Y3-Qw5" secondAttribute="bottom" constant="35" id="B4A-jH-NrP"/>
+                            <constraint firstItem="9vn-E7-XjT" firstAttribute="top" secondItem="BlP-Y3-Qw5" secondAttribute="bottom" constant="19" id="B4A-jH-NrP"/>
                             <constraint firstItem="BlP-Y3-Qw5" firstAttribute="centerX" secondItem="9vn-E7-XjT" secondAttribute="centerX" id="BOl-0j-w0H"/>
                             <constraint firstItem="851-jk-hqD" firstAttribute="leading" secondItem="rup-vG-VXq" secondAttribute="leading" id="BXq-3l-eoy"/>
                             <constraint firstItem="MrE-9H-Lsl" firstAttribute="top" secondItem="llZ-dr-erS" secondAttribute="bottom" constant="8" symbolic="YES" id="E3n-ff-cCP"/>
@@ -100,9 +100,9 @@
                             <constraint firstItem="BlP-Y3-Qw5" firstAttribute="trailing" secondItem="llZ-dr-erS" secondAttribute="trailing" id="mAD-cU-irM"/>
                             <constraint firstItem="yFH-iK-Ohg" firstAttribute="top" secondItem="llZ-dr-erS" secondAttribute="bottom" constant="6" id="ngI-3p-ACP"/>
                             <constraint firstItem="MrE-9H-Lsl" firstAttribute="centerY" secondItem="yFH-iK-Ohg" secondAttribute="centerY" id="nzn-3v-7OJ"/>
-                            <constraint firstItem="llZ-dr-erS" firstAttribute="top" secondItem="9vn-E7-XjT" secondAttribute="bottom" constant="8" symbolic="YES" id="oOz-d0-MSk"/>
+                            <constraint firstItem="llZ-dr-erS" firstAttribute="top" secondItem="9vn-E7-XjT" secondAttribute="bottom" constant="-5" id="oOz-d0-MSk"/>
                             <constraint firstItem="llZ-dr-erS" firstAttribute="centerX" secondItem="MrE-9H-Lsl" secondAttribute="centerX" id="qY5-cL-9O9"/>
-                            <constraint firstItem="llZ-dr-erS" firstAttribute="top" secondItem="9vn-E7-XjT" secondAttribute="bottom" constant="8" id="rLk-dt-dks"/>
+                            <constraint firstItem="llZ-dr-erS" firstAttribute="top" secondItem="9vn-E7-XjT" secondAttribute="bottom" constant="-5" id="rLk-dt-dks"/>
                             <constraint firstItem="851-jk-hqD" firstAttribute="top" secondItem="ZQv-LU-dCa" secondAttribute="bottom" id="sYm-Xk-Qkh"/>
                             <constraint firstItem="llZ-dr-erS" firstAttribute="top" secondItem="851-jk-hqD" secondAttribute="bottom" constant="-276" id="sdm-By-uwq"/>
                             <constraint firstItem="nbD-3X-jCT" firstAttribute="firstBaseline" secondItem="yFH-iK-Ohg" secondAttribute="firstBaseline" id="uJv-g0-Zwl"/>
@@ -129,7 +129,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="286" y="200"/>
+            <point key="canvasLocation" x="1098" y="200"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -149,18 +149,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-0X-TcK">
+                                <rect key="frame" x="16" y="562" width="30" height="30"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7Qn-fh-wjT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="kf7-0X-TcK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="QN4-hy-MYx"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Ylt-HX-Awk"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="nbv-H6-2Hv"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="8" id="xd1-2e-LJm"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="226" id="xnd-0p-b6j"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="zGd-2g-2Sc"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="RSB-D0-Vfo" appends="YES" id="lfF-zq-UMu"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="kh9-bI-dsS" id="eIV-ze-O53"/>
@@ -168,13 +177,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="RSB-D0-Vfo">
-                    <connections>
-                        <action selector="screenEdgeGestureRecognizer:" destination="vXZ-lx-hvc" id="6iw-hH-frZ"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1032" y="197"/>
+            <point key="canvasLocation" x="1844" y="197"/>
         </scene>
     </scenes>
     <resources>

@@ -68,7 +68,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func updateUI() {
         let r = String(format: "%0.1f", self.radius)
-        self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex]) within \(r) miles"
+        self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex])\nwithin \(r) miles"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

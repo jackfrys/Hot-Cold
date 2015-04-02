@@ -58,6 +58,14 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.removeObserver(self, forKeyPath: "distance")
+    }
+    
+    @IBAction func back(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         
         distance = manager.location.distanceFromLocation(endLocation)
