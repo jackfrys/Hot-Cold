@@ -57,7 +57,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.requestAlwaysAuthorization()
+        println("requesting in viewdidload")
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     

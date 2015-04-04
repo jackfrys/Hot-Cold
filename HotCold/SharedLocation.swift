@@ -47,7 +47,8 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         // Start updating location if you already have permission
         self.locationManager.startUpdatingLocation()
         // If you don't have permission, ask nicely (message in plist)!
-        self.locationManager.requestAlwaysAuthorization()
+        println("requesting in init")
+        self.locationManager.requestWhenInUseAuthorization()
         // Test Location
         self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
         self.distance = 100.0
@@ -79,6 +80,9 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         case .Denied:
             println(".Denied")
             break
+            
+        case .AuthorizedWhenInUse:
+            self.locationManager.startUpdatingLocation()
             
         default:
             println("Unhandled authorization status")
