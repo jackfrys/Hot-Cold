@@ -51,6 +51,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bkg.png")!)
         self.updateUI()
         
         locationManager = CLLocationManager()
