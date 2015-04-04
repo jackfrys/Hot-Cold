@@ -138,7 +138,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UE2-kb-Bz7">
-                                <rect key="frame" x="16" y="246" width="568" height="108"/>
+                                <rect key="frame" x="16" y="28" width="568" height="564"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -157,12 +157,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="8" symbolic="YES" id="KRZ-x5-S9P"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="UxI-c1-3Ul"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="aYX-Wu-2tY"/>
-                            <constraint firstItem="kf7-0X-TcK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ba8-eb-9Jh"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="226" id="ua2-cQ-BKs"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="vvK-ey-pnG"/>
+                            <constraint firstItem="kf7-0X-TcK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="0Qq-p5-yeW"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="4m5-Ul-shS"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="5HB-3V-McH"/>
+                            <constraint firstAttribute="centerX" secondItem="UE2-kb-Bz7" secondAttribute="centerX" id="QHI-yr-2hM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="8" symbolic="YES" id="fgo-P6-Dcw"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="tRB-a2-ttL"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wUV-Xa-JbT"/>
                         </constraints>
                     </view>
                     <connections>
