@@ -97,7 +97,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         let name = json["name"].stringValue
         let link = json["link"].stringValue
         
-        let vc = segue.destinationViewController as ColorViewController
+        let vc = segue.destinationViewController as! ColorViewController
         vc.endLocation = CLLocation(latitude: alat, longitude: along)
         vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
         vc.name = name
