@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lGJ-rC-qiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lGJ-rC-qiT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -143,8 +143,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powered-by-google-on-non-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="svV-sY-scw">
+                                <rect key="frame" x="376" y="548" width="208" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="208" id="mBg-C1-1zr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="oOF-Xi-A3U"/>
+                                    <constraint firstAttribute="height" constant="32" id="uDW-Nk-YHs"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-0X-TcK">
-                                <rect key="frame" x="16" y="562" width="30" height="30"/>
+                                <rect key="frame" x="16" y="549" width="30" height="30"/>
                                 <state key="normal" title="Exit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,14 +165,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="kf7-0X-TcK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="0Qq-p5-yeW"/>
+                            <constraint firstItem="svV-sY-scw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="528" id="0sD-mC-dOJ"/>
+                            <constraint firstAttribute="bottom" secondItem="svV-sY-scw" secondAttribute="bottom" constant="20" symbolic="YES" id="1qb-BC-Vey"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="4m5-Ul-shS"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="5HB-3V-McH"/>
                             <constraint firstAttribute="centerX" secondItem="UE2-kb-Bz7" secondAttribute="centerX" id="QHI-yr-2hM"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="8" symbolic="YES" id="fgo-P6-Dcw"/>
+                            <constraint firstItem="kf7-0X-TcK" firstAttribute="centerY" secondItem="svV-sY-scw" secondAttribute="centerY" id="RGz-cZ-42z"/>
+                            <constraint firstItem="kf7-0X-TcK" firstAttribute="leading" secondItem="UE2-kb-Bz7" secondAttribute="leading" id="VRc-kq-zGb"/>
+                            <constraint firstItem="svV-sY-scw" firstAttribute="trailing" secondItem="UE2-kb-Bz7" secondAttribute="trailing" id="iM3-mG-SvU"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="tRB-a2-ttL"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wUV-Xa-JbT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0sD-mC-dOJ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="kh9-bI-dsS" id="eIV-ze-O53"/>
@@ -178,5 +194,6 @@
     </scenes>
     <resources>
         <image name="bkg.png" width="333" height="546"/>
+        <image name="powered-by-google-on-non-white.png" width="104" height="16"/>
     </resources>
 </document>
