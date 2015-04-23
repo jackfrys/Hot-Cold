@@ -42,6 +42,7 @@ class Requests {
                 let long = json["longitude"].doubleValue
                 let name = json["name"].stringValue
                 let link = json["link"].stringValue
+                println("Destination: \(lat), \(long)")
             }
         }
         

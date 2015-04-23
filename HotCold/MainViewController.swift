@@ -102,6 +102,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
         vc.name = name
         vc.link = link
+        println("Destination: \(alat) \(along)")
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

@@ -75,9 +75,8 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
             alert.title = "You Have Arrived!"
             println("name: \(name)")
             println("link: \(link)")
-            alert.message = "This is " + name + "\nWebsite: " + link
-            alert.addButtonWithTitle("Later")
-            alert.addButtonWithTitle("View")
+            alert.message = "This is " + name
+            alert.addButtonWithTitle("Dismiss")
             alert.show()
             hasAlerted = true
         }
