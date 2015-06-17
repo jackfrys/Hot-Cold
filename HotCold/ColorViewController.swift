@@ -24,6 +24,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     
     dynamic var distance: CLLocationDistance = 0
     
+    var absoluteEndLocation: CLLocation?
     var endLocation: CLLocation = CLLocation(latitude:0, longitude:0)
     var startLocation: CLLocation = CLLocation(latitude:0, longitude: 0)
     var name = ""
@@ -44,8 +45,10 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         println(endLocation)
         
         warmerOrColder.hidden = true
-        
         startDistance = endLocation.distanceFromLocation(startLocation)
+        
+        absoluteEndLocation = endLocation
+        var directions = DirectionsHandler(startLocation: startLocation, endLocation: endLocation)
         
         // Add observer to distance value of sharedInstance
         self.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
