@@ -56,6 +56,11 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        print("maybe this happens first")
+        
+        SharedLocation.sharedInstance.colorView = self.view
+        SharedLocation.sharedInstance.warmerOrColder = self.warmerOrColder
+        
     }
     
     override func viewWillDisappear(animated: Bool) {

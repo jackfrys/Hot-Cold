@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>HotCold WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>HotCold.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>7002A6221A85C5EA00CD29BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70BA64381B2E89400002C1C5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

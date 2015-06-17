@@ -18,6 +18,15 @@
 		707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 707EE92B1ACF8C51007CB4C9 /* bkg.png */; };
 		708198A81A86B14900AFDFD3 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708198A71A86B14900AFDFD3 /* Requests.swift */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
+		70BA64341B2E89400002C1C5 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BA64331B2E89400002C1C5 /* InterfaceController.swift */; };
+		70BA64361B2E89400002C1C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70BA64351B2E89400002C1C5 /* Images.xcassets */; };
+		70BA643A1B2E89400002C1C5 /* HotCold WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 70BA64391B2E89400002C1C5 /* HotCold WatchKit App.app */; };
+		70BA64421B2E89400002C1C5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70BA64401B2E89400002C1C5 /* Interface.storyboard */; };
+		70BA64441B2E89400002C1C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70BA64431B2E89400002C1C5 /* Images.xcassets */; };
+		70BA64471B2E89400002C1C5 /* HotCold WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 70BA642F1B2E89400002C1C5 /* HotCold WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		70BA644F1B2E8D8E0002C1C5 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7014A7E41A869EAB0039A435 /* SharedLocation.swift */; };
+		70BA64501B2E8D9B0002C1C5 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631AAB311A85CE81007EEA09 /* ColorViewController.swift */; };
+		70BA64511B2E8FC70002C1C5 /* HotCold WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 70BA64391B2E89400002C1C5 /* HotCold WatchKit App.app */; };
 		70D948241ADA1FED00EC8D43 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D948231ADA1FED00EC8D43 /* SwiftyJSON.swift */; };
 		70D948391ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */; };
 /* End PBXBuildFile section */
@@ -30,7 +39,42 @@
 			remoteGlobalIDString = 7002A60D1A85C5EA00CD29BE;
 			remoteInfo = HotCold;
 		};
+		70BA643B1B2E89400002C1C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7002A6061A85C5EA00CD29BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70BA64381B2E89400002C1C5;
+			remoteInfo = "HotCold WatchKit App";
+		};
+		70BA64451B2E89400002C1C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7002A6061A85C5EA00CD29BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70BA642E1B2E89400002C1C5;
+			remoteInfo = "HotCold WatchKit Extension";
+		};
+		70BA64521B2E8FC70002C1C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7002A6061A85C5EA00CD29BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70BA64381B2E89400002C1C5;
+			remoteInfo = "HotCold WatchKit App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70BA644E1B2E89400002C1C5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				70BA64471B2E89400002C1C5 /* HotCold WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5635D1CF1A866ECB00EC1871 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -48,6 +92,14 @@
 		707EE92B1ACF8C51007CB4C9 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
 		708198A71A86B14900AFDFD3 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		70A34A241A86865F00559232 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		70BA642F1B2E89400002C1C5 /* HotCold WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HotCold WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70BA64321B2E89400002C1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70BA64331B2E89400002C1C5 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		70BA64351B2E89400002C1C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		70BA64391B2E89400002C1C5 /* HotCold WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HotCold WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70BA643F1B2E89400002C1C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70BA64411B2E89400002C1C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		70BA64431B2E89400002C1C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70D948231ADA1FED00EC8D43 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powered-by-google-on-non-white@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +119,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		70BA642C1B2E89400002C1C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +134,8 @@
 			children = (
 				7002A6101A85C5EA00CD29BE /* HotCold */,
 				7002A6261A85C5EA00CD29BE /* HotColdTests */,
+				70BA64301B2E89400002C1C5 /* HotCold WatchKit Extension */,
+				70BA643D1B2E89400002C1C5 /* HotCold WatchKit App */,
 				7002A60F1A85C5EA00CD29BE /* Products */,
 				5635D1CF1A866ECB00EC1871 /* .gitignore */,
 			);
@@ -85,6 +146,8 @@
 			children = (
 				7002A60E1A85C5EA00CD29BE /* HotCold.app */,
 				7002A6231A85C5EA00CD29BE /* HotColdTests.xctest */,
+				70BA642F1B2E89400002C1C5 /* HotCold WatchKit Extension.appex */,
+				70BA64391B2E89400002C1C5 /* HotCold WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +196,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		70BA64301B2E89400002C1C5 /* HotCold WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				70BA64331B2E89400002C1C5 /* InterfaceController.swift */,
+				70BA64351B2E89400002C1C5 /* Images.xcassets */,
+				70BA64311B2E89400002C1C5 /* Supporting Files */,
+			);
+			path = "HotCold WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		70BA64311B2E89400002C1C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70BA64321B2E89400002C1C5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70BA643D1B2E89400002C1C5 /* HotCold WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				70BA64401B2E89400002C1C5 /* Interface.storyboard */,
+				70BA64431B2E89400002C1C5 /* Images.xcassets */,
+				70BA643E1B2E89400002C1C5 /* Supporting Files */,
+			);
+			path = "HotCold WatchKit App";
+			sourceTree = "<group>";
+		};
+		70BA643E1B2E89400002C1C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				70BA643F1B2E89400002C1C5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,10 +242,13 @@
 				7002A60A1A85C5EA00CD29BE /* Sources */,
 				7002A60B1A85C5EA00CD29BE /* Frameworks */,
 				7002A60C1A85C5EA00CD29BE /* Resources */,
+				70BA644E1B2E89400002C1C5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				70BA64461B2E89400002C1C5 /* PBXTargetDependency */,
+				70BA64531B2E8FC70002C1C5 /* PBXTargetDependency */,
 			);
 			name = HotCold;
 			productName = HotCold;
@@ -171,6 +273,39 @@
 			productReference = 7002A6231A85C5EA00CD29BE /* HotColdTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		70BA642E1B2E89400002C1C5 /* HotCold WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70BA644D1B2E89400002C1C5 /* Build configuration list for PBXNativeTarget "HotCold WatchKit Extension" */;
+			buildPhases = (
+				70BA642B1B2E89400002C1C5 /* Sources */,
+				70BA642C1B2E89400002C1C5 /* Frameworks */,
+				70BA642D1B2E89400002C1C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70BA643C1B2E89400002C1C5 /* PBXTargetDependency */,
+			);
+			name = "HotCold WatchKit Extension";
+			productName = "HotCold WatchKit Extension";
+			productReference = 70BA642F1B2E89400002C1C5 /* HotCold WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		70BA64381B2E89400002C1C5 /* HotCold WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70BA644C1B2E89400002C1C5 /* Build configuration list for PBXNativeTarget "HotCold WatchKit App" */;
+			buildPhases = (
+				70BA64371B2E89400002C1C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HotCold WatchKit App";
+			productName = "HotCold WatchKit App";
+			productReference = 70BA64391B2E89400002C1C5 /* HotCold WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -187,6 +322,14 @@
 					7002A6221A85C5EA00CD29BE = {
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = 7002A60D1A85C5EA00CD29BE;
+					};
+					70BA642E1B2E89400002C1C5 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = Q6ETBD25S7;
+					};
+					70BA64381B2E89400002C1C5 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = Q6ETBD25S7;
 					};
 				};
 			};
@@ -205,6 +348,8 @@
 			targets = (
 				7002A60D1A85C5EA00CD29BE /* HotCold */,
 				7002A6221A85C5EA00CD29BE /* HotColdTests */,
+				70BA642E1B2E89400002C1C5 /* HotCold WatchKit Extension */,
+				70BA64381B2E89400002C1C5 /* HotCold WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -217,6 +362,7 @@
 				70D948391ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png in Resources */,
 				5635D1D01A866ECB00EC1871 /* .gitignore in Resources */,
 				7002A6191A85C5EA00CD29BE /* Main.storyboard in Resources */,
+				70BA64511B2E8FC70002C1C5 /* HotCold WatchKit App.app in Resources */,
 				707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */,
 				7002A61E1A85C5EA00CD29BE /* LaunchScreen.xib in Resources */,
 				7002A61B1A85C5EA00CD29BE /* Images.xcassets in Resources */,
@@ -227,6 +373,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70BA642D1B2E89400002C1C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70BA643A1B2E89400002C1C5 /* HotCold WatchKit App.app in Resources */,
+				70BA64361B2E89400002C1C5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70BA64371B2E89400002C1C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70BA64421B2E89400002C1C5 /* Interface.storyboard in Resources */,
+				70BA64441B2E89400002C1C5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +418,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		70BA642B1B2E89400002C1C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70BA64341B2E89400002C1C5 /* InterfaceController.swift in Sources */,
+				70BA64501B2E8D9B0002C1C5 /* ColorViewController.swift in Sources */,
+				70BA644F1B2E8D8E0002C1C5 /* SharedLocation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -261,6 +435,21 @@
 			isa = PBXTargetDependency;
 			target = 7002A60D1A85C5EA00CD29BE /* HotCold */;
 			targetProxy = 7002A6241A85C5EA00CD29BE /* PBXContainerItemProxy */;
+		};
+		70BA643C1B2E89400002C1C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70BA64381B2E89400002C1C5 /* HotCold WatchKit App */;
+			targetProxy = 70BA643B1B2E89400002C1C5 /* PBXContainerItemProxy */;
+		};
+		70BA64461B2E89400002C1C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70BA642E1B2E89400002C1C5 /* HotCold WatchKit Extension */;
+			targetProxy = 70BA64451B2E89400002C1C5 /* PBXContainerItemProxy */;
+		};
+		70BA64531B2E8FC70002C1C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70BA64381B2E89400002C1C5 /* HotCold WatchKit App */;
+			targetProxy = 70BA64521B2E8FC70002C1C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -279,6 +468,14 @@
 				7002A61D1A85C5EA00CD29BE /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		70BA64401B2E89400002C1C5 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70BA64411B2E89400002C1C5 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -318,7 +515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -354,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -365,7 +562,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HotCold/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -376,7 +576,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HotCold/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -417,6 +620,80 @@
 			};
 			name = Release;
 		};
+		70BA64481B2E89400002C1C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HotCold WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		70BA64491B2E89400002C1C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "HotCold WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		70BA644A1B2E89400002C1C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = HotCold_WatchKit_Extension;
+				INFOPLIST_FILE = "HotCold WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		70BA644B1B2E89400002C1C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = HotCold_WatchKit_Extension;
+				INFOPLIST_FILE = "HotCold WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -446,6 +723,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		70BA644C1B2E89400002C1C5 /* Build configuration list for PBXNativeTarget "HotCold WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70BA644A1B2E89400002C1C5 /* Debug */,
+				70BA644B1B2E89400002C1C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		70BA644D1B2E89400002C1C5 /* Build configuration list for PBXNativeTarget "HotCold WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70BA64481B2E89400002C1C5 /* Debug */,
+				70BA64491B2E89400002C1C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

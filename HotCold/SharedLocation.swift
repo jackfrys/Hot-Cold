@@ -25,6 +25,9 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         return Static.instance!
     }
     
+    var colorView: UIView?
+    var warmerOrColder: UILabel?
+    
     var locationManager = CLLocationManager()
     
     // You can access the current lat and long by calling:
