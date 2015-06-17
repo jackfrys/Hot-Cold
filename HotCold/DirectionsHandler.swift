@@ -11,11 +11,11 @@ import CoreLocation
 
 class DirectionsHandler {
     
-    var apiKey = "AIzaSyAIZet_n9gbS3dDEaBkQ_a6BOLuJDEnYsI"
-    var start: CLLocation
-    var end: CLLocation
-    var directions: Array<CLLocation>
-    var locationPos = -1
+    private var apiKey = "AIzaSyAIZet_n9gbS3dDEaBkQ_a6BOLuJDEnYsI"
+    private var start: CLLocation
+    private var end: CLLocation
+    private var directions: Array<CLLocation>
+    private var locationPos = -1
     
     init(startLocation: CLLocation, endLocation: CLLocation ) {
         start = startLocation
@@ -36,7 +36,7 @@ class DirectionsHandler {
     
     // Gets the path directions from the google api and unwraps the endlocations for the path 
     // and places them in the directions array
-    func getGoogleDirections() {
+    private func getGoogleDirections() {
         let url = NSURL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=" +
             "\(start.coordinate.latitude),\(start.coordinate.longitude)&destination=" +
             "\(end.coordinate.latitude),\(end.coordinate.longitude)&mode=walking&key=\(apiKey)")
