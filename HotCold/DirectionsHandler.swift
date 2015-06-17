@@ -27,7 +27,7 @@ class DirectionsHandler {
     // Returns the next endlocation in the directions
     // Returns nil if all of the endlocations have already been accessed
     func getNextEndLocation() -> CLLocation? {
-        if(directions.count < locationPos) {
+        if(directions.count < locationPos || directions.count == 0) {
             return nil
         }
         locationPos += 1
@@ -48,13 +48,17 @@ class DirectionsHandler {
         
         let json = JSON(data: data!)
         println(json["routes"][0]["legs"][0]["steps"])
-        
         var steps = json["routes"][0]["legs"][0]["steps"]
-        for index in 1...steps.count {
-            directions.append(CLLocation(latitude: steps[index]["end_location"]["lat"].doubleValue,
-                longitude: steps[index]["end_location"]["lng"].doubleValue))
+        if (!(steps.count == 0)) {
+            for index in 1...steps.count {
+                directions.append(CLLocation(latitude: steps[index]["end_location"]["lat"].doubleValue,
+                    longitude: steps[index]["end_location"]["lng"].doubleValue))
+            }
+            println(directions)
         }
-        println(directions)
+        else {
+            
+        }
     }
     
 }
