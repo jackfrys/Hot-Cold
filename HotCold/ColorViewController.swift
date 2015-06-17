@@ -31,6 +31,8 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     var link = ""
     var hasAlerted = false
     
+    var directions: DirectionsHandler? = nil
+    
     let arrivedDistance = 20.0
     
     var locationManager:CLLocationManager!
@@ -48,10 +50,14 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         startDistance = endLocation.distanceFromLocation(startLocation)
         
         absoluteEndLocation = endLocation
-        var directions = DirectionsHandler(startLocation: startLocation, endLocation: endLocation)
+        directions = DirectionsHandler(startLocation: startLocation, endLocation: endLocation)
         
         // Add observer to distance value of sharedInstance
         self.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
+        
+        if let d = directions {
+            self.endLocation = d.getNextEndLocation()!
+        }
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -74,14 +80,18 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         distance = manager.location.distanceFromLocation(endLocation)
         println("INCREMENTED: \(distance)")
         if(distance < self.arrivedDistance && !hasAlerted) {
-            var alert = UIAlertView()
-            alert.title = "You Have Arrived!"
-            println("name: \(name)")
-            println("link: \(link)")
-            alert.message = "This is " + name
-            alert.addButtonWithTitle("Dismiss")
-            alert.show()
-            hasAlerted = true
+            if let next = directions!.getNextEndLocation() {
+                endLocation = next
+            } else {
+                var alert = UIAlertView()
+                alert.title = "You Have Arrived!"
+                println("name: \(name)")
+                println("link: \(link)")
+                alert.message = "This is " + name
+                alert.addButtonWithTitle("Dismiss")
+                alert.show()
+                hasAlerted = true
+            }
         }
     }
     
