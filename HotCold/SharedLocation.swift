@@ -12,19 +12,8 @@ import CoreLocation
 import UIKit
 
 class SharedLocation: NSObject, CLLocationManagerDelegate {
-    private static var __once: () = {
-            Static.instance = SharedLocation()
-        }()
-    class var sharedInstance: SharedLocation {
-        struct Static {
-            static var instance: SharedLocation?
-            static var token: Int = 0
-        }
-        
-        _ = SharedLocation.__once
-        
-        return Static.instance!
-    }
+    var sharedInstance = SharedLocation()
+    var controller: UIViewController?
     
     var locationManager = CLLocationManager()
     
@@ -40,7 +29,9 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
     let dummyLocation: CLLocation
     
-    override init() {
+    private override init() {}
+    
+    init(controller: UIViewController) {
         // Update every 5 meters
         self.locationManager.distanceFilter  = 5
         // Accurate to 10 meters
@@ -48,13 +39,14 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         // Start updating location if you already have permission
         self.locationManager.startUpdatingLocation()
         // If you don't have permission, ask nicely (message in plist)!
-        println("requesting in init")
+        print("requesting in init")
         self.locationManager.requestWhenInUseAuthorization()
         // Test Location
         self.dummyLocation = CLLocation(latitude: dummyLocationCoord.latitude, longitude: dummyLocationCoord.longitude)
         self.distance = 100.0
         super.init()
         self.locationManager.delegate = self
+        self.controller = controller
     }
     
     func stopUpdatingLocation() {
@@ -65,45 +57,60 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager!, didChangeAuthorization status: CLAuthorizationStatus) {
-        println("didChangeAuthorizationStatus")
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("didChangeAuthorizationStatus")
         
         switch status {
         case .notDetermined:
-            println(".NotDetermined")
+            print(".NotDetermined")
             break
             
         case .authorizedAlways:
-            println(".Authorized")
+            print(".Authorized")
             self.locationManager.startUpdatingLocation()
             break
             
         case .denied:
-            println(".Denied")
+            print(".Denied")
             break
             
         case .authorizedWhenInUse:
             self.locationManager.startUpdatingLocation()
             
         default:
-            println("Unhandled authorization status")
+            print("Unhandled authorization status")
             break
             
         }
     }
-    // If updating locations
-    func locationManager(_ manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//    // If updating locations
+//    func locationManager(_ manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        self.currentLocation2d = manager.location?.coordinate
+//        distance = (manager.location?.distance(from: dummyLocation))!
+//        if(distance < 10.0) {
+//            let alert = UIAlertView()
+//            alert.title = "Congratulations:"
+//            alert.message = "You have arrived"
+//            alert.addButton(withTitle: "Later")
+//            alert.addButton(withTitle: "View")
+//            alert.show()
+//        }
+//        
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation2d = manager.location?.coordinate
         distance = (manager.location?.distance(from: dummyLocation))!
         if(distance < 10.0) {
-            let alert = UIAlertView()
+            let alert = UIAlertController(title: "Congratulations:", message: "You have arrived", preferredStyle: UIAlertControllerStyle.alert)
             alert.title = "Congratulations:"
             alert.message = "You have arrived"
-            alert.addButton(withTitle: "Later")
-            alert.addButton(withTitle: "View")
-            alert.show()
+            let b = UIAlertAction(title: "Later", style: UIAlertActionStyle.default, handler: nil)
+            let b1 = UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(b)
+            alert.addAction(b1)
+            alert.show(controller!, sender: nil)
         }
-        
     }
     
     // Uncomment if you want to use geofencing!
@@ -119,5 +126,3 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     //    }
     
 }
-
-let sharedInstance = SharedLocation()
