@@ -23,17 +23,17 @@ class Requests {
 
     //radius is max radius wants to go
     
-    func makeRequest(type: String, radius: Double  ) {
-        let url = NSURL(string: "hc.milodavis.com/getLocation.php?locType=\(type)&userLat=\(sharedInstance.currentLocation2d?.latitude)&userLong=\(sharedInstance.currentLocation2d?.longitude)&radius=\(radius)")
+    func makeRequest(_ type: String, radius: Double  ) {
+        let url = URL(string: "hc.milodavis.com/getLocation.php?locType=\(type)&userLat=\(sharedInstance.currentLocation2d?.latitude)&userLong=\(sharedInstance.currentLocation2d?.longitude)&radius=\(radius)")
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-        println(NSString(data: data, encoding: NSUTF8StringEncoding))
+        let task = URLSession.shared.dataTask(with: url!, completionHandler: {(data, response, error) in
+        println(NSString(data: data, encoding: String.Encoding.utf8))
             if("\(data)" == "NO RESULTS" ) {
                 var alert = UIAlertView()
                 alert.title = "No Relevant Results"
                 alert.message = "Please try again!"
-                alert.addButtonWithTitle("Later")
-                alert.addButtonWithTitle("View")
+                alert.addButton(withTitle: "Later")
+                alert.addButton(withTitle: "View")
                 alert.show()
             }
             else {
@@ -44,7 +44,7 @@ class Requests {
                 let link = json["link"].stringValue
                 println("Destination: \(lat), \(long)")
             }
-        }
+        }) 
         
         task.resume()
     }

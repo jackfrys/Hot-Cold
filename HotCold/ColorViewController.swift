@@ -17,7 +17,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var warmerOrColder: UILabel!
     
-    private var myContext = 0
+    fileprivate var myContext = 0
     
     var startDistance: Double = 0
     var prevProgress:CGFloat = 0
@@ -38,17 +38,18 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         // Set background to blue
-        colorView.backgroundColor = UIColor.blueColor()
+        colorView.backgroundColor = UIColor.blue
+        
         
         println(startLocation)
         println(endLocation)
         
-        warmerOrColder.hidden = true
+        warmerOrColder.isHidden = true
         
-        startDistance = endLocation.distanceFromLocation(startLocation)
+        startDistance = endLocation.distance(from: startLocation)
         
         // Add observer to distance value of sharedInstance
-        self.addObserver(self, forKeyPath: "distance", options: .New, context: &myContext)
+        self.addObserver(self, forKeyPath: "distance", options: .new, context: &myContext)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -58,17 +59,17 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.removeObserver(self, forKeyPath: "distance")
     }
     
-    @IBAction func back(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         
-        distance = manager.location.distanceFromLocation(endLocation)
+        distance = (manager.location?.distance(from: endLocation))!
         println("INCREMENTED: \(distance)")
         if(distance < self.arrivedDistance && !hasAlerted) {
             var alert = UIAlertView()
@@ -76,14 +77,14 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
             println("name: \(name)")
             println("link: \(link)")
             alert.message = "This is " + name
-            alert.addButtonWithTitle("Dismiss")
+            alert.addButton(withTitle: "Dismiss")
             alert.show()
             hasAlerted = true
         }
     }
     
     // Called when the sharedInstance.distance value changes
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject: AnyObject], context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String, of object: AnyObject, change: [AnyHashable: Any], context: UnsafeMutableRawPointer) {
         if context == &myContext {
             //println("Start: \(startDistance)")
             //println("Current: \(distance)")
@@ -93,7 +94,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     //
-    func progressColor(ratio: CGFloat) -> UIColor {
+    func progressColor(_ ratio: CGFloat) -> UIColor {
         // RGB COLOR INTERPOLATION
         var red:CGFloat = 0
         var green:CGFloat = 0
@@ -113,15 +114,15 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
         if(prevProgress < myProgress) {
             warmerOrColder.text = "Warmer"
-            warmerOrColder.hidden = false
+            warmerOrColder.isHidden = false
         }
         else if(prevProgress > myProgress) {
             warmerOrColder.text = "Colder"
-            warmerOrColder.hidden = false
+            warmerOrColder.isHidden = false
             
         }
         else {
-            warmerOrColder.hidden = true
+            warmerOrColder.isHidden = true
         }
         /*UIView.animateWithDuration(2.0, delay:0, options: .Repeat | .Autoreverse, animations: {
         

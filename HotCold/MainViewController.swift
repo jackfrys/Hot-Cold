@@ -35,16 +35,16 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var radius: Double {
         get {
-            var x = Double(self.radiusSlider.value)
+            let x = Double(self.radiusSlider.value)
             return (x < 0.5) ? (4.8*x + 2.4*x*x) : (46.5714*x*x + 24.1429*x - 20.7143)
         }
     }
     
-    @IBAction func radiusValueChanged(sender: AnyObject) {
+    @IBAction func radiusValueChanged(_ sender: AnyObject) {
         self.updateUI()
     }
     
-    @IBAction func tapGestureRecognizer(sender: UITapGestureRecognizer) {
+    @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
         self.lastSelectedPickerViewButton = UIButton()
         self.updateUI()
     }
@@ -62,10 +62,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         locationManager.startUpdatingLocation()
     }
     
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         //println("locations = \(locations)")
-        curLat = manager.location.coordinate.latitude
-        curLong = manager.location.coordinate.longitude
+        curLat = (manager.location?.coordinate.latitude)!
+        curLong = (manager.location?.coordinate.longitude)!
     }
     
     func updateUI() {
@@ -73,11 +73,11 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex])\nwithin \(r) miles"
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let url = NSURL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
         
-        var request: NSURLRequest = NSURLRequest(URL: url!)
-        var response: NSURLResponse?
+        var request: URLRequest = URLRequest(url: url!)
+        var response: URLResponse?
         
         var data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: nil)
         
@@ -97,7 +97,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         let name = json["name"].stringValue
         let link = json["link"].stringValue
         
-        let vc = segue.destinationViewController as! ColorViewController
+        let vc = segue.destination as! ColorViewController
         vc.endLocation = CLLocation(latitude: alat, longitude: along)
         vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
         vc.name = name
@@ -105,28 +105,28 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         println("Destination: \(alat) \(along)")
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.placeTypeOptions.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return self.placeTypeOptions[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.placeTypeIndex = row
         self.updateUI()
     }
     
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return pickerView.frame.size.width * 0.8
     }
     
-    func setIndex(index: Int) {
+    func setIndex(_ index: Int) {
         if (self.lastSelectedPickerViewButton.currentTitle == "Finding:") {
             self.placeTypeIndex = index
         } else {

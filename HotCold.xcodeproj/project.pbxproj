@@ -177,15 +177,18 @@
 		7002A6061A85C5EA00CD29BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jack Frysinger";
 				TargetAttributes = {
 					7002A60D1A85C5EA00CD29BE = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = Q6ETBD25S7;
+						LastSwiftMigration = 0800;
 					};
 					7002A6221A85C5EA00CD29BE = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 7002A60D1A85C5EA00CD29BE;
 					};
 				};
@@ -368,6 +371,7 @@
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -379,6 +383,7 @@
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -398,6 +403,7 @@
 				INFOPLIST_FILE = HotColdTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotCold.app/HotCold";
 			};
 			name = Debug;
@@ -413,6 +419,7 @@
 				INFOPLIST_FILE = HotColdTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotCold.app/HotCold";
 			};
 			name = Release;

@@ -12,15 +12,16 @@ import CoreLocation
 import UIKit
 
 class SharedLocation: NSObject, CLLocationManagerDelegate {
+    private static var __once: () = {
+            Static.instance = SharedLocation()
+        }()
     class var sharedInstance: SharedLocation {
         struct Static {
             static var instance: SharedLocation?
-            static var token: dispatch_once_t = 0
+            static var token: Int = 0
         }
         
-        dispatch_once(&Static.token) {
-            Static.instance = SharedLocation()
-        }
+        _ = SharedLocation.__once
         
         return Static.instance!
     }
@@ -64,24 +65,24 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
     }
     
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager!, didChangeAuthorization status: CLAuthorizationStatus) {
         println("didChangeAuthorizationStatus")
         
         switch status {
-        case .NotDetermined:
+        case .notDetermined:
             println(".NotDetermined")
             break
             
-        case .AuthorizedAlways:
+        case .authorizedAlways:
             println(".Authorized")
             self.locationManager.startUpdatingLocation()
             break
             
-        case .Denied:
+        case .denied:
             println(".Denied")
             break
             
-        case .AuthorizedWhenInUse:
+        case .authorizedWhenInUse:
             self.locationManager.startUpdatingLocation()
             
         default:
@@ -91,15 +92,15 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         }
     }
     // If updating locations
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        self.currentLocation2d = manager.location.coordinate
-        distance = manager.location.distanceFromLocation(dummyLocation)
+    func locationManager(_ manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        self.currentLocation2d = manager.location?.coordinate
+        distance = (manager.location?.distance(from: dummyLocation))!
         if(distance < 10.0) {
-            var alert = UIAlertView()
+            let alert = UIAlertView()
             alert.title = "Congratulations:"
             alert.message = "You have arrived"
-            alert.addButtonWithTitle("Later")
-            alert.addButtonWithTitle("View")
+            alert.addButton(withTitle: "Later")
+            alert.addButton(withTitle: "View")
             alert.show()
         }
         
