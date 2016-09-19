@@ -57,12 +57,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        println("requesting in viewdidload")
+        print("requesting in viewdidload")
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
-    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+    private func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         //println("locations = \(locations)")
         curLat = (manager.location?.coordinate.latitude)!
         curLong = (manager.location?.coordinate.longitude)!
@@ -102,7 +102,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
         vc.name = name
         vc.link = link
-        println("Destination: \(alat) \(along)")
+        print("Destination: \(alat) \(along)")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -113,7 +113,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         return self.placeTypeOptions.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.placeTypeOptions[row]
     }
     

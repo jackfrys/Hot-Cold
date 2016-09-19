@@ -12,7 +12,9 @@ import CoreLocation
 import UIKit
 
 class SharedLocation: NSObject, CLLocationManagerDelegate {
-    var sharedInstance = SharedLocation()
+    
+    static let sharedLocation = SharedLocation()
+    
     var controller: UIViewController?
     
     var locationManager = CLLocationManager()
@@ -28,10 +30,8 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     // Closest Chipotle: lat 42.362428, long -71.085611
     let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
     let dummyLocation: CLLocation
-    
-    private override init() {}
-    
-    init(controller: UIViewController) {
+        
+    private override init() {
         // Update every 5 meters
         self.locationManager.distanceFilter  = 5
         // Accurate to 10 meters
@@ -46,7 +46,6 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.distance = 100.0
         super.init()
         self.locationManager.delegate = self
-        self.controller = controller
     }
     
     func stopUpdatingLocation() {
