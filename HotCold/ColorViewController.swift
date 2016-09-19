@@ -41,8 +41,8 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         colorView.backgroundColor = UIColor.blue
         
         
-        println(startLocation)
-        println(endLocation)
+        print(startLocation)
+        print(endLocation)
         
         warmerOrColder.isHidden = true
         
@@ -67,24 +67,39 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
-        
+//    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+//        
+//        distance = (manager.location?.distance(from: endLocation))!
+//        print("INCREMENTED: \(distance)")
+//        if(distance < self.arrivedDistance && !hasAlerted) {
+//            var alert = UIAlertView()
+//            alert.title = "You Have Arrived!"
+//            print("name: \(name)")
+//            print("link: \(link)")
+//            alert.message = "This is " + name
+//            alert.addButton(withTitle: "Dismiss")
+//            alert.show()
+//            hasAlerted = true
+//        }
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         distance = (manager.location?.distance(from: endLocation))!
-        println("INCREMENTED: \(distance)")
+        print("INCREMENTED: \(distance)")
         if(distance < self.arrivedDistance && !hasAlerted) {
-            var alert = UIAlertView()
+            let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + name, preferredStyle: UIAlertControllerStyle.alert)
             alert.title = "You Have Arrived!"
-            println("name: \(name)")
-            println("link: \(link)")
+            print("name: \(name)")
+            print("link: \(link)")
             alert.message = "This is " + name
-            alert.addButton(withTitle: "Dismiss")
-            alert.show()
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            alert.show(self, sender: nil)
             hasAlerted = true
         }
     }
     
     // Called when the sharedInstance.distance value changes
-    override func observeValue(forKeyPath keyPath: String, of object: AnyObject, change: [AnyHashable: Any], context: UnsafeMutableRawPointer) {
+    func observeValue(forKeyPath keyPath: String, of object: AnyObject, change: [AnyHashable: Any], context: UnsafeMutableRawPointer) {
         if context == &myContext {
             //println("Start: \(startDistance)")
             //println("Current: \(distance)")
@@ -92,25 +107,26 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
             
             colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
         }
-    }
+    }    
+    
     //
     func progressColor(_ ratio: CGFloat) -> UIColor {
         // RGB COLOR INTERPOLATION
-        var red:CGFloat = 0
-        var green:CGFloat = 0
-        var blue:CGFloat = 1.0
+        let red:CGFloat = 0
+        let green:CGFloat = 0
+        let blue:CGFloat = 1.0
         
-        var middleRed:CGFloat = 1.0
-        var middleGreen:CGFloat = 1.0
-        var middleBlue:CGFloat = 1.0
+        let middleRed:CGFloat = 1.0
+        let middleGreen:CGFloat = 1.0
+        let middleBlue:CGFloat = 1.0
         
-        var finalRed:CGFloat = 1.0
-        var finalGreen:CGFloat = 0
-        var finalBlue:CGFloat = 0
+        let finalRed:CGFloat = 1.0
+        let finalGreen:CGFloat = 0
+        let finalBlue:CGFloat = 0
         
-        println("previous: \(prevProgress)")
-        var myProgress:CGFloat = (1.0 - ratio)
-        println("progress: \(myProgress)")
+        print("previous: \(prevProgress)")
+        let myProgress:CGFloat = (1.0 - ratio)
+        print("progress: \(myProgress)")
         
         if(prevProgress < myProgress) {
             warmerOrColder.text = "Warmer"
@@ -133,16 +149,16 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         prevProgress = myProgress
         
         if(myProgress <= 0.5) {
-            var newRed:CGFloat   = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
-            var newGreen:CGFloat  = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
-            var newBlue:CGFloat   = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
+            let newRed:CGFloat   = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
+            let newGreen:CGFloat  = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
+            let newBlue:CGFloat   = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
             
             return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
         }
         else {
-            var newRed:CGFloat = finalRed * (myProgress - 0.5) * 2.0 + middleRed * (1.0 - myProgress) * 2.0
-            var newGreen:CGFloat = finalGreen * (myProgress - 0.5) * 2.0 + middleGreen * (1.0 - myProgress) * 2.0
-            var newBlue:CGFloat = finalBlue * (myProgress - 0.5) * 2.0 + middleBlue * (1.0 - myProgress) * 2.0
+            let newRed:CGFloat = finalRed * (myProgress - 0.5) * 2.0 + middleRed * (1.0 - myProgress) * 2.0
+            let newGreen:CGFloat = finalGreen * (myProgress - 0.5) * 2.0 + middleGreen * (1.0 - myProgress) * 2.0
+            let newBlue:CGFloat = finalBlue * (myProgress - 0.5) * 2.0 + middleBlue * (1.0 - myProgress) * 2.0
             
             return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
         }
