@@ -49,7 +49,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         startDistance = endLocation.distance(from: startLocation)
         
         // Add observer to distance value of sharedInstance
-        self.addObserver(self, forKeyPath: "distance", options: .new, context: &myContext)
+        //self.addObserver(self, forKeyPath: "distance", options: .new, context: &myContext)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -60,7 +60,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.removeObserver(self, forKeyPath: "distance")
+        //self.removeObserver(self, forKeyPath: "distance")
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -96,18 +96,19 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
             alert.show(self, sender: nil)
             hasAlerted = true
         }
+        colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
     }
     
-    // Called when the sharedInstance.distance value changes
-    func observeValue(forKeyPath keyPath: String, of object: AnyObject, change: [AnyHashable: Any], context: UnsafeMutableRawPointer) {
-        if context == &myContext {
-            //println("Start: \(startDistance)")
-            //println("Current: \(distance)")
-            //println("Ratio: \(distance / startDistance)")
-            
-            colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
-        }
-    }    
+//    // Called when the sharedInstance.distance value changes
+//    func observeValue(forKeyPath keyPath: String, of object: SharedLocation, change: [AnyHashable: Any], context: UnsafeMutableRawPointer) {
+//        if context == &myContext {
+//            //println("Start: \(startDistance)")
+//            //println("Current: \(distance)")
+//            //println("Ratio: \(distance / startDistance)")
+//            
+//            colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
+//        }
+//    }    
     
     //
     func progressColor(_ ratio: CGFloat) -> UIColor {
