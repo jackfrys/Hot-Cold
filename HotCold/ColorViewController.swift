@@ -19,13 +19,17 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     
     fileprivate var myContext = 0
     
-    var startDistance: Double = 0
+    var startDistance: Double?
     var prevProgress:CGFloat = 0
     
     dynamic var distance: CLLocationDistance = 0
     
-    var endLocation: CLLocation = CLLocation(latitude:0, longitude:0)
-    var startLocation: CLLocation = CLLocation(latitude:0, longitude: 0)
+    var endLocation: CLLocation?
+    var startLocation: CLLocation? {
+        didSet {
+            startDistance = endLocation!.distance(from: startLocation!)
+        }
+    }
     var name = ""
     var link = ""
     var hasAlerted = false
@@ -45,8 +49,6 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         print(endLocation)
         
         warmerOrColder.isHidden = true
-        
-        startDistance = endLocation.distance(from: startLocation)
         
         // Add observer to distance value of sharedInstance
         //self.addObserver(self, forKeyPath: "distance", options: .new, context: &myContext)
@@ -84,19 +86,27 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
 //    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        distance = (manager.location?.distance(from: endLocation))!
-        print("INCREMENTED: \(distance)")
-        if(distance < self.arrivedDistance && !hasAlerted) {
-            let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + name, preferredStyle: UIAlertControllerStyle.alert)
-            alert.title = "You Have Arrived!"
-            print("name: \(name)")
-            print("link: \(link)")
-            alert.message = "This is " + name
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            alert.show(self, sender: nil)
-            hasAlerted = true
+        if let e = endLocation, let s = startDistance {
+            distance = (manager.location?.distance(from: e))!
+            print("INCREMENTED: \(distance)")
+            if(distance < self.arrivedDistance && !hasAlerted) {
+                let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + name, preferredStyle: UIAlertControllerStyle.alert)
+                alert.title = "You Have Arrived!"
+                print("name: \(name)")
+                print("link: \(link)")
+                alert.message = "This is " + name
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+                alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage()}))
+                present(alert, animated: true, completion: nil)
+                hasAlerted = true
+            }
+            colorView.backgroundColor = progressColor(CGFloat(distance / s))
         }
-        colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
+    }
+    
+    func showWebpage() {
+        let url = URL(string: link)!
+        UIApplication.shared.open(url, options: [:], completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
     }
     
 //    // Called when the sharedInstance.distance value changes

@@ -17,7 +17,7 @@
 		7014A7E51A869EAB0039A435 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7014A7E41A869EAB0039A435 /* SharedLocation.swift */; };
 		707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 707EE92B1ACF8C51007CB4C9 /* bkg.png */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
-		70B5BA271D93727200122AD8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5BA261D93727200122AD8 /* SwiftyJSON.framework */; };
+		70B5BA291D93746D00122AD8 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5BA261D93727200122AD8 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		70D948391ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				70B5BA291D93746D00122AD8 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B5BA271D93727200122AD8 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +400,7 @@
 				);
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jackfrysinger.HotCold;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.HotCold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -417,7 +417,7 @@
 				);
 				INFOPLIST_FILE = HotCold/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jackfrysinger.HotCold;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.HotCold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -108,7 +108,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             let b1 = UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: nil)
             alert.addAction(b)
             alert.addAction(b1)
-            alert.show(controller!, sender: nil)
+            controller?.present(alert, animated: true, completion: nil)
         }
     }
     

@@ -63,8 +63,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         locationManager.startUpdatingLocation()
     }
     
-    private func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
-        //println("locations = \(locations)")
+//    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+//        //println("locations = \(locations)")
+//        curLat = (manager.location?.coordinate.latitude)!
+//        curLong = (manager.location?.coordinate.longitude)!
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         curLat = (manager.location?.coordinate.latitude)!
         curLong = (manager.location?.coordinate.longitude)!
     }
@@ -84,7 +89,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func cont(d: Data?, segue: UIStoryboardSegue) {
-        let json = JSON(d)
+        let json = JSON(data: d!)
         
         /*if (json == nil) {
          println("JSON was nil")
@@ -95,8 +100,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
          return;
          }*/
         
-        let alat = json["latitude"].doubleValue
-        let along = json["longitude"].doubleValue
+        let alat = json["latitude"].double!
+        let along = json["longitude"].double!
         let name = json["name"].stringValue
         let link = json["link"].stringValue
         
