@@ -14,11 +14,10 @@
 		7002A61B1A85C5EA00CD29BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7002A61A1A85C5EA00CD29BE /* Images.xcassets */; };
 		7002A61E1A85C5EA00CD29BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7002A61C1A85C5EA00CD29BE /* LaunchScreen.xib */; };
 		7002A62A1A85C5EA00CD29BE /* HotColdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7002A6291A85C5EA00CD29BE /* HotColdTests.swift */; };
-		701023851D8FB652006F532D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701023841D8FB652006F532D /* SwiftyJSON.framework */; };
-		701023861D8FB652006F532D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 701023841D8FB652006F532D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7014A7E51A869EAB0039A435 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7014A7E41A869EAB0039A435 /* SharedLocation.swift */; };
 		707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 707EE92B1ACF8C51007CB4C9 /* bkg.png */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
+		70B5BA271D93727200122AD8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5BA261D93727200122AD8 /* SwiftyJSON.framework */; };
 		70D948391ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +38,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				701023861D8FB652006F532D /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,10 +56,10 @@
 		7002A6231A85C5EA00CD29BE /* HotColdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotColdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7002A6281A85C5EA00CD29BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7002A6291A85C5EA00CD29BE /* HotColdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotColdTests.swift; sourceTree = "<group>"; };
-		701023841D8FB652006F532D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7014A7E41A869EAB0039A435 /* SharedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedLocation.swift; sourceTree = "<group>"; };
 		707EE92B1ACF8C51007CB4C9 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
 		70A34A241A86865F00559232 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		70B5BA261D93727200122AD8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powered-by-google-on-non-white@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				701023851D8FB652006F532D /* SwiftyJSON.framework in Frameworks */,
+				70B5BA271D93727200122AD8 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,11 +85,11 @@
 		7002A6051A85C5EA00CD29BE = {
 			isa = PBXGroup;
 			children = (
-				701023841D8FB652006F532D /* SwiftyJSON.framework */,
 				7002A6101A85C5EA00CD29BE /* HotCold */,
 				7002A6261A85C5EA00CD29BE /* HotColdTests */,
 				7002A60F1A85C5EA00CD29BE /* Products */,
 				5635D1CF1A866ECB00EC1871 /* .gitignore */,
+				70B5BA251D93727100122AD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +142,14 @@
 				7002A6281A85C5EA00CD29BE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70B5BA251D93727100122AD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70B5BA261D93727200122AD8 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
