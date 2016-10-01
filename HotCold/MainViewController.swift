@@ -82,23 +82,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
         
-        var response: URLResponse?
-        
-        let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in response = r; self.cont(d: data, segue: segue)})
+        let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.cont(d: data, segue: segue)})
         d.resume()
     }
     
     func cont(d: Data?, segue: UIStoryboardSegue) {
         let json = JSON(data: d!)
-        
-        /*if (json == nil) {
-         println("JSON was nil")
-         var alert = UIAlertView()
-         alert.title = "There are no locations that match your criteria!"
-         alert.message = "Change your parameters and try again."
-         alert.show()
-         return;
-         }*/
         
         let alat = json["latitude"].double!
         let along = json["longitude"].double!
