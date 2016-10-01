@@ -12,8 +12,10 @@ import SwiftyJSON
 
 class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
     
-    private var curLat = 0.0
-    private var curLong = 0.0
+    private func coordinate() -> CLLocationCoordinate2D? {
+        return locationManager.location?.coordinate
+    }
+    
     private var newLong = 0.0
     private var newLat = 0.0
 
@@ -53,18 +55,13 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         locationManager.startUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        curLat = (manager.location?.coordinate.latitude)!
-        curLong = (manager.location?.coordinate.longitude)!
-    }
-    
     private func updateUI() {
         let r = String(format: "%0.1f", self.radius)
         self.descriptionLabel.text = "\(self.placeTypeOptions[myPickerView.selectedRow(inComponent: 0)])\nwithin \(r) miles"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[myPickerView.selectedRow(inComponent: 0)])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
+        let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[myPickerView.selectedRow(inComponent: 0)])&userLat=\(coordinate()?.latitude)&userLong=\(coordinate()?.longitude)&radius=\(self.radius)")
         
         let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.cont(d: data, segue: segue)})
         d.resume()
@@ -80,7 +77,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         
         let vc = segue.destination as! ColorViewController
         vc.endLocation = CLLocation(latitude: alat, longitude: along)
-        vc.startLocation = CLLocation(latitude: self.curLat, longitude: self.curLong)
+        vc.startLocation = CLLocation(latitude: (coordinate()?.latitude)!, longitude: (coordinate()?.longitude)!)
         vc.name = name
         vc.link = link
         print("Destination: \(alat) \(along)")
