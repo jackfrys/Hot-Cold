@@ -50,9 +50,6 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
         warmerOrColder.isHidden = true
         
-        // Add observer to distance value of sharedInstance
-        //self.addObserver(self, forKeyPath: "distance", options: .new, context: &myContext)
-        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -61,29 +58,9 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        //self.removeObserver(self, forKeyPath: "distance")
-    }
-    
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-//    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
-//        
-//        distance = (manager.location?.distance(from: endLocation))!
-//        print("INCREMENTED: \(distance)")
-//        if(distance < self.arrivedDistance && !hasAlerted) {
-//            var alert = UIAlertView()
-//            alert.title = "You Have Arrived!"
-//            print("name: \(name)")
-//            print("link: \(link)")
-//            alert.message = "This is " + name
-//            alert.addButton(withTitle: "Dismiss")
-//            alert.show()
-//            hasAlerted = true
-//        }
-//    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let e = endLocation, let s = startDistance {
@@ -109,18 +86,6 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         UIApplication.shared.open(url, options: [:], completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
     }
     
-//    // Called when the sharedInstance.distance value changes
-//    func observeValue(forKeyPath keyPath: String, of object: SharedLocation, change: [AnyHashable: Any], context: UnsafeMutableRawPointer) {
-//        if context == &myContext {
-//            //println("Start: \(startDistance)")
-//            //println("Current: \(distance)")
-//            //println("Ratio: \(distance / startDistance)")
-//            
-//            colorView.backgroundColor = progressColor(CGFloat(distance / startDistance))
-//        }
-//    }    
-    
-    //
     func progressColor(_ ratio: CGFloat) -> UIColor {
         // RGB COLOR INTERPOLATION
         let red:CGFloat = 0
@@ -139,27 +104,20 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         let myProgress:CGFloat = (1.0 - ratio)
         print("progress: \(myProgress)")
         
-        if(prevProgress < myProgress) {
+        if (prevProgress < myProgress) {
             warmerOrColder.text = "Warmer"
             warmerOrColder.isHidden = false
-        }
-        else if(prevProgress > myProgress) {
+        } else if (prevProgress > myProgress) {
             warmerOrColder.text = "Colder"
             warmerOrColder.isHidden = false
             
-        }
-        else {
+        } else {
             warmerOrColder.isHidden = true
         }
-        /*UIView.animateWithDuration(2.0, delay:0, options: .Repeat | .Autoreverse, animations: {
-        
-        self.warmerOrColder.frame = CGRect(x: 120, y: 220, width: 200, height: 200)
-        
-        }, completion: nil)*/
         
         prevProgress = myProgress
         
-        if(myProgress <= 0.5) {
+        if (myProgress <= 0.5) {
             let newRed:CGFloat   = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
             let newGreen:CGFloat  = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
             let newBlue:CGFloat   = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
