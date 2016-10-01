@@ -68,19 +68,21 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     private func cont(d: Data?, segue: UIStoryboardSegue) {
-        let json = JSON(data: d!)
+        if let dta = d {
+            let json = JSON(data: dta)
         
-        let alat = json["latitude"].double!
-        let along = json["longitude"].double!
-        let name = json["name"].stringValue
-        let link = json["link"].stringValue
-        
-        let vc = segue.destination as! ColorViewController
-        vc.endLocation = CLLocation(latitude: alat, longitude: along)
-        vc.startLocation = CLLocation(latitude: (coordinate()?.latitude)!, longitude: (coordinate()?.longitude)!)
-        vc.name = name
-        vc.link = link
-        print("Destination: \(alat) \(along)")
+            let alat = json["latitude"].double!
+            let along = json["longitude"].double!
+            let name = json["name"].stringValue
+            let link = json["link"].stringValue
+            
+            let vc = segue.destination as! ColorViewController
+            vc.endLocation = CLLocation(latitude: alat, longitude: along)
+            vc.startLocation = CLLocation(latitude: (coordinate()?.latitude)!, longitude: (coordinate()?.longitude)!)
+            vc.name = name
+            vc.link = link
+            print("Destination: \(alat) \(along)")
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
