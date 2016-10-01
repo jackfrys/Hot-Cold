@@ -12,10 +12,10 @@ import SwiftyJSON
 
 class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
     
-    var curLat:Double = 0
-    var curLong:Double = 0
-    var newLong:Double = 0
-    var newLat:Double = 0
+    var curLat = 0.0
+    var curLong = 0.0
+    var newLong = 0.0
+    var newLat = 0.0
 
     @IBOutlet weak var logoImageVIew: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -23,15 +23,12 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var goButtonOutlet: UIButton!
     @IBOutlet weak var radiusSlider: UISlider!
     
-    var locationManager:CLLocationManager!
+    var locationManager = CLLocationManager()
     
-    var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
-    var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
-    var radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
+    let placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
+    let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
+    let radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
-    var lastSelectedPickerViewButton = UIButton()
-    
-    var placeTypeIndex = 0
     var radiusIndex = 0
     
     var radius: Double {
@@ -45,16 +42,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         self.updateUI()
     }
     
-    @IBAction func tapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        self.lastSelectedPickerViewButton = UIButton()
-        self.updateUI()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
         
-        locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         print("requesting in viewdidload")
@@ -69,11 +60,11 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func updateUI() {
         let r = String(format: "%0.1f", self.radius)
-        self.descriptionLabel.text = "\(self.placeTypeOptions[self.placeTypeIndex])\nwithin \(r) miles"
+        self.descriptionLabel.text = "\(self.placeTypeOptions[myPickerView.selectedRow(inComponent: 0)])\nwithin \(r) miles"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
+        let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[myPickerView.selectedRow(inComponent: 0)])&userLat=\(self.curLat)&userLong=\(self.curLong)&radius=\(self.radius)")
         
         let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.cont(d: data, segue: segue)})
         d.resume()
@@ -108,20 +99,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.placeTypeIndex = row
         self.updateUI()
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return pickerView.frame.size.width * 0.8
-    }
-    
-    func setIndex(_ index: Int) {
-        if (self.lastSelectedPickerViewButton.currentTitle == "Finding:") {
-            self.placeTypeIndex = index
-        } else {
-            self.radiusIndex = index
-        }
-        self.updateUI()
     }
 }
