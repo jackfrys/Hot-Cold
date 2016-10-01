@@ -25,7 +25,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     var locationManager:CLLocationManager!
     
-    var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks"] //, "Geocaches"]
+    var placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
     var placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     var radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
@@ -52,7 +52,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bkg.png")!)
         self.updateUI()
         
         locationManager = CLLocationManager()
@@ -62,12 +61,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
-    
-//    func locationManager(_ manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
-//        //println("locations = \(locations)")
-//        curLat = (manager.location?.coordinate.latitude)!
-//        curLong = (manager.location?.coordinate.longitude)!
-//    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         curLat = (manager.location?.coordinate.latitude)!
