@@ -17,7 +17,7 @@
 		7014A7E51A869EAB0039A435 /* SharedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7014A7E41A869EAB0039A435 /* SharedLocation.swift */; };
 		707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 707EE92B1ACF8C51007CB4C9 /* bkg.png */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
-		70B5BA291D93746D00122AD8 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5BA261D93727200122AD8 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		70B5BA2B1D9391EB00122AD8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5BA261D93727200122AD8 /* SwiftyJSON.framework */; };
 		70D948391ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -30,20 +30,6 @@
 			remoteInfo = HotCold;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		701023871D8FB652006F532D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				70B5BA291D93746D00122AD8 /* SwiftyJSON.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5635D1CF1A866ECB00EC1871 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -69,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B5BA2B1D9391EB00122AD8 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +149,7 @@
 				7002A60A1A85C5EA00CD29BE /* Sources */,
 				7002A60B1A85C5EA00CD29BE /* Frameworks */,
 				7002A60C1A85C5EA00CD29BE /* Resources */,
-				701023871D8FB652006F532D /* Embed Frameworks */,
+				70B5BA2A1D938E8000122AD8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -254,6 +241,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70B5BA2A1D938E8000122AD8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7002A60A1A85C5EA00CD29BE /* Sources */ = {
