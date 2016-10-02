@@ -82,20 +82,6 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             
         }
     }
-//    // If updating locations
-//    func locationManager(_ manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        self.currentLocation2d = manager.location?.coordinate
-//        distance = (manager.location?.distance(from: dummyLocation))!
-//        if(distance < 10.0) {
-//            let alert = UIAlertView()
-//            alert.title = "Congratulations:"
-//            alert.message = "You have arrived"
-//            alert.addButton(withTitle: "Later")
-//            alert.addButton(withTitle: "View")
-//            alert.show()
-//        }
-//        
-//    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation2d = manager.location?.coordinate
@@ -111,17 +97,4 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             controller?.present(alert, animated: true, completion: nil)
         }
     }
-    
-    // Uncomment if you want to use geofencing!
-    //    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-    //
-    //        var alert = UIAlertView()
-    //        alert.title = "New Secure Communication:"
-    //        alert.message = "You have arrived"
-    //        alert.addButtonWithTitle("Later")
-    //        alert.addButtonWithTitle("View")
-    //        alert.show()
-    //
-    //    }
-    
 }
