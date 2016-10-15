@@ -63,23 +63,19 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         case .notDetermined:
             print(".NotDetermined")
             break
-            
         case .authorizedAlways:
             print(".Authorized")
             self.locationManager.startUpdatingLocation()
             break
-            
         case .denied:
             print(".Denied")
             break
-            
         case .authorizedWhenInUse:
             self.locationManager.startUpdatingLocation()
-            
+            break
         default:
             print("Unhandled authorization status")
             break
-            
         }
     }
     
