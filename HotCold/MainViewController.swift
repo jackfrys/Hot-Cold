@@ -19,7 +19,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     private var newLong = 0.0
     private var newLat = 0.0
 
-    @IBOutlet weak var logoImageVIew: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var goButtonOutlet: UIButton!
