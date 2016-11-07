@@ -14,10 +14,7 @@ import CoreLocation
 class ColorViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var colorView: UIView!
-    
     @IBOutlet weak var warmerOrColder: UILabel!
-    
-    fileprivate var myContext = 0
     
     var startDistance: Double?
     var prevProgress:CGFloat = 0
@@ -41,12 +38,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set background to blue
         colorView.backgroundColor = UIColor.blue
-        
-        
-        print(startLocation)
-        print(endLocation)
         
         warmerOrColder.isHidden = true
         

@@ -15,9 +15,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     private func coordinate() -> CLLocationCoordinate2D? {
         return locationManager.location?.coordinate
     }
-    
-    private var newLong = 0.0
-    private var newLat = 0.0
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var myPickerView: UIPickerView!
