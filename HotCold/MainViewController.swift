@@ -57,7 +57,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let url = URL(string: "http://hc.milodavis.com/getLocation.php?locType=\(placeTypeRequest[myPickerView.selectedRow(inComponent: 0)])&userLat=\(coordinate()?.latitude)&userLong=\(coordinate()?.longitude)&radius=\(self.radius)")
+        let url = URL(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/?locType=\(placeTypeRequest[myPickerView.selectedRow(inComponent: 0)])&userLat=\((coordinate()?.latitude)!)&userLong=\((coordinate()?.longitude)!)&radius=\(self.radius)")
         
         let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.cont(d: data, segue: segue)})
         d.resume()
