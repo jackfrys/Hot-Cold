@@ -15,6 +15,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     private func coordinate() -> CLLocationCoordinate2D? {
         return locationManager.location?.coordinate
     }
+    
+    let model = HotColdModel()
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var myPickerView: UIPickerView!
