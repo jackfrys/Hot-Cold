@@ -14,15 +14,15 @@ class HotColdModel {
     var game: Game?
     
     func backgroundColor() -> UIColor {
-        return UIColor()
+        return game!.backgroundColor()
     }
     
     func destinationUrl() -> URL {
-        return URL(string: "")!
+        return game!.destinationUrl()
     }
     
     func directiveText() -> String {
-        return ""
+        return game!.directiveText()
     }
     
     func placeType(atIndex: Int) -> String {
@@ -42,6 +42,18 @@ class HotColdModel {
             self.category = forCategoryAtIndex
             self.radius = radius
             self.delegate = withDelegate
+        }
+        
+        func backgroundColor() -> UIColor {
+            return UIColor()
+        }
+        
+        func destinationUrl() -> URL {
+            return URL(string: "")!
+        }
+        
+        func directiveText() -> String {
+            return ""
         }
     }
 }
