@@ -58,9 +58,17 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     func sendApiCall(placeTypeIndex: Int, radius: Double) {
-        let url = URL(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/?locType=\(placeTypeRequest[placeTypeIndex])&userLat=\((location.locationManager.location?.coordinate.latitude)!)&userLong=\((location.locationManager.location?.coordinate.longitude)!)&radius=\(radius)")
+        let components = NSURLComponents(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/")
         
-        let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "locType", value: placeTypeRequest[placeTypeIndex]))
+        queryItems.append(URLQueryItem(name: "userLat", value: String(describing: (location.locationManager.location?.coordinate.latitude)!)))
+        queryItems.append(URLQueryItem(name: "userLong", value: String(describing: (location.locationManager.location?.coordinate.longitude)!)))
+        queryItems.append(URLQueryItem(name: "radius", value: String(describing: radius)))
+
+        components?.queryItems = queryItems
+
+        let d = URLSession.shared.dataTask(with: (components?.url)!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
         d.resume()
     }
     
