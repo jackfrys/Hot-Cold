@@ -111,8 +111,8 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
         
         func ratio() -> CGFloat {
-            let top : Double = Double(start.distance(from: currentLocation()))
-            let bottom : Double = Double(start.distance(from: end))
+            let top = Double(end.distance(from: currentLocation()))
+            let bottom = Double(start.distance(from: end))
             
             return CGFloat(top / bottom)
         }
@@ -136,9 +136,9 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             let myProgress : CGFloat = (1.0 - ratio)
             
             if (myProgress <= 0.5) {
-                let newRed:CGFloat   = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
-                let newGreen:CGFloat  = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
-                let newBlue:CGFloat   = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
+                let newRed:CGFloat = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
+                let newGreen:CGFloat = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
+                let newBlue:CGFloat = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
                 
                 return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
             }

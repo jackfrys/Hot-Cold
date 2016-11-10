@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 import CoreLocation
 
-class ColorViewController: UIViewController, CLLocationManagerDelegate, HotColdDelegate {
+class ColorViewController: UIViewController, HotColdDelegate {
     
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var warmerOrColder: UILabel!
@@ -27,13 +27,6 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate, HotColdD
             startDistance = endLocation!.distance(from: startLocation!)
         }
     }
-    var name = ""
-    var link = ""
-    var hasAlerted = false
-    
-    let arrivedDistance = 20.0
-    
-    var locationManager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +37,7 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate, HotColdD
         self.dismiss(animated: true, completion: nil)
     }
     
-    func showWebpage() {
-        let url = URL(string: link)!
+    func showWebpage(url: URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
     }
     
@@ -57,13 +49,13 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate, HotColdD
     }
     
     func gameFinished(model: HotColdModel) {
-        let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + name, preferredStyle: UIAlertControllerStyle.alert)
-        alert.title = "You Have Arrived!"
+        let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + model.destinationName(), preferredStyle: UIAlertControllerStyle.alert)
+        //alert.title = "You Have Arrived!"
         print("name: \(model.destinationName())")
         print("link: \(model.destinationUrl())")
-        alert.message = "This is " + name
+        //alert.message = "This is " + model.destinationName()
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
-        alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage()}))
+        alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage(url: model.destinationUrl())}))
         present(alert, animated: true, completion: nil)
 
     }
