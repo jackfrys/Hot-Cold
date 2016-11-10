@@ -7,27 +7,15 @@
 //
 
 import UIKit
-import CoreLocation
-import SwiftyJSON
 
-class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate {
+class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    private func coordinate() -> CLLocationCoordinate2D? {
-        return locationManager.location?.coordinate
-    }
-    
-    let model = HotColdModel()
+    private let model = HotColdModel()
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var goButtonOutlet: UIButton!
     @IBOutlet weak var radiusSlider: UISlider!
-    
-    private var locationManager = CLLocationManager()
-
-    private let radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
-    
-    private var radiusIndex = 0
     
     private var radius: Double {
         get {
@@ -43,12 +31,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        print("requesting in viewdidload")
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
     }
     
     private func updateUI() {
