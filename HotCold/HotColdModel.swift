@@ -18,6 +18,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     var delegate : HotColdDelegate?
     
     private let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
+    private let placeTypeNames = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
     
     override init() {
         super.init()
@@ -41,11 +42,11 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     func placeType(atIndex: Int) -> String {
-        return ["Restaurants", "Historical Landmarks", "Museums", "Parks"][atIndex]
+        return placeTypeNames[atIndex]
     }
     
     func placeTypeCount() -> Int {
-        return 4
+        return placeTypeRequest.count
     }
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
