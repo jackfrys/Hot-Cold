@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import SwiftyJSON
 import UIKit
+import CoreLocation
 
 class HotColdModel {
     
     var game: Game?
+    let location = SharedLocation.sharedLocation
+    var delegate : HotColdDelegate?
     
     func backgroundColor() -> UIColor {
         return game!.backgroundColor()
@@ -34,18 +38,44 @@ class HotColdModel {
     }
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
-        self.game = Game(forCategoryAtIndex: forCategoryAtIndex, radius: radius, withDelegate: withDelegate)
+        self.delegate = withDelegate
+        self.sendApiCall(placeTypeIndex: forCategoryAtIndex, radius: radius)
+    }
+    
+    func sendApiCall(placeTypeIndex: Int, radius: Double) {
+        let url = URL(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/?locType=\(placeType(atIndex: placeTypeIndex))&userLat=\((location.locationManager.location?.coordinate.latitude)!)&userLong=\((location.locationManager.location?.coordinate.longitude)!)&radius=\(radius)")
+        
+        let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
+        d.resume()
+    }
+    
+    func handleResponse(data: Data?) {
+        if let dta = data {
+            let json = JSON(data: dta)
+            
+            let alat = json["latitude"].double!
+            let along = json["longitude"].double!
+            let name = json["name"].stringValue
+            let link = json["link"].stringValue
+            
+            self.game = Game(start: location.locationManager.location!, end: CLLocation(latitude: alat, longitude: along), name: name, url: link)
+            delegate?.gameStarted()
+        } else {
+            delegate?.gameFailedToStart()
+        }
     }
     
     class Game {
-        let category: Int
-        let radius: Double
-        let delegate: HotColdDelegate
+        let start : CLLocation
+        let end : CLLocation
+        let name : String
+        let url : String
         
-        init(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
-            self.category = forCategoryAtIndex
-            self.radius = radius
-            self.delegate = withDelegate
+        init(start: CLLocation, end: CLLocation, name: String, url: String) {
+            self.start = start
+            self.end = end
+            self.name = name
+            self.url = url
         }
         
         func backgroundColor() -> UIColor {
@@ -53,7 +83,7 @@ class HotColdModel {
         }
         
         func destinationUrl() -> URL {
-            return URL(string: "")!
+            return URL(string: self.url)!
         }
         
         func directiveText() -> String {
@@ -66,6 +96,8 @@ protocol HotColdDelegate {
     func locationChanged()
     
     func gameStarted()
+    
+    func gameFailedToStart()
     
     func gameFinished()
 }
