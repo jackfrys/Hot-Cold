@@ -127,9 +127,6 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
         
         func backgroundColor() -> UIColor {
-            let ratio = self.ratio()
-            
-            // RGB COLOR INTERPOLATION
             let red:CGFloat = 0
             let green:CGFloat = 0
             let blue:CGFloat = 1.0
@@ -142,7 +139,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             let finalGreen:CGFloat = 0
             let finalBlue:CGFloat = 0
             
-            let myProgress : CGFloat = (1.0 - ratio)
+            let myProgress : CGFloat = (1.0 - self.ratio())
             
             if (myProgress <= 0.5) {
                 let newRed:CGFloat = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
