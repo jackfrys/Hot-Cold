@@ -11,6 +11,8 @@ import UIKit
 
 class HotColdModel {
     
+    var game: Game?
+    
     func backgroundColor() -> UIColor {
         return UIColor()
     }
@@ -28,7 +30,19 @@ class HotColdModel {
     }
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
+        self.game = Game(forCategoryAtIndex: forCategoryAtIndex, radius: radius, withDelegate: withDelegate)
+    }
+    
+    class Game {
+        let category: Int
+        let radius: Double
+        let delegate: HotColdDelegate
         
+        init(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
+            self.category = forCategoryAtIndex
+            self.radius = radius
+            self.delegate = withDelegate
+        }
     }
 }
 
