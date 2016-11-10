@@ -13,9 +13,9 @@ import CoreLocation
 
 class HotColdModel : NSObject, CLLocationManagerDelegate {
     
-    var game: Game?
-    let location = SharedLocation.sharedLocation
-    var delegate : HotColdDelegate?
+    private var game: Game?
+    private let location = SharedLocation.sharedLocation
+    private var delegate : HotColdDelegate?
     
     private let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     private let placeTypeNames = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
@@ -54,11 +54,11 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         self.sendApiCall(placeTypeIndex: forCategoryAtIndex, radius: radius)
     }
     
-    func terminateGame() {
+    private func terminateGame() {
         self.game = nil
     }
     
-    func sendApiCall(placeTypeIndex: Int, radius: Double) {
+    private func sendApiCall(placeTypeIndex: Int, radius: Double) {
         let components = NSURLComponents(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/")
         
         var queryItems = [URLQueryItem]()
@@ -83,7 +83,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func handleResponse(data: Data?) {
+    private func handleResponse(data: Data?) {
         if let dta = data {
             let json = JSON(data: dta)
             
@@ -99,13 +99,13 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    class Game {
-        let start : CLLocation
-        let end : CLLocation
-        let name : String
-        let url : String
+    private class Game {
+        private let start : CLLocation
+        private let end : CLLocation
+        private let name : String
+        private let url : String
         
-        var prevProgress : CGFloat
+        private var prevProgress : CGFloat
         
         init(start: CLLocation, end: CLLocation, name: String, url: String) {
             self.start = start
@@ -119,7 +119,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             self.prevProgress = 0
         }
         
-        func ratio() -> CGFloat {
+        private func ratio() -> CGFloat {
             let top = Double(end.distance(from: currentLocation()))
             let bottom = Double(start.distance(from: end))
             
@@ -178,7 +178,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             return text
         }
         
-        func currentLocation() -> CLLocation {
+        private func currentLocation() -> CLLocation {
             return SharedLocation.sharedLocation.location()!
         }
         
