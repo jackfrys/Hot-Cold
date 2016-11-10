@@ -25,7 +25,6 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     private var locationManager = CLLocationManager()
     
-    private let placeTypeOptions = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
     private let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     private let radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
@@ -55,7 +54,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     private func updateUI() {
         let r = String(format: "%0.1f", self.radius)
-        self.descriptionLabel.text = "\(self.placeTypeOptions[myPickerView.selectedRow(inComponent: 0)])\nwithin \(r) miles"
+        self.descriptionLabel.text = "\(self.model.placeType(atIndex: myPickerView.selectedRow(inComponent: 0)))\nwithin \(r) miles"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
@@ -88,11 +87,11 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.placeTypeOptions.count
+        return self.model.placeTypeCount()
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.placeTypeOptions[row]
+        return self.model.placeType(atIndex: row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

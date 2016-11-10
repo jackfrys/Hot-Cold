@@ -29,6 +29,10 @@ class HotColdModel {
         return ["Restaurants", "Historical Landmarks", "Museums", "Parks"][atIndex]
     }
     
+    func placeTypeCount() -> Int {
+        return 4
+    }
+    
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
         self.game = Game(forCategoryAtIndex: forCategoryAtIndex, radius: radius, withDelegate: withDelegate)
     }
