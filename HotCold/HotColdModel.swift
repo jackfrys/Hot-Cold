@@ -31,3 +31,9 @@ class HotColdModel {
         
     }
 }
+
+protocol HotColdDelegate {
+    func locationChanged()
+    
+    func gameStarted()
+}
