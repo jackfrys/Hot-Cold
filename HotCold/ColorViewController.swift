@@ -16,18 +16,6 @@ class ColorViewController: UIViewController, HotColdDelegate {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var warmerOrColder: UILabel!
     
-    var startDistance: Double?
-    var prevProgress:CGFloat = 0
-    
-    dynamic var distance: CLLocationDistance = 0
-    
-    var endLocation: CLLocation?
-    var startLocation: CLLocation? {
-        didSet {
-            startDistance = endLocation!.distance(from: startLocation!)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.backgroundColor = UIColor.blue
@@ -37,7 +25,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func showWebpage(url: URL) {
+    private func showWebpage(url: URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
     }
     
