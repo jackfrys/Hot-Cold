@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 import CoreLocation
 
-class ColorViewController: UIViewController, CLLocationManagerDelegate {
+class ColorViewController: UIViewController, CLLocationManagerDelegate, HotColdDelegate {
     
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var warmerOrColder: UILabel!
@@ -37,40 +37,11 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         colorView.backgroundColor = UIColor.blue
-        
-        warmerOrColder.isHidden = true
-        
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        
     }
     
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let e = endLocation, let s = startDistance {
-            distance = (manager.location?.distance(from: e))!
-            print("INCREMENTED: \(distance)")
-            if(distance < self.arrivedDistance && !hasAlerted) {
-                let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + name, preferredStyle: UIAlertControllerStyle.alert)
-                alert.title = "You Have Arrived!"
-                print("name: \(name)")
-                print("link: \(link)")
-                alert.message = "This is " + name
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
-                alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage()}))
-                present(alert, animated: true, completion: nil)
-                hasAlerted = true
-            }
-            colorView.backgroundColor = progressColor(CGFloat(distance / s))
-        }
     }
     
     func showWebpage() {
@@ -78,51 +49,31 @@ class ColorViewController: UIViewController, CLLocationManagerDelegate {
         UIApplication.shared.open(url, options: [:], completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
     }
     
-    func progressColor(_ ratio: CGFloat) -> UIColor {
-        // RGB COLOR INTERPOLATION
-        let red:CGFloat = 0
-        let green:CGFloat = 0
-        let blue:CGFloat = 1.0
-        
-        let middleRed:CGFloat = 1.0
-        let middleGreen:CGFloat = 1.0
-        let middleBlue:CGFloat = 1.0
-        
-        let finalRed:CGFloat = 1.0
-        let finalGreen:CGFloat = 0
-        let finalBlue:CGFloat = 0
-        
-        print("previous: \(prevProgress)")
-        let myProgress:CGFloat = (1.0 - ratio)
-        print("progress: \(myProgress)")
-        
-        if (prevProgress < myProgress) {
-            warmerOrColder.text = "Warmer"
-            warmerOrColder.isHidden = false
-        } else if (prevProgress > myProgress) {
-            warmerOrColder.text = "Colder"
-            warmerOrColder.isHidden = false
-            
-        } else {
-            warmerOrColder.isHidden = true
+    func locationChanged(model: HotColdModel) {
+        warmerOrColder.text = model.directiveText()
+        if let color = model.backgroundColor() {
+            colorView.backgroundColor = color
         }
+    }
+    
+    func gameFinished(model: HotColdModel) {
+        let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + name, preferredStyle: UIAlertControllerStyle.alert)
+        alert.title = "You Have Arrived!"
+        print("name: \(model.destinationName())")
+        print("link: \(model.destinationUrl())")
+        alert.message = "This is " + name
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+        alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage()}))
+        present(alert, animated: true, completion: nil)
+
+    }
+    
+    func gameFailedToStart(model: HotColdModel) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func gameStarted(model: HotColdModel) {
         
-        prevProgress = myProgress
-        
-        if (myProgress <= 0.5) {
-            let newRed:CGFloat   = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
-            let newGreen:CGFloat  = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
-            let newBlue:CGFloat   = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
-            
-            return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
-        }
-        else {
-            let newRed:CGFloat = finalRed * (myProgress - 0.5) * 2.0 + middleRed * (1.0 - myProgress) * 2.0
-            let newGreen:CGFloat = finalGreen * (myProgress - 0.5) * 2.0 + middleGreen * (1.0 - myProgress) * 2.0
-            let newBlue:CGFloat = finalBlue * (myProgress - 0.5) * 2.0 + middleBlue * (1.0 - myProgress) * 2.0
-            
-            return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
-        }
     }
 }
 

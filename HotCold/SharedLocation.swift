@@ -30,6 +30,12 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
     // Closest Chipotle: lat 42.362428, long -71.085611
     let dummyLocationCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(42.362428, -71.085611)
     let dummyLocation: CLLocation
+    
+    var delegate : CLLocationManagerDelegate? {
+        didSet {
+            locationManager.delegate = delegate
+        }
+    }
         
     private override init() {
         // Update every 5 meters
@@ -46,6 +52,10 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         self.distance = 100.0
         super.init()
         self.locationManager.delegate = self
+    }
+    
+    func location() -> CLLocation? {
+        return locationManager.location
     }
     
     func stopUpdatingLocation() {
@@ -76,21 +86,6 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         default:
             print("Unhandled authorization status")
             break
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.currentLocation2d = manager.location?.coordinate
-        distance = (manager.location?.distance(from: dummyLocation))!
-        if(distance < 10.0) {
-            let alert = UIAlertController(title: "Congratulations:", message: "You have arrived", preferredStyle: UIAlertControllerStyle.alert)
-            alert.title = "Congratulations:"
-            alert.message = "You have arrived"
-            let b = UIAlertAction(title: "Later", style: UIAlertActionStyle.default, handler: nil)
-            let b1 = UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: nil)
-            alert.addAction(b)
-            alert.addAction(b1)
-            controller?.present(alert, animated: true, completion: nil)
         }
     }
 }

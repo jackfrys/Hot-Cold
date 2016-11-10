@@ -24,8 +24,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var radiusSlider: UISlider!
     
     private var locationManager = CLLocationManager()
-    
-    private let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
+
     private let radiusOptions = [0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0]
     
     private var radiusIndex = 0
@@ -58,28 +57,7 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let url = URL(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/?locType=\(placeTypeRequest[myPickerView.selectedRow(inComponent: 0)])&userLat=\((coordinate()?.latitude)!)&userLong=\((coordinate()?.longitude)!)&radius=\(self.radius)")
-        
-        let d = URLSession.shared.dataTask(with: url!, completionHandler: {(data, r, error) in self.cont(d: data, segue: segue)})
-        d.resume()
-    }
-    
-    private func cont(d: Data?, segue: UIStoryboardSegue) {
-        if let dta = d {
-            let json = JSON(data: dta)
-        
-            let alat = json["latitude"].double!
-            let along = json["longitude"].double!
-            let name = json["name"].stringValue
-            let link = json["link"].stringValue
-            
-            let vc = segue.destination as! ColorViewController
-            vc.endLocation = CLLocation(latitude: alat, longitude: along)
-            vc.startLocation = CLLocation(latitude: (coordinate()?.latitude)!, longitude: (coordinate()?.longitude)!)
-            vc.name = name
-            vc.link = link
-            print("Destination: \(alat) \(along)")
-        }
+        model.startGame(forCategoryAtIndex: myPickerView.selectedRow(inComponent: 0), radius: radius, withDelegate: segue.destination as! ColorViewController)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
