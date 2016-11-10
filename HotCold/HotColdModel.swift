@@ -27,7 +27,7 @@ class HotColdModel {
         return ""
     }
     
-    func startGame(forCategoryAtIndex: Int, radius: Double) {
+    func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
         
     }
 }
