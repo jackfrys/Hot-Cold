@@ -26,7 +26,7 @@ class HotColdModel {
     }
     
     func placeType(atIndex: Int) -> String {
-        return ""
+        return ["Restaurants", "Historical Landmarks", "Museums", "Parks"][atIndex]
     }
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
@@ -62,4 +62,6 @@ protocol HotColdDelegate {
     func locationChanged()
     
     func gameStarted()
+    
+    func gameFinished()
 }
