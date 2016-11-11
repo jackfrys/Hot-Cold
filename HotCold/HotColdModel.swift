@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import SwiftyBeaver
 import CoreLocation
 import UIKit
 
@@ -19,6 +20,8 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     
     private let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     private let placeTypeNames = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
+    
+    private let log = SwiftyBeaver.self
     
     override init() {
         super.init()
@@ -69,6 +72,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
 
         components?.queryItems = queryItems
 
+        log.debug((components?.url)!)
         let d = URLSession.shared.dataTask(with: (components?.url)!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
         d.resume()
     }
@@ -78,6 +82,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         if let finished = game?.gameFinished() {
             if finished {
+                log.debug("game finished")
                 delegate?.gameFinished(model: self)
             }
         }
