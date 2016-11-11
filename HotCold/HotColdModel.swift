@@ -46,7 +46,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     func placeTypeCount() -> Int {
-        return placeTypeRequest.count
+        return placeTypeNames.count
     }
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
