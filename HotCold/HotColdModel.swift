@@ -8,8 +8,8 @@
 
 import Foundation
 import SwiftyJSON
-import UIKit
 import CoreLocation
+import UIKit
 
 class HotColdModel : NSObject, CLLocationManagerDelegate {
     
@@ -25,7 +25,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         location.delegate = self
     }
     
-    func backgroundColor() -> UIColor? {
+    func backgroundColor() -> (CGFloat, CGFloat, CGFloat)? {
         return game?.backgroundColor()
     }
     
@@ -126,7 +126,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             return CGFloat(top / bottom)
         }
         
-        func backgroundColor() -> UIColor {
+        func backgroundColor() -> (CGFloat, CGFloat, CGFloat) {
             let red:CGFloat = 0
             let green:CGFloat = 0
             let blue:CGFloat = 1.0
@@ -146,14 +146,14 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
                 let newGreen:CGFloat = middleGreen * myProgress * 2.0 + green * (0.5 - myProgress) * 2.0
                 let newBlue:CGFloat = middleBlue * myProgress * 2.0 + blue * (0.5 - myProgress) * 2.0
                 
-                return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+                return (newRed, newGreen, newBlue)
             }
             else {
                 let newRed:CGFloat = finalRed * (myProgress - 0.5) * 2.0 + middleRed * (1.0 - myProgress) * 2.0
                 let newGreen:CGFloat = finalGreen * (myProgress - 0.5) * 2.0 + middleGreen * (1.0 - myProgress) * 2.0
                 let newBlue:CGFloat = finalBlue * (myProgress - 0.5) * 2.0 + middleBlue * (1.0 - myProgress) * 2.0
                 
-                return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+                return (newRed, newGreen, newBlue)
             }
         }
         

@@ -32,8 +32,12 @@ class ColorViewController: UIViewController, HotColdDelegate {
     func locationChanged(model: HotColdModel) {
         warmerOrColder.text = model.directiveText()
         if let color = model.backgroundColor() {
-            colorView.backgroundColor = color
+            colorView.backgroundColor = backgroundColor(rgb: color)
         }
+    }
+    
+    private func backgroundColor(rgb: (CGFloat, CGFloat, CGFloat)) -> UIColor {
+        return UIColor(red: rgb.0, green: rgb.1, blue: rgb.2, alpha: 1.0)
     }
     
     func gameFinished(model: HotColdModel) {
