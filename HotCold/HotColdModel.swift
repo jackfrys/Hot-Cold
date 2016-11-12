@@ -62,7 +62,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     private func sendApiCall(placeTypeIndex: Int, radius: Double) {
-        let components = NSURLComponents(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/")
+        let components = NSURLComponents(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/")!
         
         var queryItems = [URLQueryItem]()
         queryItems.append(URLQueryItem(name: "locType", value: placeTypeRequest[placeTypeIndex]))
@@ -70,10 +70,10 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         queryItems.append(URLQueryItem(name: "userLong", value: String(describing: (location.locationManager.location?.coordinate.longitude)!)))
         queryItems.append(URLQueryItem(name: "radius", value: String(describing: radius)))
 
-        components?.queryItems = queryItems
-
-        log.debug((components?.url)!)
-        let d = URLSession.shared.dataTask(with: (components?.url)!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
+        components.queryItems = queryItems
+        log.info(components.url!)
+        
+        let d = URLSession.shared.dataTask(with: components.url!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
         d.resume()
     }
     
@@ -82,7 +82,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         if let finished = game?.gameFinished() {
             if finished {
-                log.debug("game finished")
+                log.info("game finished")
                 delegate?.gameFinished(model: self)
             }
         }
@@ -112,14 +112,16 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         private var prevProgress : CGFloat
         
+        private let log = SwiftyBeaver.self
+        
         init(start: CLLocation, end: CLLocation, name: String, url: String) {
             self.start = start
             self.end = end
             self.name = name
             self.url = url
             
-            print(end.coordinate.latitude)
-            print(end.coordinate.longitude)
+            log.info(end.coordinate.latitude)
+            log.info(end.coordinate.longitude)
             
             self.prevProgress = 0
         }

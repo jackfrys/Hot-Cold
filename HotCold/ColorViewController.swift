@@ -30,10 +30,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
     
     func locationChanged(model: HotColdModel) {
-        warmerOrColder.text = model.directiveText()
-        if let color = model.backgroundColor() {
-            colorView.backgroundColor = backgroundColor(rgb: color)
-        }
+        updateUI(model: model)
     }
     
     private func backgroundColor(rgb: (CGFloat, CGFloat, CGFloat)) -> UIColor {
@@ -57,7 +54,14 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
     
     func gameStarted(model: HotColdModel) {
-        
+        updateUI(model: model)
+    }
+    
+    private func updateUI(model: HotColdModel) {
+        warmerOrColder.text = model.directiveText()
+        if let color = model.backgroundColor() {
+            colorView.backgroundColor = backgroundColor(rgb: color)
+        }
     }
 }
 
