@@ -57,8 +57,9 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         self.sendApiCall(placeTypeIndex: forCategoryAtIndex, radius: radius)
     }
     
-    private func terminateGame() {
+    func terminateGame() {
         self.game = nil
+        log.debug("Game terminated.")
     }
     
     private func sendApiCall(placeTypeIndex: Int, radius: Double) {
@@ -82,7 +83,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         if let finished = game?.gameFinished() {
             if finished {
-                log.info("game finished")
+                log.debug("Game finished.")
                 delegate?.gameFinished(model: self)
             }
         }
@@ -98,6 +99,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             let link = json["link"].stringValue
             
             self.game = Game(start: location.locationManager.location!, end: CLLocation(latitude: alat, longitude: along), name: name, url: link)
+            log.debug("Game started.")
             delegate?.gameStarted(model: self)
         } else {
             delegate?.gameFailedToStart(model: self)

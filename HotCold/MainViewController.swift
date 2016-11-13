@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyBeaver
 
 class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -16,6 +17,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var goButtonOutlet: UIButton!
     @IBOutlet weak var radiusSlider: UISlider!
+    
+    let log = SwiftyBeaver.self
     
     private var radius: Double {
         get {
@@ -31,6 +34,10 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        model.terminateGame()
     }
     
     private func updateUI() {
