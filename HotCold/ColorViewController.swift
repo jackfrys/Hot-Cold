@@ -36,6 +36,10 @@ class ColorViewController: UIViewController, HotColdDelegate {
         updateUI(model: model)
     }
     
+    private func updateUI(model: HotColdModel) {
+        performSelector(onMainThread: #selector(self.updateUIPrivate), with: model, waitUntilDone: false)
+    }
+    
     private func backgroundColor(rgb: (CGFloat, CGFloat, CGFloat)) -> UIColor {
         return UIColor(red: rgb.0, green: rgb.1, blue: rgb.2, alpha: 1.0)
     }
@@ -61,7 +65,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
         log.debug("Game started.")
     }
     
-    private func updateUI(model: HotColdModel) {
+    @objc private func updateUIPrivate(model: HotColdModel) {
         if let text = model.directiveText() {
             warmerOrColder.text = text
         } else {
