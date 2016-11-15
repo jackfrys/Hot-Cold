@@ -41,6 +41,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     func directiveText() -> String? {
+        log.debug(game?.directiveText())
         return game?.directiveText()
     }
     
@@ -79,6 +80,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        log.debug("Location changed.")
         delegate?.locationChanged(model: self)
         
         if let finished = game?.gameFinished() {

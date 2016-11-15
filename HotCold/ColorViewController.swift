@@ -10,11 +10,14 @@ import UIKit
 
 import Foundation
 import CoreLocation
+import SwiftyBeaver
 
 class ColorViewController: UIViewController, HotColdDelegate {
     
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var warmerOrColder: UILabel!
+    
+    let log = SwiftyBeaver.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +58,17 @@ class ColorViewController: UIViewController, HotColdDelegate {
     
     func gameStarted(model: HotColdModel) {
         updateUI(model: model)
+        log.debug("Game started.")
     }
     
     private func updateUI(model: HotColdModel) {
-        warmerOrColder.text = model.directiveText()
+        if let text = model.directiveText() {
+            warmerOrColder.text = text
+        } else {
+            warmerOrColder.text = "loading..."
+        }
+//        log.debug("Text: " + warmerOrColder.text)
+//        log.debug("Model: " + model.directiveText()!)
         if let color = model.backgroundColor() {
             colorView.backgroundColor = backgroundColor(rgb: color)
         }
