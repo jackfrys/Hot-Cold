@@ -16,7 +16,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     
     private var game: Game?
     private let location = SharedLocation.sharedLocation
-    private var delegate : HotColdDelegate?
+    private weak var delegate : HotColdDelegate?
     
     private let placeTypeRequest = ["restaurant", "history", "museum", "park", "geocache"]
     private let placeTypeNames = ["Restaurants", "Historical Landmarks", "Museums", "Parks"]
@@ -41,7 +41,6 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
     
     func directiveText() -> String? {
-        log.debug(game?.directiveText())
         return game?.directiveText()
     }
     
@@ -201,7 +200,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     }
 }
 
-protocol HotColdDelegate {
+protocol HotColdDelegate : class {
     func locationChanged(model: HotColdModel)
     
     func gameStarted(model: HotColdModel)
