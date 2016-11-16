@@ -51,7 +51,9 @@ class ColorViewController: UIViewController, HotColdDelegate {
         print("link: \(model.destinationUrl())")
         //alert.message = "This is " + model.destinationName()
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
-        alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage(url: model.destinationUrl())}))
+        if let destUrl = model.destinationUrl() {
+            alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage(url: destUrl)}))
+        }
         present(alert, animated: true, completion: nil)
 
     }

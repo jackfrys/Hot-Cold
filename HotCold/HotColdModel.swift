@@ -32,7 +32,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         return game?.backgroundColor()
     }
     
-    func destinationUrl() -> URL {
+    func destinationUrl() -> URL? {
         return game!.destinationUrl()
     }
     
@@ -168,8 +168,8 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             }
         }
         
-        func destinationUrl() -> URL {
-            return URL(string: self.url)!
+        func destinationUrl() -> URL? {
+            return URL(string: self.url)
         }
         
         func directiveText() -> String {
