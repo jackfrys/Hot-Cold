@@ -60,6 +60,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     
     func terminateGame() {
         self.game = nil
+        self.delegate = nil
         log.debug("Game terminated.")
     }
     
