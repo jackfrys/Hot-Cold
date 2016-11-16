@@ -66,13 +66,13 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
     
     @objc private func updateUIPrivate(model: HotColdModel) {
+        log.debug("Updating UI.")
         if let text = model.directiveText() {
+            log.debug("Directive text exists: " + text)
             warmerOrColder.text = text
         } else {
             warmerOrColder.text = "loading..."
         }
-//        log.debug("Text: " + warmerOrColder.text)
-//        log.debug("Model: " + model.directiveText()!)
         if let color = model.backgroundColor() {
             colorView.backgroundColor = backgroundColor(rgb: color)
         }
