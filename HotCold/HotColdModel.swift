@@ -76,9 +76,9 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
                 let lat = place.placemark.coordinate.latitude
                 let long = place.placemark.coordinate.longitude
                 let name = place.name!
-                let url = place.url!
+                let url = place.url
                 
-                self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: String(describing: url))
+                self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: url)
                 self.log.debug("Game started.")
                 self.delegate?.gameStarted(model: self)
             } else {
@@ -103,13 +103,13 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         private let start : CLLocation
         private let end : CLLocation
         private let name : String
-        private let url : String
+        private let url : URL?
         
         private var prevProgress : CGFloat
         
         private let log = SwiftyBeaver.self
         
-        init(start: CLLocation, end: CLLocation, name: String, url: String) {
+        init(start: CLLocation, end: CLLocation, name: String, url: URL?) {
             self.start = start
             self.end = end
             self.name = name
@@ -160,7 +160,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
         
         func destinationUrl() -> URL? {
-            return URL(string: self.url)
+            return self.url
         }
         
         func directiveText() -> String {
