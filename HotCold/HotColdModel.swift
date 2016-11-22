@@ -75,15 +75,22 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
                 return
             }
             
-            let place = r.mapItems[0]
-            let lat = place.placemark.coordinate.latitude
-            let long = place.placemark.coordinate.longitude
-            let name = place.name!
-            let url = place.url
+            for place in r.mapItems {
+                if place.placemark.location!.distance(from: self.location.locationManager.location!) < radius * 1609.34 {
+                    let lat = place.placemark.coordinate.latitude
+                    let long = place.placemark.coordinate.longitude
+                    let name = place.name!
+                    let url = place.url
+                    
+                    self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: url)
+                    self.log.debug("Game started.")
+                    self.delegate?.gameStarted(model: self)
+                    
+                    return
+                }
+            }
             
-            self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: url)
-            self.log.debug("Game started.")
-            self.delegate?.gameStarted(model: self)
+            self.delegate?.gameFailedToStart(model: self)
         })
     }
     
