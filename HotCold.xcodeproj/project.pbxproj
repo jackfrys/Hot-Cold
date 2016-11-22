@@ -18,7 +18,6 @@
 		704FA1341DD4412A00FB4CDB /* HotColdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704FA1331DD4412A00FB4CDB /* HotColdModel.swift */; };
 		707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 707EE92B1ACF8C51007CB4C9 /* bkg.png */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
-		70B5BA2B1D9391EB00122AD8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5BA261D93727200122AD8 /* SwiftyJSON.framework */; };
 		70D2A57F1DD57932006BA8ED /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045DA881DD56E8A0002E1B6 /* SwiftyBeaver.framework */; };
 		70D948391ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70D948381ADD715D00EC8D43 /* powered-by-google-on-non-white@2x.png */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				70D2A57F1DD57932006BA8ED /* SwiftyBeaver.framework in Frameworks */,
-				70B5BA2B1D9391EB00122AD8 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +256,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyBeaver.framework",
 			);
 			outputPaths = (

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 import SwiftyBeaver
 import CoreLocation
 import MapKit
