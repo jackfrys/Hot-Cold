@@ -71,19 +71,20 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         let search = MKLocalSearch(request: request)
         search.start(completionHandler: {(response, error) in
-            if let r = response {
-                let place = r.mapItems[0]
-                let lat = place.placemark.coordinate.latitude
-                let long = place.placemark.coordinate.longitude
-                let name = place.name!
-                let url = place.url
-                
-                self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: url)
-                self.log.debug("Game started.")
-                self.delegate?.gameStarted(model: self)
-            } else {
+            guard let r = response, r.mapItems.count > 0 else {
                 self.delegate?.gameFailedToStart(model: self)
+                return
             }
+            
+            let place = r.mapItems[0]
+            let lat = place.placemark.coordinate.latitude
+            let long = place.placemark.coordinate.longitude
+            let name = place.name!
+            let url = place.url
+            
+            self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: url)
+            self.log.debug("Game started.")
+            self.delegate?.gameStarted(model: self)
         })
     }
     
