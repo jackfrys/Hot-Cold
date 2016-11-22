@@ -75,8 +75,11 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
                 return
             }
             
+            self.log.debug(r.mapItems.count)
             for place in r.mapItems {
-                if place.placemark.location!.distance(from: self.location.locationManager.location!) < radius * 1609.34 {
+                let d = place.placemark.location!.distance(from: self.location.locationManager.location!)
+                self.log.debug(d)
+                if d < radius * 1609.34 {
                     let lat = place.placemark.coordinate.latitude
                     let long = place.placemark.coordinate.longitude
                     let name = place.name!
