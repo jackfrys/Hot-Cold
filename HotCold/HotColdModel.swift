@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 import SwiftyBeaver
 import CoreLocation
+import MapKit
 import UIKit
 
 class HotColdModel : NSObject, CLLocationManagerDelegate {
@@ -77,6 +78,29 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         let d = URLSession.shared.dataTask(with: components.url!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
         d.resume()
+    }
+    
+    private func sendMKCall(placeTypeIndex: Int, radius: Double) {
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = placeTypeRequest[placeTypeIndex]
+        request.region = MKCoordinateRegionMakeWithDistance((location.locationManager.location?.coordinate)!, radius * 804.672, radius * 804.672)
+        
+        let search = MKLocalSearch(request: request)
+        search.start(completionHandler: {(response, error) in
+            if let r = response {
+                let place = r.mapItems[0]
+                let lat = place.placemark.coordinate.latitude
+                let long = place.placemark.coordinate.longitude
+                let name = place.name!
+                let url = place.url!
+                
+                self.game = Game(start: self.location.locationManager.location!, end: CLLocation(latitude: lat, longitude: long), name: name, url: String(describing: url))
+                self.log.debug("Game started.")
+                self.delegate?.gameStarted(model: self)
+            } else {
+                self.delegate?.gameFailedToStart(model: self)
+            }
+        })
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
