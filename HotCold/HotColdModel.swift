@@ -66,7 +66,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     private func performLocalSearch(placeTypeIndex: Int, radius: Double) {
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = placeTypeRequest[placeTypeIndex]
-        request.region = MKCoordinateRegionMakeWithDistance((location.locationManager.location?.coordinate)!, radius * 804.672, radius * 804.672)
+        request.region = MKCoordinateRegionMakeWithDistance((location.locationManager.location?.coordinate)!, 2 * radius * 1609.34, 2 * radius * 1609.34)
         
         let search = MKLocalSearch(request: request)
         search.start(completionHandler: {(response, error) in
