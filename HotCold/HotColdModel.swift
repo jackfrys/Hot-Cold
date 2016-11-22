@@ -55,29 +55,13 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
         self.delegate = withDelegate
-        self.sendApiCall(placeTypeIndex: forCategoryAtIndex, radius: radius)
+        self.sendMKCall(placeTypeIndex: forCategoryAtIndex, radius: radius)
     }
     
     func terminateGame() {
         self.game = nil
         self.delegate = nil
         log.debug("Game terminated.")
-    }
-    
-    private func sendApiCall(placeTypeIndex: Int, radius: Double) {
-        let components = NSURLComponents(string: "https://nz5bypr9rk.execute-api.us-east-1.amazonaws.com/prod/LambdaFunctionOverHttps/")!
-        
-        var queryItems = [URLQueryItem]()
-        queryItems.append(URLQueryItem(name: "locType", value: placeTypeRequest[placeTypeIndex]))
-        queryItems.append(URLQueryItem(name: "userLat", value: String(describing: (location.locationManager.location?.coordinate.latitude)!)))
-        queryItems.append(URLQueryItem(name: "userLong", value: String(describing: (location.locationManager.location?.coordinate.longitude)!)))
-        queryItems.append(URLQueryItem(name: "radius", value: String(describing: radius)))
-
-        components.queryItems = queryItems
-        log.info(components.url!)
-        
-        let d = URLSession.shared.dataTask(with: components.url!, completionHandler: {(data, r, error) in self.handleResponse(data: data)})
-        d.resume()
     }
     
     private func sendMKCall(placeTypeIndex: Int, radius: Double) {
@@ -112,23 +96,6 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
                 log.debug("Game finished.")
                 delegate?.gameFinished(model: self)
             }
-        }
-    }
-    
-    private func handleResponse(data: Data?) {
-        if let dta = data {
-            let json = JSON(data: dta)
-            
-            let alat = json["latitude"].double!
-            let along = json["longitude"].double!
-            let name = json["name"].stringValue
-            let link = json["link"].stringValue
-            
-            self.game = Game(start: location.locationManager.location!, end: CLLocation(latitude: alat, longitude: along), name: name, url: link)
-            log.debug("Game started.")
-            delegate?.gameStarted(model: self)
-        } else {
-            delegate?.gameFailedToStart(model: self)
         }
     }
     
