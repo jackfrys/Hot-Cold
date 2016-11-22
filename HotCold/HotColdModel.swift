@@ -55,7 +55,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
     
     func startGame(forCategoryAtIndex: Int, radius: Double, withDelegate: HotColdDelegate) {
         self.delegate = withDelegate
-        self.sendMKCall(placeTypeIndex: forCategoryAtIndex, radius: radius)
+        self.performLocalSearch(placeTypeIndex: forCategoryAtIndex, radius: radius)
     }
     
     func terminateGame() {
@@ -64,7 +64,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         log.debug("Game terminated.")
     }
     
-    private func sendMKCall(placeTypeIndex: Int, radius: Double) {
+    private func performLocalSearch(placeTypeIndex: Int, radius: Double) {
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = placeTypeRequest[placeTypeIndex]
         request.region = MKCoordinateRegionMakeWithDistance((location.locationManager.location?.coordinate)!, radius * 804.672, radius * 804.672)
