@@ -93,7 +93,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
                 }
             }
             
-            self.delegate?.gameFailedToStart(model: self)
+            self.delegate?.noResults(model: self)
         })
     }
     
@@ -210,4 +210,6 @@ protocol HotColdDelegate : class {
     func gameFailedToStart(model: HotColdModel)
     
     func gameFinished(model: HotColdModel)
+    
+    func noResults(model: HotColdModel)
 }

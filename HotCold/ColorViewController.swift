@@ -77,5 +77,11 @@ class ColorViewController: UIViewController, HotColdDelegate {
             colorView.backgroundColor = backgroundColor(rgb: color)
         }
     }
+    
+    func noResults(model: HotColdModel) {
+        let alert = UIAlertController(title: "No Results", message: "Please adjust your search terms and try again.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
