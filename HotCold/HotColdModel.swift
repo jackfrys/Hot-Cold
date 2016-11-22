@@ -130,6 +130,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         
         private func ratio() -> CGFloat {
             let top = Double(end.distance(from: currentLocation()))
+            log.debug("Distance to goal: " + String(top))
             let bottom = Double(start.distance(from: end))
             
             return CGFloat(top / bottom)
