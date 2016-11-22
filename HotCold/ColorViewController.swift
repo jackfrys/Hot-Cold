@@ -46,10 +46,8 @@ class ColorViewController: UIViewController, HotColdDelegate {
     
     func gameFinished(model: HotColdModel) {
         let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + model.destinationName(), preferredStyle: UIAlertControllerStyle.alert)
-        //alert.title = "You Have Arrived!"
-        print("name: \(model.destinationName())")
-        print("link: \(model.destinationUrl())")
-        //alert.message = "This is " + model.destinationName()
+        log.debug("name: \(model.destinationName())")
+        log.debug("link: \(model.destinationUrl())")
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
         if let destUrl = model.destinationUrl() {
             alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage(url: destUrl)}))
