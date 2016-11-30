@@ -28,6 +28,15 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         location.delegate = self
     }
     
+    var locationEnabled : Bool {
+        get {
+            if let _ = location.location() {
+                return true
+            }
+            return false
+        }
+    }
+    
     func backgroundColor() -> (CGFloat, CGFloat, CGFloat)? {
         return game?.backgroundColor()
     }

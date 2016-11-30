@@ -49,6 +49,17 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         model.startGame(forCategoryAtIndex: myPickerView.selectedRow(inComponent: 0), radius: radius, withDelegate: segue.destination as! ColorViewController)
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if model.locationEnabled {
+            return true
+        }
+        
+        let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services and try again.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+        present(alert, animated: true, completion: nil)
+        return false
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
