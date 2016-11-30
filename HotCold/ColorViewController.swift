@@ -19,8 +19,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
     
     let log = SwiftyBeaver.self
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
         colorView.backgroundColor = UIColor.blue
     }
     
