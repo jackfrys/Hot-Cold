@@ -1,4 +1,4 @@
-# Hot-Cold
+# Hot + Cold
 
 Have you ever used traditional navigation systems and just thought to yourself, “This is way too easy!” They tell you where you are, where you’re going, and precisely how to get there. How can we make this mundane process more exciting?
 
