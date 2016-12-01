@@ -44,7 +44,6 @@
 		7002A6281A85C5EA00CD29BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7002A6291A85C5EA00CD29BE /* HotColdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotColdTests.swift; sourceTree = "<group>"; };
 		7014A7E41A869EAB0039A435 /* SharedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedLocation.swift; sourceTree = "<group>"; };
-		7045DA841DD5695F0002E1B6 /* CleanroomLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomLogger.framework; path = Carthage/Build/iOS/CleanroomLogger.framework; sourceTree = "<group>"; };
 		7045DA881DD56E8A0002E1B6 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		704FA1331DD4412A00FB4CDB /* HotColdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotColdModel.swift; sourceTree = "<group>"; };
 		707EE92B1ACF8C51007CB4C9 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				7045DA881DD56E8A0002E1B6 /* SwiftyBeaver.framework */,
-				7045DA841DD5695F0002E1B6 /* CleanroomLogger.framework */,
 				70B5BA261D93727200122AD8 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
