@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C48b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lGJ-rC-qiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lGJ-rC-qiT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="JLD-Cq-3Wb">
-                                <rect key="frame" x="-11" y="0.0" width="399" height="667"/>
+                                <rect key="frame" x="-11" y="0.0" width="399" height="744"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bTq-hK-ZvG">
                                 <rect key="frame" x="16" y="317" width="345" height="318"/>
@@ -54,7 +54,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-P4-rw4">
                                         <rect key="frame" x="0.0" y="288" width="345" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFH-iK-Ohg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFH-iK-Ohg">
                                                 <rect key="frame" x="0.0" y="0.0" width="26.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -62,6 +62,9 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MrE-9H-Lsl">
                                                 <rect key="frame" x="24.5" y="0.0" width="293" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="289" id="Ujf-XA-rCV"/>
+                                                </constraints>
                                                 <connections>
                                                     <action selector="radiusValueChanged:" destination="lGJ-rC-qiT" eventType="valueChanged" id="cJt-Qr-ewP"/>
                                                 </connections>
@@ -73,9 +76,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="nbD-3X-jCT" firstAttribute="width" secondItem="yFH-iK-Ohg" secondAttribute="width" constant="3" id="qR5-Y2-Zaz"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -83,13 +83,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="JLD-Cq-3Wb" firstAttribute="leading" secondItem="rup-vG-VXq" secondAttribute="leadingMargin" constant="-27" id="Si9-Vh-xmD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bTq-hK-ZvG" secondAttribute="trailing" constant="-2" id="jEI-ne-EHi"/>
-                            <constraint firstItem="bTq-hK-ZvG" firstAttribute="centerX" secondItem="JLD-Cq-3Wb" secondAttribute="centerX" id="ojU-sq-fhg"/>
-                            <constraint firstItem="JLD-Cq-3Wb" firstAttribute="bottom" secondItem="cFi-hF-jsW" secondAttribute="top" id="pBW-ec-qo8"/>
-                            <constraint firstItem="bTq-hK-ZvG" firstAttribute="leading" secondItem="rup-vG-VXq" secondAttribute="leadingMargin" id="re0-XE-gsn"/>
-                            <constraint firstItem="JLD-Cq-3Wb" firstAttribute="top" secondItem="rup-vG-VXq" secondAttribute="top" id="ttD-tA-X8Q"/>
-                            <constraint firstItem="cFi-hF-jsW" firstAttribute="top" secondItem="bTq-hK-ZvG" secondAttribute="bottom" constant="32" id="w71-4g-ecO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bTq-hK-ZvG" secondAttribute="trailing" constant="-2" id="DVp-79-xko"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="JLD-Cq-3Wb" secondAttribute="bottom" constant="-77" id="Ght-WF-tKl"/>
+                            <constraint firstItem="bTq-hK-ZvG" firstAttribute="leading" secondItem="rup-vG-VXq" secondAttribute="leadingMargin" id="LJl-rW-6AG"/>
+                            <constraint firstItem="JLD-Cq-3Wb" firstAttribute="top" secondItem="rup-vG-VXq" secondAttribute="top" id="Xp1-DV-Uta"/>
+                            <constraint firstItem="cFi-hF-jsW" firstAttribute="top" secondItem="bTq-hK-ZvG" secondAttribute="bottom" constant="32" id="aTq-N2-Gj0"/>
+                            <constraint firstItem="JLD-Cq-3Wb" firstAttribute="leading" secondItem="rup-vG-VXq" secondAttribute="leadingMargin" constant="-27" id="cOQ-8Q-xgV"/>
+                            <constraint firstItem="JLD-Cq-3Wb" firstAttribute="centerX" secondItem="bTq-hK-ZvG" secondAttribute="centerX" id="kOI-Up-zXx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Axd-OP-FhK"/>
@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO4-t0-erE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1098" y="204"/>
+            <point key="canvasLocation" x="1096.8" y="203.74812593703149"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -139,6 +139,7 @@
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="8M2-SF-oKg"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="21" id="90N-8n-5tV"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="Gcq-S9-mud"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kf7-0X-TcK" secondAttribute="trailing" constant="20" symbolic="YES" id="VWh-BL-wRF"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="c0f-80-WRm"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="obY-3D-QAq"/>
                             <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="qgN-q6-uiE"/>
