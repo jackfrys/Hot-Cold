@@ -197,6 +197,7 @@
 					};
 					7002A6221A85C5EA00CD29BE = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Q6ETBD25S7;
 						LastSwiftMigration = 0910;
 						TestTargetID = 7002A60D1A85C5EA00CD29BE;
 					};
@@ -452,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Q6ETBD25S7;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -470,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Q6ETBD25S7;
 				INFOPLIST_FILE = HotColdTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jackfrysinger.$(PRODUCT_NAME:rfc1034identifier)";
