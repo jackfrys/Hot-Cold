@@ -12,6 +12,4 @@ Hot + Cold was initially developed for HackBeanpot, February 6-8, 2015, at the C
 
 Current production iOS binaries can be downloaded from the [App Store](https://itunes.apple.com/us/app/hot-+-cold/id979447640?mt=8). Pre-release builds are occasionally accessible via TestFlight.
 
-The Android version of Hot + Cold can be found [here](https://github.com/dan3944/HotColdAndroid).
-
 Please do not commercially distribute Hot + Cold source files or binaries.
