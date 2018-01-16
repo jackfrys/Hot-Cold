@@ -46,11 +46,15 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if ProcessInfo.processInfo.arguments.contains("-UITesting") {
+            return
+        }
+        
         model.startGame(forCategoryAtIndex: myPickerView.selectedRow(inComponent: 0), radius: radius, withDelegate: segue.destination as! ColorViewController)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if model.locationEnabled {
+        if model.locationEnabled || ProcessInfo.processInfo.arguments.contains("-UITesting") {
             return true
         }
         

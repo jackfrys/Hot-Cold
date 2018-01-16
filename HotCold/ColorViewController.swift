@@ -21,6 +21,10 @@ class ColorViewController: UIViewController, HotColdDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         colorView.backgroundColor = UIColor.blue
+        
+        if ProcessInfo.processInfo.arguments.contains("-UITesting") {
+            warmerOrColder.text = "Colder"
+        }
     }
     
     @IBAction func back(_ sender: UIButton) {

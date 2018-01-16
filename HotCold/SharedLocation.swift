@@ -32,8 +32,10 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
         // Start updating location if you already have permission
         self.locationManager.startUpdatingLocation()
         
-        // If you don't have permission, ask nicely (message in plist)!
-        self.locationManager.requestWhenInUseAuthorization()
+        if !ProcessInfo.processInfo.arguments.contains("-UITesting") {
+            // If you don't have permission, ask nicely (message in plist)!
+            self.locationManager.requestWhenInUseAuthorization()
+        }
 
         super.init()
         self.locationManager.delegate = self
