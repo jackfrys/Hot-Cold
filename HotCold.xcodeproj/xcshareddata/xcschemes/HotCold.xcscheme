@@ -53,6 +53,16 @@
                ReferencedContainer = "container:HotCold.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "858EBBAB200D91BE008ACD22"
+               BuildableName = "HotColdUITests.xctest"
+               BlueprintName = "HotColdUITests"
+               ReferencedContainer = "container:HotCold.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

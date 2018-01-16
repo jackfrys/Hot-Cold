@@ -19,10 +19,18 @@
 		707EE92C1ACF8C51007CB4C9 /* bkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 707EE92B1ACF8C51007CB4C9 /* bkg.png */; };
 		70A34A251A86865F00559232 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A34A241A86865F00559232 /* MainViewController.swift */; };
 		70D2A57F1DD57932006BA8ED /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045DA881DD56E8A0002E1B6 /* SwiftyBeaver.framework */; };
+		858EBBAF200D91BE008ACD22 /* HotColdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858EBBAE200D91BE008ACD22 /* HotColdUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		7002A6241A85C5EA00CD29BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7002A6061A85C5EA00CD29BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7002A60D1A85C5EA00CD29BE;
+			remoteInfo = HotCold;
+		};
+		858EBBB1200D91BE008ACD22 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7002A6061A85C5EA00CD29BE /* Project object */;
 			proxyType = 1;
@@ -49,6 +57,9 @@
 		707EE92B1ACF8C51007CB4C9 /* bkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bkg.png; sourceTree = "<group>"; };
 		70A34A241A86865F00559232 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		70B5BA261D93727200122AD8 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		858EBBAC200D91BE008ACD22 /* HotColdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotColdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		858EBBAE200D91BE008ACD22 /* HotColdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotColdUITests.swift; sourceTree = "<group>"; };
+		858EBBB0200D91BE008ACD22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +78,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		858EBBA9200D91BE008ACD22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +93,7 @@
 			children = (
 				7002A6101A85C5EA00CD29BE /* HotCold */,
 				7002A6261A85C5EA00CD29BE /* HotColdTests */,
+				858EBBAD200D91BE008ACD22 /* HotColdUITests */,
 				7002A60F1A85C5EA00CD29BE /* Products */,
 				5635D1CF1A866ECB00EC1871 /* .gitignore */,
 				70B5BA251D93727100122AD8 /* Frameworks */,
@@ -86,6 +105,7 @@
 			children = (
 				7002A60E1A85C5EA00CD29BE /* HotCold.app */,
 				7002A6231A85C5EA00CD29BE /* HotColdTests.xctest */,
+				858EBBAC200D91BE008ACD22 /* HotColdUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +161,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		858EBBAD200D91BE008ACD22 /* HotColdUITests */ = {
+			isa = PBXGroup;
+			children = (
+				858EBBAE200D91BE008ACD22 /* HotColdUITests.swift */,
+				858EBBB0200D91BE008ACD22 /* Info.plist */,
+			);
+			path = HotColdUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -180,13 +209,31 @@
 			productReference = 7002A6231A85C5EA00CD29BE /* HotColdTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		858EBBAB200D91BE008ACD22 /* HotColdUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 858EBBB5200D91BE008ACD22 /* Build configuration list for PBXNativeTarget "HotColdUITests" */;
+			buildPhases = (
+				858EBBA8200D91BE008ACD22 /* Sources */,
+				858EBBA9200D91BE008ACD22 /* Frameworks */,
+				858EBBAA200D91BE008ACD22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				858EBBB2200D91BE008ACD22 /* PBXTargetDependency */,
+			);
+			name = HotColdUITests;
+			productName = HotColdUITests;
+			productReference = 858EBBAC200D91BE008ACD22 /* HotColdUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7002A6061A85C5EA00CD29BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Jack Frysinger";
 				TargetAttributes = {
@@ -199,6 +246,12 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = Q6ETBD25S7;
 						LastSwiftMigration = 0910;
+						TestTargetID = 7002A60D1A85C5EA00CD29BE;
+					};
+					858EBBAB200D91BE008ACD22 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = Q6ETBD25S7;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 7002A60D1A85C5EA00CD29BE;
 					};
 				};
@@ -218,6 +271,7 @@
 			targets = (
 				7002A60D1A85C5EA00CD29BE /* HotCold */,
 				7002A6221A85C5EA00CD29BE /* HotColdTests */,
+				858EBBAB200D91BE008ACD22 /* HotColdUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +290,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7002A6211A85C5EA00CD29BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858EBBAA200D91BE008ACD22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,6 +343,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		858EBBA8200D91BE008ACD22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				858EBBAF200D91BE008ACD22 /* HotColdUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +358,11 @@
 			isa = PBXTargetDependency;
 			target = 7002A60D1A85C5EA00CD29BE /* HotCold */;
 			targetProxy = 7002A6241A85C5EA00CD29BE /* PBXContainerItemProxy */;
+		};
+		858EBBB2200D91BE008ACD22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7002A60D1A85C5EA00CD29BE /* HotCold */;
+			targetProxy = 858EBBB1200D91BE008ACD22 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -483,6 +557,56 @@
 			};
 			name = Release;
 		};
+		858EBBB3200D91BE008ACD22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Q6ETBD25S7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = HotColdUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jackfrysinger.HotColdUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HotCold;
+			};
+			name = Debug;
+		};
+		858EBBB4200D91BE008ACD22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Q6ETBD25S7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = HotColdUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jackfrysinger.HotColdUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HotCold;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -509,6 +633,15 @@
 			buildConfigurations = (
 				7002A6311A85C5EA00CD29BE /* Debug */,
 				7002A6321A85C5EA00CD29BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		858EBBB5200D91BE008ACD22 /* Build configuration list for PBXNativeTarget "HotColdUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				858EBBB3200D91BE008ACD22 /* Debug */,
+				858EBBB4200D91BE008ACD22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
