@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lGJ-rC-qiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lGJ-rC-qiT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,7 +123,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-0X-TcK">
-                                <rect key="frame" x="16" y="616" width="30" height="30"/>
+                                <rect key="frame" x="16" y="593" width="343" height="54"/>
+                                <color key="backgroundColor" red="1" green="0.28175702493016452" blue="0.13380870895597108" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Exit">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,23 +138,25 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="8M2-SF-oKg"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="21" id="90N-8n-5tV"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="Gcq-S9-mud"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kf7-0X-TcK" secondAttribute="trailing" constant="20" symbolic="YES" id="VWh-BL-wRF"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="c0f-80-WRm"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="obY-3D-QAq"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="qgN-q6-uiE"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="9t1-Ex-zgU"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="Dug-Vj-Ms4"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="bkZ-YA-PJo"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="exn-Ug-2RW"/>
+                            <constraint firstItem="kf7-0X-TcK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="573" id="fjH-Gh-X32"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kf7-0X-TcK" secondAttribute="trailing" id="hOa-5O-rS5"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="hmG-nY-5f7"/>
+                            <constraint firstAttribute="bottom" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="20" symbolic="YES" id="w0o-hi-aXc"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="colorView" destination="kh9-bI-dsS" id="eIV-ze-O53"/>
+                        <outlet property="exitButton" destination="kf7-0X-TcK" id="4p2-KG-dv7"/>
                         <outlet property="warmerOrColder" destination="UE2-kb-Bz7" id="JLg-MY-C3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="197"/>
+            <point key="canvasLocation" x="1844" y="196.55172413793105"/>
         </scene>
     </scenes>
     <resources>

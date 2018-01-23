@@ -149,17 +149,17 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
         
         func backgroundColor() -> (CGFloat, CGFloat, CGFloat) {
-            let red:CGFloat = 0
-            let green:CGFloat = 0
-            let blue:CGFloat = 1.0
+            let red:CGFloat = 0.1
+            let green:CGFloat = 0.3
+            let blue:CGFloat = 0.9
             
             let middleRed:CGFloat = 1.0
             let middleGreen:CGFloat = 1.0
             let middleBlue:CGFloat = 1.0
             
-            let finalRed:CGFloat = 1.0
-            let finalGreen:CGFloat = 0
-            let finalBlue:CGFloat = 0
+            let finalRed:CGFloat = 0.9
+            let finalGreen:CGFloat = 0.3
+            let finalBlue:CGFloat = 0.1
             
             let myProgress : CGFloat = (1.0 - self.ratio())
             

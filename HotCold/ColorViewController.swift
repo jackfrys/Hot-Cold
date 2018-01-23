@@ -17,10 +17,13 @@ class ColorViewController: UIViewController, HotColdDelegate {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var warmerOrColder: UILabel!
     
+    @IBOutlet weak var exitButton: UIButton!
+    
     let log = SwiftyBeaver.self
     
     override func viewWillAppear(_ animated: Bool) {
-        colorView.backgroundColor = UIColor.blue
+        colorView.backgroundColor = UIColor(red: 0.1, green: 0.3, blue: 0.9, alpha: 1.0)
+        exitButton.layer.cornerRadius = 10
         
         if ProcessInfo.processInfo.arguments.contains("-UITesting") {
             warmerOrColder.text = "Colder"
@@ -78,6 +81,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
         }
         if let color = model.backgroundColor() {
             colorView.backgroundColor = backgroundColor(rgb: color)
+            exitButton.backgroundColor = UIColor(red: 1-color.0, green: 0, blue: 1-color.2, alpha: 1.0)
         }
     }
     
