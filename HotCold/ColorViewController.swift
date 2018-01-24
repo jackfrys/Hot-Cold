@@ -17,6 +17,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var warmerOrColder: UILabel!
     
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var exitButton: UIButton!
     
     let log = SwiftyBeaver.self
@@ -28,6 +29,14 @@ class ColorViewController: UIViewController, HotColdDelegate {
         if ProcessInfo.processInfo.arguments.contains("-UITesting") {
             warmerOrColder.text = "Colder"
         }
+        
+        if !ProcessInfo.processInfo.arguments.contains("-ColorTweaking") {
+            slider.removeFromSuperview()
+        }
+    }
+    
+    @IBAction func sliderChanged(_ sender: Any) {
+        updateUIPrivate(model: HotColdModel())
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -79,7 +88,12 @@ class ColorViewController: UIViewController, HotColdDelegate {
         } else {
             warmerOrColder.text = "loading..."
         }
-        if let color = model.backgroundColor() {
+        
+        var f : CGFloat?
+        if ProcessInfo.processInfo.arguments.contains("-ColorTweaking") {
+            f = CGFloat(slider.value)
+        }
+        if let color = model.backgroundColor(progress: f) {
             colorView.backgroundColor = backgroundColor(rgb: color)
             exitButton.backgroundColor = UIColor(red: 1-color.0, green: 0, blue: 1-color.2, alpha: 1.0)
         }

@@ -37,8 +37,11 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func backgroundColor() -> (CGFloat, CGFloat, CGFloat)? {
-        return game?.backgroundColor()
+    func backgroundColor(progress: CGFloat?) -> (CGFloat, CGFloat, CGFloat)? {
+        if let p = progress {
+            return Game(start: CLLocation(latitude: CLLocationDegrees(0), longitude: CLLocationDegrees(0)), end: CLLocation(latitude: CLLocationDegrees(0), longitude: CLLocationDegrees(0)), name: "hi", url: nil).backgroundColor(progress: p)
+        }
+        return game?.backgroundColor(progress: progress)
     }
     
     func destinationUrl() -> URL? {
@@ -148,7 +151,7 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             return CGFloat(top / bottom)
         }
         
-        func backgroundColor() -> (CGFloat, CGFloat, CGFloat) {
+        func backgroundColor(progress: CGFloat?) -> (CGFloat, CGFloat, CGFloat) {
             let red:CGFloat = 0.1
             let green:CGFloat = 0.3
             let blue:CGFloat = 0.9
@@ -157,11 +160,15 @@ class HotColdModel : NSObject, CLLocationManagerDelegate {
             let middleGreen:CGFloat = 1.0
             let middleBlue:CGFloat = 1.0
             
-            let finalRed:CGFloat = 0.9
-            let finalGreen:CGFloat = 0.3
-            let finalBlue:CGFloat = 0.1
+            let finalRed:CGFloat = 1.0
+            let finalGreen:CGFloat = 0.2
+            let finalBlue:CGFloat = 0.0
             
-            let myProgress : CGFloat = (1.0 - self.ratio())
+            var myProgress : CGFloat = (1.0 - self.ratio())
+            
+            if let p = progress {
+                myProgress = p
+            }
             
             if (myProgress <= 0.5) {
                 let newRed:CGFloat = middleRed * myProgress * 2.0 + red * (0.5 - myProgress) * 2.0
