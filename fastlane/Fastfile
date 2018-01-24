@@ -14,9 +14,9 @@ default_platform(:ios)
 platform :ios do
   lane :beta do
     ensure_git_status_clean
-    increment_build_number(xcodeproj: "Example.xcodeproj")
+    increment_build_number(xcodeproj: "HotCold.xcodeproj")
 
-    commit_version_bump(xcodeproj: "Example.xcodeproj")
+    commit_version_bump(xcodeproj: "HotCold.xcodeproj")
     build_app(scheme: "HotCold")
     upload_to_testflight
   end
