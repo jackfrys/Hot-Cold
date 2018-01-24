@@ -135,9 +135,9 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="NIX-ua-JPw">
-                                <rect key="frame" x="72" y="556" width="230" height="30"/>
+                                <rect key="frame" x="14" y="556" width="347" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="emw-q2-5S2"/>
+                                    <constraint firstAttribute="height" constant="29" id="fhR-kZ-KTs"/>
                                 </constraints>
                                 <connections>
                                     <action selector="sliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="QYK-5W-WP8"/>
@@ -147,17 +147,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NIX-ua-JPw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="58" id="1Qd-e4-8Ug"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="72u-v8-v6r"/>
-                            <constraint firstItem="kf7-0X-TcK" firstAttribute="top" secondItem="NIX-ua-JPw" secondAttribute="bottom" constant="8" symbolic="YES" id="Hyo-5g-Pyf"/>
-                            <constraint firstItem="NIX-ua-JPw" firstAttribute="centerX" secondItem="kf7-0X-TcK" secondAttribute="centerX" id="KUa-9q-nKc"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Lcp-xC-bJa"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="UW6-fG-ffx"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="ZT2-nE-KSx"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kf7-0X-TcK" secondAttribute="trailing" id="c8b-EJ-UDB"/>
-                            <constraint firstAttribute="bottom" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="20" symbolic="YES" id="ceE-JI-JaR"/>
-                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="ktU-nm-6mF"/>
-                            <constraint firstItem="NIX-ua-JPw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="536" id="zJY-wa-H0i"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="2Oh-iU-LxO"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kf7-0X-TcK" secondAttribute="trailing" id="6fZ-mc-K04"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="DAl-ZE-iHY"/>
+                            <constraint firstAttribute="bottom" secondItem="kf7-0X-TcK" secondAttribute="bottom" constant="20" symbolic="YES" id="LgW-ig-UFU"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="O8w-MV-gbs"/>
+                            <constraint firstItem="NIX-ua-JPw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="536" id="PbA-q2-TvY"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UE2-kb-Bz7" secondAttribute="bottom" constant="8" symbolic="YES" id="PwX-ey-l1d"/>
+                            <constraint firstItem="UE2-kb-Bz7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="Q22-bD-70u"/>
+                            <constraint firstItem="NIX-ua-JPw" firstAttribute="leading" secondItem="kf7-0X-TcK" secondAttribute="leading" id="XBt-x9-rYg"/>
+                            <constraint firstItem="kf7-0X-TcK" firstAttribute="top" secondItem="NIX-ua-JPw" secondAttribute="bottom" constant="8" symbolic="YES" id="g0O-BD-vt2"/>
+                            <constraint firstItem="NIX-ua-JPw" firstAttribute="trailing" secondItem="kf7-0X-TcK" secondAttribute="trailing" id="q0N-GR-bSo"/>
                         </constraints>
                     </view>
                     <connections>
@@ -169,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="196.55172413793105"/>
+            <point key="canvasLocation" x="1843.5" y="196.5"/>
         </scene>
     </scenes>
     <resources>
