@@ -1,15 +1,7 @@
-//
-//  HotColdUITests.swift
-//  HotColdUITests
-//
-//  Created by Jack Frysinger on 1/15/18.
-//  Copyright © 2018 Jack Frysinger. All rights reserved.
-//
-
 import XCTest
 
 class HotColdUITests: XCTestCase {
-        
+    
     override func setUp() {
         super.setUp()
         

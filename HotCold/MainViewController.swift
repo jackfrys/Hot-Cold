@@ -1,18 +1,10 @@
-//
-//  MainViewController.swift
-//  HotCold
-//
-//  Created by Jack Frysinger on 2/7/15.
-//  Copyright (c) 2015 Jack Frysinger. All rights reserved.
-//
-
 import UIKit
 import SwiftyBeaver
 
 class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     private let model = HotColdModel()
-
+    
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var goButtonOutlet: UIButton!

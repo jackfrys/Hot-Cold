@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  HotCold
-//
-//  Created by David Alelyunas on 2/6/15.
-//  Copyright (c) 2015 David Alelyunas. All rights reserved.
-//
-
 import UIKit
 
 import Foundation
@@ -68,7 +60,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
             alert.addAction(UIAlertAction(title: "View", style: UIAlertAction.Style.default, handler: {(action) in self.showWebpage(url: destUrl)}))
         }
         present(alert, animated: true, completion: nil)
-
+        
     }
     
     func gameFailedToStart(model: HotColdModel) {
@@ -106,8 +98,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
 }
 
-
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

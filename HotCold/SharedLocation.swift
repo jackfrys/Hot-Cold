@@ -1,11 +1,3 @@
-//
-//  SharedLocation.swift
-//  LocationPuzzleGame
-//
-//  Created by Charlie Peters on 2/7/15.
-//  Copyright (c) 2015 Jack Frysinger. All rights reserved.
-//
-
 import Foundation
 import CoreLocation
 import SwiftyBeaver
@@ -21,7 +13,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             locationManager.delegate = delegate
         }
     }
-        
+    
     private override init() {
         // Update every 5 meters
         self.locationManager.distanceFilter  = 5
@@ -36,7 +28,7 @@ class SharedLocation: NSObject, CLLocationManagerDelegate {
             // If you don't have permission, ask nicely (message in plist)!
             self.locationManager.requestWhenInUseAuthorization()
         }
-
+        
         super.init()
         self.locationManager.delegate = self
     }
