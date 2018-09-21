@@ -44,7 +44,7 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
     
     private func showWebpage(url: URL) {
-        UIApplication.shared.open(url, options: [:], completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
+        UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: {(b) in self.dismiss(animated: true, completion: nil)})
     }
     
     func locationChanged(model: HotColdModel) {
@@ -60,12 +60,12 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
     
     func gameFinished(model: HotColdModel) {
-        let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + model.destinationName(), preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "You Have Arrived!", message: "This is " + model.destinationName(), preferredStyle: UIAlertController.Style.alert)
         log.debug("name: \(model.destinationName())")
         log.debug("link: \(String(describing: model.destinationUrl()))")
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
         if let destUrl = model.destinationUrl() {
-            alert.addAction(UIAlertAction(title: "View", style: UIAlertActionStyle.default, handler: {(action) in self.showWebpage(url: destUrl)}))
+            alert.addAction(UIAlertAction(title: "View", style: UIAlertAction.Style.default, handler: {(action) in self.showWebpage(url: destUrl)}))
         }
         present(alert, animated: true, completion: nil)
 
@@ -100,9 +100,14 @@ class ColorViewController: UIViewController, HotColdDelegate {
     }
     
     func noResults(model: HotColdModel) {
-        let alert = UIAlertController(title: "No Results", message: "Please adjust your search terms and try again.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+        let alert = UIAlertController(title: "No Results", message: "Please adjust your search terms and try again.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
         present(alert, animated: true, completion: nil)
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

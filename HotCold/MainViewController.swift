@@ -58,8 +58,8 @@ class MainViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             return true
         }
         
-        let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services and try again.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
+        let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services and try again.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: {(action) in self.dismiss(animated: true, completion: nil)}))
         present(alert, animated: true, completion: nil)
         return false
     }
