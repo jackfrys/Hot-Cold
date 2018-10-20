@@ -1,5 +1,7 @@
 # Hot + Cold
 
+[![Build Status](https://travis-ci.com/jackfrys/hot-cold.svg?branch=master)](https://travis-ci.com/jackfrys/hot-cold)
+
 Have you ever used traditional navigation systems and just thought to yourself, “This is way too easy!” They tell you where you are, where you’re going, and precisely how to get there. How can we make this mundane process more exciting?
 
 With Hot + Cold, we combine the fun of getting lost with the joy of arriving at your destination.
