@@ -1,0 +1,6 @@
+language: swift
+xcode_project: HotCold.xcodeproj
+xcode_scheme: HotCold
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
+install: carthage bootstrap --platform iOS
+osx_image: xcode10

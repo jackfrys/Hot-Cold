@@ -68,7 +68,7 @@ Carthage/Checkouts
 
 Carthage/Build
 
-Cartfile.resolved
+# Cartfile.resolved
 
 # fastlane
 #
